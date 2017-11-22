@@ -16,6 +16,17 @@ export default class MainView extends Component {
         <Button className="Add-button" fab color="primary" aria-label="add">
           <Plus />
         </Button>
+        <Grid container spacing={24}>
+          <Grid item xs={6}>
+            <p> aaaa </p>
+          </Grid>
+          <Grid item xs={6}>
+            <p> aaaa </p>
+          </Grid>
+          <Grid item xs={6}>
+            <p> aaaa </p>
+          </Grid>
+        </Grid>
         <p className="App-intro">
           tekstii toisesta filusta
         </p>
