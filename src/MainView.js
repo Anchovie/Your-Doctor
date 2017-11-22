@@ -8,9 +8,9 @@ export default class MainView extends Component {
     return (
       <div className="MainView">
         <header className="App-header">
+          <Navbar />
           <h1 className="App-title">Your Doctor</h1>
         </header>
-        <Navbar/>
         <p className="App-intro">
           tekstii toisesta filusta
         </p>
