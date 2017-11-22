@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import IconButton from 'material-ui/IconButton';
 import Popover, { PopoverAnimationVertical } from 'material-ui/Popover';
-import Menu, { MenuItem } from 'material-ui/Menu';
 import Dots from 'mui-icons/cmdi/dots-vertical';
+import { MenuItem, MenuList } from 'material-ui/Menu';
+import Grow from 'material-ui/transitions/Grow';
+import Paper from 'material-ui/Paper';
+import { Manager, Target, Popper } from 'react-popper';
+import ClickAwayListener from 'material-ui/utils/ClickAwayListener';
 
 
 export default class Navbar extends Component {
@@ -15,19 +19,16 @@ export default class Navbar extends Component {
     };
   }
 
-  handleDotsClick = (event) => {
+  handleClick = (event) => {
     // This prevents ghost click.
     event.preventDefault();
 
     this.setState({
       open: true,
-      anchorEl: event.currentTarget,
-      anchorOrigin: {horizontal: 'left', vertical: 'bottom'},
-      targetOrigin: {horizontal: 'left', vertical: 'top'},
     });
   };
 
-  handleDotsClose = () => {
+  handleRequestClose = () => {
     this.setState({
       open: false,
     });
@@ -45,22 +46,28 @@ export default class Navbar extends Component {
   render() {
     return (
       <div className="Navbar">
-        <IconButton onClick={this.handleDotsClick}>
-          <Dots className="Dots-Menu"/>
-        </IconButton>
-        <Popover
-          open={this.state.open}
-          anchorEl={this.state.anchorEl}
-          anchorOrigin={this.state.anchorOrigin}
-          targetOrigin={this.state.targetOrigin}
-          onRequestClose={this.handleDotsClose}
-          animation={PopoverAnimationVertical}
-        >
-          <Menu>
-            <MenuItem primaryText="Help" onClick={this.handleHelpClick}/>
-            <MenuItem primaryText="Log out" onClick={this.handleLogoutClick}/>
-          </Menu>
-        </Popover>
+        <Manager>
+          <Target>
+            <IconButton onClick={this.handleClick}>
+              <Dots className="Dots-Menu"/>
+            </IconButton>
+          </Target>
+          <Popper
+            placement="bottom-start"
+            eventsEnabled={this.state.open}
+          >
+            <ClickAwayListener onClickAway={this.handleRequestClose}>
+              <Grow in={this.state.open} id="menu-list" style={{ transformOrigin: '0 0 0' }}>
+                <Paper>
+                  <MenuList role="menu">
+                    <MenuItem onClick={this.handleHelpClick}>Help</MenuItem>
+                    <MenuItem onClick={this.handleLogoutClick}>Logout</MenuItem>
+                  </MenuList>
+                </Paper>
+              </Grow>
+            </ClickAwayListener>
+          </Popper>
+        </Manager>
       </div>
     )
   }
