@@ -11,3 +11,9 @@ body {
 .Dots-Menu {
   color: #fff;
 }
+
+.Add-button {
+  position: absolute !important;
+  right: 30px;
+  top: 162px;
+ }

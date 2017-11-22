@@ -13,7 +13,7 @@ export default class MainView extends Component {
           <Navbar />
           <h1 className="App-title">Your Doctor</h1>
         </header>
-        <Button fab color="primary" aria-label="add">
+        <Button className="Add-button" fab color="primary" aria-label="add">
           <Plus />
         </Button>
         <p className="App-intro">
