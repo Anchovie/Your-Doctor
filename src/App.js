@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import MUI from 'material-ui';
 import Grid from 'material-ui/Grid';
 import MainView from './MainView';
 
 class App extends Component {
 render() {
   return (
-    <Grid container spacing={40}>
-      <Grid item xs={8}>
+    <Grid container justify='center' alignItems='center'>
         <MainView/>
-      </Grid>
     </Grid>
   );
 }

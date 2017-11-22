@@ -1,3 +1,7 @@
+body {
+  background-color: #B0C4DE;
+}
+/* ACCENT 0099CC*/
 .App {
   text-align: center;
 }
@@ -8,8 +12,8 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #0099CC;
+  height: 50px;
   padding: 20px;
   color: white;
 }
@@ -20,6 +24,20 @@
 
 .App-intro {
   font-size: large;
+}
+
+.MainView {
+  width: 400px!important;
+  height: 70%!important;
+}
+
+.MainView-Content{
+  background-color: #CCFFFF;
+  width: 400px!important;
+}
+
+.MainView-Spacer{
+  height: 10px;
 }
 
 @keyframes App-logo-spin {
