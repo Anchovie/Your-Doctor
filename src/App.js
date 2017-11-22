@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MUI from 'material-ui';
+import MainView from './MainView';
 
 class App extends Component {
+render() {
+  return (
+    <MainView/>
+  );
+}
+  /*
   render() {
     return (
       <div className="App">
@@ -16,6 +24,7 @@ class App extends Component {
       </div>
     );
   }
+  */
 }
 
 export default App;
