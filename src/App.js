@@ -18,11 +18,27 @@ class App extends Component {
     this.setState({ currentView: "reservation" });
   }
 
+  handleBackClick = () => {
+    this.setState({ currentView: "main" });
+  }
+
+  handleLogoutClick = () => {
+    this.setState({ currentView: "login" });
+  }
+
+  handleLoginClick = () => {
+    this.setState({ currentView: "main" });
+  }
+
+  handleHelpClick = () => {
+    this.setState({ currentView: "help" });
+  }
+
   render() {
     return (
       <Grid container justify='center' alignItems='center'>
           {this.state.currentView === "main" && <MainView handleNewReservationClick={this.handleNewReservationClick}/>}
-          {this.state.currentView === "reservation" && <ReservationView/>}
+          {this.state.currentView === "reservation" && <ReservationView handleBackClick={this.handleBackClick}/>}
       </Grid>
     );
   }

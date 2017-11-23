@@ -19,7 +19,7 @@ export default class Navbar extends Component {
     };
   }
 
-  handleClick = (event) => {
+  handleMenuClick = (event) => {
     // This prevents ghost click.
     event.preventDefault();
 
@@ -48,7 +48,7 @@ export default class Navbar extends Component {
       <div className="Navbar">
         <Manager>
           <Target>
-            <IconButton onClick={this.handleClick}>
+            <IconButton onClick={this.handleMenuClick}>
               <Dots className="Dots-Menu"/>
             </IconButton>
           </Target>

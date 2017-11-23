@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import IconButton from 'material-ui/IconButton';
+import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
 
 export default class ReservationView extends Component {
 
@@ -14,6 +16,9 @@ export default class ReservationView extends Component {
     return (
       <div className="Reservation-view-content">
         <p> This is a reservation view</p>
+        <IconButton onClick={this.props.handleBackClick}>
+          <ArrowLeftIcon className="Arrow-left-icon"/>
+        </IconButton>
       </div>
     );
   }
