@@ -44,3 +44,17 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.Navbar {
+  float: right;
+}
+
+.Dots-Menu {
+  color: #fff;
+}
+
+.Add-button {
+  position: absolute !important;
+  right: 30px;
+  top: 162px;
+ }
