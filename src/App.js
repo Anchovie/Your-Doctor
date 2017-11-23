@@ -2,30 +2,30 @@ import React, { Component } from 'react';
 import './App.css';
 import Grid from 'material-ui/Grid';
 import MainView from './MainView';
+import ReservationView from './ReservationView';
 
 class App extends Component {
-render() {
-  return (
-    <Grid container justify='center' alignItems='center'>
-        <MainView/>
-    </Grid>
-  );
-}
-  /*
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      currentView: "main",
+    };
+  }
+
+  handleNewReservationClick = () => {
+    this.setState({ currentView: "reservation" });
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Grid container justify='center' alignItems='center'>
+          {this.state.currentView === "main" && <MainView handleNewReservationClick={this.handleNewReservationClick}/>}
+          {this.state.currentView === "reservation" && <ReservationView/>}
+      </Grid>
     );
   }
-  */
 }
 
 export default App;

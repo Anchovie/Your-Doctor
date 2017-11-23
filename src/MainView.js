@@ -14,6 +14,11 @@ const plusStyle = {
 }
 
 export default class MainView extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div className="MainView">
@@ -21,7 +26,7 @@ export default class MainView extends Component {
           <Navbar />
           <div className="App-title">Your Doctor</div>
         </header>
-        <Button className="Add-button" fab color="primary" aria-label="add" style={plusStyle}>
+        <Button className="Add-button" fab color="primary" aria-label="Create new appointment" style={plusStyle} onClick={this.props.handleNewReservationClick}>
           <PlusIcon />
         </Button>
         <div className="MainView-Content">
