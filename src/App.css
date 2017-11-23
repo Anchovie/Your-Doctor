@@ -53,6 +53,10 @@ body {
   color: #fff;
 }
 
+.Menu-list {
+  z-index: 10000;
+}
+
 .Add-button {
   position: absolute !important;
   right: 30px;

@@ -55,9 +55,10 @@ export default class Navbar extends Component {
           <Popper
             placement="bottom-start"
             eventsEnabled={this.state.open}
+            className="Menu-list"
           >
             <ClickAwayListener onClickAway={this.handleRequestClose}>
-              <Grow in={this.state.open} id="menu-list" style={{ transformOrigin: '0 0 0' }}>
+              <Grow in={this.state.open} style={{ transformOrigin: '0 0 0' }}>
                 <Paper>
                   <MenuList role="menu">
                     <MenuItem onClick={this.handleHelpClick}>Help</MenuItem>
