@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import IconButton from 'material-ui/IconButton';
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
 import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
+import CheckIcon from 'mui-icons/cmdi/check';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import MobileStepper from 'material-ui/MobileStepper';
 import MediaQuery from 'react-responsive';
@@ -60,9 +61,15 @@ export default class ReservationView extends Component {
           <IconButton onClick={this.handleBackClick}>
             <ArrowLeftIcon className="Arrow-left-icon"/>
           </IconButton>
-          <IconButton onClick={this.handleNextClick}>
-            <ArrowRightIcon className="Arrow-right-icon"/>
-          </IconButton>
+          {this.state.currentStep < 3 ? (
+            <IconButton onClick={this.handleNextClick}>
+              <ArrowRightIcon className="Arrow-right-icon"/>
+            </IconButton>
+          ) : (
+            <IconButton onClick={this.handleNextClick}>
+              <CheckIcon className="Check-icon"/>
+            </IconButton>
+          )}
         </MediaQuery>
         {/* Mobile */}
         <MediaQuery query="(max-device-width: 1224px)">
@@ -71,15 +78,21 @@ export default class ReservationView extends Component {
             steps={4}
             position="static"
             activeStep={this.state.currentStep}
-            nextButton={
-              <IconButton onClick={this.handleNextClick}>
-                <ArrowRightIcon className="Arrow-right-icon"/>
-              </IconButton>
-            }
             backButton={
               <IconButton onClick={this.handleBackClick}>
                 <ArrowLeftIcon className="Arrow-left-icon"/>
               </IconButton>
+            }
+            nextButton={
+                this.state.currentStep < 3 ? (
+                  <IconButton onClick={this.handleNextClick}>
+                    <ArrowRightIcon className="Arrow-right-icon"/>
+                  </IconButton>
+                ) : (
+                  <IconButton onClick={this.handleNextClick}>
+                    <CheckIcon className="Check-icon"/>
+                  </IconButton>
+                )
             }
           />
         </MediaQuery>
