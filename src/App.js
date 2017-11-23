@@ -18,7 +18,7 @@ class App extends Component {
     this.setState({ currentView: "reservation" });
   }
 
-  handleBackClick = () => {
+  handleBackMenuClick = () => {
     this.setState({ currentView: "main" });
   }
 
@@ -37,8 +37,16 @@ class App extends Component {
   render() {
     return (
       <Grid container justify='center' alignItems='center'>
-          {this.state.currentView === "main" && <MainView handleNewReservationClick={this.handleNewReservationClick}/>}
-          {this.state.currentView === "reservation" && <ReservationView handleBackClick={this.handleBackClick}/>}
+          {this.state.currentView === "main" &&
+            <MainView
+              handleNewReservationClick={this.handleNewReservationClick}
+              handleHelpClick={this.handleHelpClick}
+              handleLogoutClick={this.handleLogoutClick}
+            />
+          }
+          {this.state.currentView === "reservation" &&
+            <ReservationView handleBackMenuClick={this.handleBackMenuClick}/>
+          }
       </Grid>
     );
   }

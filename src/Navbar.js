@@ -34,14 +34,6 @@ export default class Navbar extends Component {
     });
   };
 
-  handleHelpClick = () => {
-    console.log("help clicked");
-  };
-
-  handleLogoutClick = () => {
-    console.log("logout clicked");
-  }
-
 
   render() {
     return (
@@ -61,8 +53,8 @@ export default class Navbar extends Component {
               <Grow in={this.state.open} style={{ transformOrigin: '0 0 0' }}>
                 <Paper>
                   <MenuList role="menu">
-                    <MenuItem onClick={this.handleHelpClick}>Help</MenuItem>
-                    <MenuItem onClick={this.handleLogoutClick}>Logout</MenuItem>
+                    <MenuItem onClick={this.props.handleHelpClick}>Help</MenuItem>
+                    <MenuItem onClick={this.props.handleLogoutClick}>Logout</MenuItem>
                   </MenuList>
                 </Paper>
               </Grow>

@@ -23,7 +23,7 @@ export default class MainView extends Component {
     return (
       <div className="MainView">
         <header className="App-header">
-          <Navbar />
+          <Navbar handleHelpClick={this.props.handleHelpClick} handleLogoutClick={this.props.handleLogoutClick}/>
           <div className="App-title">Your Doctor</div>
         </header>
         <Button className="Add-button" fab color="primary" aria-label="Create new appointment" style={plusStyle} onClick={this.props.handleNewReservationClick}>
