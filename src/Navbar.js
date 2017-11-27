@@ -18,27 +18,21 @@ export default class Navbar extends Component {
     super(props);
 
     this.state = {
-      open: false,
+      anchorEl: null,
     };
   }
 
-  handleMenuClick = (event) => {
-    // This prevents ghost click.
-    event.preventDefault();
-
-    this.setState({
-      open: true,
-    });
+  handleMenuClick = event => {
+    this.setState({ anchorEl: event.currentTarget });
   };
 
   handleRequestClose = () => {
-    this.setState({
-      open: false,
-    });
+    this.setState({ anchorEl: null });
   };
 
 
   render() {
+    const open = Boolean(this.state.anchorEl);
     return (
       <div className="Navbar">
         <AppBar position="static" className="App-header">
@@ -48,7 +42,7 @@ export default class Navbar extends Component {
             </Typography>
             <div>
               <IconButton
-                aria-owns={this.state.open ? 'menu-appbar' : null}
+                aria-owns={open ? 'menu-appbar' : null}
                 aria-haspopup="true"
                 onClick={this.handleMenuClick}
                 color="contrast"
@@ -66,7 +60,7 @@ export default class Navbar extends Component {
                   vertical: 'top',
                   horizontal: 'right',
                 }}
-                open={this.state.open}
+                open={open}
                 onRequestClose={this.handleRequestClose}
               >
                 <MenuItem onClick={this.handleRequestClose}>Help</MenuItem>
