@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import classnames from 'classnames';
-import Card, { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card';
+import Card, { CardHeader, CardMedia, CardTitle, CardContent, CardActions } from 'material-ui/Card';
 import Collapse from 'material-ui/transitions/Collapse';
 import Button from 'material-ui/Button';
 
@@ -12,6 +12,7 @@ import ExpandMoreIcon from 'mui-icons/cmdi/chevron-down';
 import VideoIcon from 'mui-icons/cmdi/message-video';
 import CardBackground from './img/corgi.png';
 
+import CardImage from './img/card.png';
 
 const styles = theme => ({
   card: {
@@ -58,6 +59,11 @@ class ReservationCard extends Component {
             title="Videopuheluaika"
             subheader="10:00 1.12.2017"
           />
+          <CardMedia
+            overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
+            >
+            <img src={CardImage} alt="" />
+          </CardMedia>
           <CardActions disableActionSpacing>
             <IconButton aria-label="Videochat">
               <VideoIcon />
