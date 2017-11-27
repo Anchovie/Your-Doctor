@@ -1,6 +1,9 @@
 body {
   background-color: #B0C4DE;
 }
+a {
+  text-decoration: none;
+}
 /* ACCENT 0099CC*/
 .App {
   text-align: center;
