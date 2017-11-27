@@ -67,7 +67,7 @@ class ReservationCard extends Component {
             {this.props.occupation}
           </Typography>
           <Typography component="p">
-            {this.props.date +'\n'+  this.props.doctor}
+            {this.props.date}
           </Typography>
           <Typography component="p">
             Symptoms: {this.props.symptoms}

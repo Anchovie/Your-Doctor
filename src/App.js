@@ -6,18 +6,20 @@ import LoginView from './LoginView';
 import Navbar from './Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ExpandedCardView from './ExpandedCardView';
+import dateFormat from 'dateformat';
 
 
 class App extends Component {
 
   constructor(props) {
     super(props);
+    var dateFormat = require('dateformat');
 
     this.state = {
       currentView: "main",
       reservations: [
         {
-          date: Date.now(),
+          date: dateFormat(new Date(2017, 11, 28, 12, 30)),
           doctor: 'Tohtori Tolonen',
           occupation: 'Ylilääkäri',
           bodyPart: 'head',
@@ -25,7 +27,7 @@ class App extends Component {
           text: 'Kauhee darra! Mikä eteen????'
        },
        {
-         date: Date.now()+5000,
+         date: dateFormat(new Date(2017, 12, 29, 8, 15)),
          doctor: 'Dogtori',
          occupation: 'Iholääkäri',
          bodyPart: 'limbs',
@@ -35,7 +37,7 @@ class App extends Component {
      ],
      pastReservations: [
        {
-         date: Date.now()-23000,
+         date: dateFormat(new Date(2017, 12, 2, 10, 30)),
          doctor: 'Tohtori Tolonen',
          occupation: 'Darralääkäri',
          bodyPart: 'torso',
