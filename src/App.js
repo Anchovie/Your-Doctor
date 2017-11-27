@@ -19,6 +19,7 @@ class App extends Component {
         {
           date: Date.now(),
           doctor: 'Tohtori Tolonen',
+          occupation: 'Ylilääkäri',
           bodyPart: 'head',
           symptoms: 'nausea',
           text: 'Kauhee darra! Mikä eteen????'
@@ -26,6 +27,7 @@ class App extends Component {
        {
          date: Date.now()+5000,
          doctor: 'Dogtori',
+         occupation: 'Iholääkäri',
          bodyPart: 'limbs',
          symptoms: 'eczema',
          text: 'Mul on atooppinen iho, antakaa rasvoja halvalla!'
@@ -35,6 +37,7 @@ class App extends Component {
        {
          date: Date.now()-23000,
          doctor: 'Tohtori Tolonen',
+         occupation: 'Darralääkäri',
          bodyPart: 'torso',
          symptoms: 'heart problems',
          text: 'Sydämeen sattuu, joko darra tai delaamassa.'
