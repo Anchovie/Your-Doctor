@@ -22,14 +22,16 @@ export default class MainView extends Component {
           </Button>
         </Link>
         <div className="MainView-Content">
-          <Grid container spacing={24}>
           <Typography>Upcoming</Typography>
+          <Grid container spacing={24}>
             { this.props.reservations.map((appointment, i) =>
               <Grid key={i} item xs={12} lg={6}>
                 <ResCard {...appointment} />
               </Grid>
             )}
-           <Typography>Past</Typography>
+          </Grid>
+          <Typography>Past</Typography>
+          <Grid container spacing={24}>
            { this.props.pastReservations.map((appointment, i) =>
               <Grid key={i} item xs={12} lg={6}>
                 <ResCard {...appointment} />
