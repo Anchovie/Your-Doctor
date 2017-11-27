@@ -68,7 +68,7 @@ class ReservationCard extends Component {
       <Card raised={true} className={classes.card}>
           <CardHeader
             title="Videopuheluaika"
-            subheader={this.props.data.date +'\n'+  this.props.data.doctor}
+            subheader={Date(this.props.data.date)}
           />
           <CardContent>
             <Typography component="p">
