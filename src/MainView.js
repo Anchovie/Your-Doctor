@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import ResCard from './ReservationCard';
 import Button from 'material-ui/Button';
 import PlusIcon from 'mui-icons/cmdi/plus';
+import { Link } from 'react-router-dom';
 
 
 const plusStyle = {
@@ -19,8 +20,8 @@ const plusStyle = {
 export default class MainView extends Component {
 
   constructor(props) {
-    super(props);
     console.log(props);
+    super(props);
   }
 
   render() {
@@ -30,9 +31,11 @@ export default class MainView extends Component {
           <Navbar handleHelpClick={this.props.handleHelpClick} handleLogoutClick={this.props.handleLogoutClick}/>
           <div className="App-title">Your Doctor</div>
         </header>
-        <Button className="Add-button" fab color="primary" aria-label="Create new appointment" style={plusStyle} onClick={this.props.handleNewReservationClick}>
-          <PlusIcon />
-        </Button>
+        <Link to='/reservation'>
+          <Button className="Add-button" fab color="primary" aria-label="Create new appointment" style={plusStyle} onClick={this.props.handleNewReservationClick}>
+            <PlusIcon />
+          </Button>
+        </Link>
         <div className="MainView-Content">
           <div className="MainView-Spacer"></div>
           <ResCard data={this.props.reservations[0]} />

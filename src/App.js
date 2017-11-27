@@ -3,12 +3,14 @@ import './App.css';
 import Grid from 'material-ui/Grid';
 import MainView from './MainView';
 import ReservationView from './ReservationView';
+import LoginView from './LoginView';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       currentView: "main",
       reservations: [
@@ -38,43 +40,25 @@ class App extends Component {
      ]
     };
   }
-
-  handleNewReservationClick = () => {
-    this.setState({ currentView: "reservation" });
-  }
-
-  handleBackMenuClick = () => {
-    this.setState({ currentView: "main" });
-  }
-
-  handleLogoutClick = () => {
-    this.setState({ currentView: "login" });
-  }
-
-  handleLoginClick = () => {
-    this.setState({ currentView: "main" });
-  }
-
-  handleHelpClick = () => {
-    this.setState({ currentView: "help" });
-  }
-
+  
   render() {
     return (
-      <Grid container justify='center' alignItems='center'>
-          {this.state.currentView === "main" &&
-            <MainView
-              handleNewReservationClick={this.handleNewReservationClick}
-              handleHelpClick={this.handleHelpClick}
-              handleLogoutClick={this.handleLogoutClick}
-              reservations={this.state.reservations}
-              pastReservations={this.state.pastReservations}
-            />
-          }
-          {this.state.currentView === "reservation" &&
-            <ReservationView handleBackMenuClick={this.handleBackMenuClick}/>
-          }
-      </Grid>
+      <div>
+        <Router>
+          <Grid container justify='center' alignItems='center'>
+            <div className="content">
+              <Switch>
+                <Route exact path="/" render={()=>
+                  <MainView reservations={this.state.reservations} pastReservations={this.state.pastReservations} />
+                }
+                />
+                <Route path="/reservation" component={ReservationView} />
+                <Route path="/login" component={LoginView} />
+              </Switch>
+            </div>
+          </Grid>
+        </Router>
+      </div>
     );
   }
 }

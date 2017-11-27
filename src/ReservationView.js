@@ -6,6 +6,7 @@ import CheckIcon from 'mui-icons/cmdi/check';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import MobileStepper from 'material-ui/MobileStepper';
 import MediaQuery from 'react-responsive';
+import { Link } from 'react-router-dom';
 
 export default class ReservationView extends Component {
 
@@ -22,21 +23,15 @@ export default class ReservationView extends Component {
   }
 
   handleBackClick = () => {
-    // If this is the first step, go back to menu
-    if (this.state.currentStep === 0) {
-      this.props.handleBackMenuClick();
-    } else {
-      // Otherwise go back to previous step
+    if (this.state.currentStep > 0) {
+      // Go back to previous step
       this.setState((prevState) => ({ currentStep: prevState.currentStep - 1}));
     }
   }
 
   handleNextClick = () => {
-    // If this is the last step, go back to menu
-    if (this.state.currentStep === 3) {
-      this.props.handleBackMenuClick();
-    } else {
-      // Otherwise go to next step
+    if (this.state.currentStep < 3) {
+      // Go to next step
       this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}));
     }
   }
@@ -49,6 +44,11 @@ export default class ReservationView extends Component {
         <p> This is a reservation view</p>
         {/* Desktop */}
         <MediaQuery query="(min-device-width: 1224px)">
+          <Link to='/'>
+            <IconButton onClick={this.handleBackClick}>
+              <ArrowLeftIcon className="Arrow-left-icon"/>
+            </IconButton>
+          </Link>
           <Stepper activeStep={this.state.currentStep} alternativeLabel>
             {steps.map(label => {
               return (

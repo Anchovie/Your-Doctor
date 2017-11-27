@@ -7,6 +7,7 @@ import Grow from 'material-ui/transitions/Grow';
 import Paper from 'material-ui/Paper';
 import { Manager, Target, Popper } from 'react-popper';
 import ClickAwayListener from 'material-ui/utils/ClickAwayListener';
+import { Link } from 'react-router-dom';
 
 
 export default class Navbar extends Component {
@@ -54,7 +55,9 @@ export default class Navbar extends Component {
                 <Paper>
                   <MenuList role="menu">
                     <MenuItem onClick={this.props.handleHelpClick}>Help</MenuItem>
-                    <MenuItem onClick={this.props.handleLogoutClick}>Logout</MenuItem>
+                    <Link to='/login'>
+                      <MenuItem>Logout</MenuItem>
+                    </Link>
                   </MenuList>
                 </Paper>
               </Grow>
