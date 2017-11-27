@@ -59,11 +59,6 @@ class ReservationCard extends Component {
             title="Videopuheluaika"
             subheader="10:00 1.12.2017"
           />
-          <CardMedia
-            overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
-            >
-            <img src={CardImage} alt="" />
-          </CardMedia>
           <CardActions disableActionSpacing>
             <IconButton aria-label="Videochat">
               <VideoIcon />
