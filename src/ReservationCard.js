@@ -10,6 +10,7 @@ import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
 import ExpandMoreIcon from 'mui-icons/cmdi/chevron-down';
 import VideoIcon from 'mui-icons/cmdi/message-video';
+import CardBackground from './img/corgi.png';
 
 
 const styles = theme => ({
@@ -19,7 +20,11 @@ const styles = theme => ({
     padding: '10px',
     //border: '10px solid transparent',
     margin: 'auto auto',
-    overflow: 'auto'
+    overflow: 'auto',
+    backgroundImage: "url(" + CardBackground + ")",
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'right',
+    backgroundSize: '80px 80px'
   },
   media: {
     height: 194,

@@ -5,6 +5,7 @@ import ResCard from './ReservationCard';
 import Button from 'material-ui/Button';
 import PlusIcon from 'mui-icons/cmdi/plus';
 
+
 const plusStyle = {
   position: 'fixed',
   zIndex: 999,
@@ -12,6 +13,8 @@ const plusStyle = {
   top: '7%' //Not working obvs
 
 }
+
+
 
 export default class MainView extends Component {
 
