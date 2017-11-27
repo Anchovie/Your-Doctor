@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Grid from 'material-ui/Grid';
 import MainView from './MainView';
 import ReservationView from './ReservationView';
 import LoginView from './LoginView';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Navbar from './Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
 class App extends Component {
@@ -12,22 +12,29 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      appointments: [],
+    };
+  }
+
+  setNewAppointment = (appointment) => {
+    this.setState()
   }
 
   render() {
     return (
       <div>
         <Router>
-          <Grid container justify='center' alignItems='center'>
-            <div className="content">
+          <div>
+            <Navbar />
+            <main className="content">
               <Switch>
-                <Route exact path="/" component={MainView} />
-                <Route path="/reservation" component={ReservationView} />
+                <Route exact path="/" render={() => <MainView appointments={this.state.appointments}/>} />
+                <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
                 <Route path="/login" component={LoginView} />
               </Switch>
-            </div>
-          </Grid>
+            </main>
+          </div>
         </Router>
       </div>
     );

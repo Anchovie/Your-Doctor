@@ -1,50 +1,40 @@
 import React, { Component } from 'react';
 import Grid from 'material-ui/Grid';
-import Navbar from './Navbar';
 import ResCard from './ReservationCard';
 import Button from 'material-ui/Button';
 import PlusIcon from 'mui-icons/cmdi/plus';
 import { Link } from 'react-router-dom';
 
 
-const plusStyle = {
-  position: 'fixed',
-  zIndex: 999,
-  right: '37%',
-  top: '7%' //Not working obvs
-
-}
-
-
-
 export default class MainView extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
+    console.log(this.props.appointments);
     return (
       <div className="MainView">
-        <header className="App-header">
-          <Navbar handleHelpClick={this.props.handleHelpClick} handleLogoutClick={this.props.handleLogoutClick}/>
-          <div className="App-title">Your Doctor</div>
-        </header>
         <Link to='/reservation'>
-          <Button className="Add-button" fab color="primary" aria-label="Create new appointment" style={plusStyle} onClick={this.props.handleNewReservationClick}>
+          <Button className="Add-button" fab color="primary" aria-label="Create new appointment">
             <PlusIcon />
           </Button>
         </Link>
         <div className="MainView-Content">
-          <div className="MainView-Spacer"></div>
-          <ResCard />
-          <div className="MainView-Spacer"></div>
-          <ResCard />
-          <div className="MainView-Spacer"></div>
-          <ResCard />
-          <hr className="style2" />
-          <ResCard />
-          <div className="MainView-Spacer"></div>
+          <Grid container spacing={24}>
+            {/* This will be the actual implementation when we have real data*/}
+            {/* { this.props.appointments.map((appointment, i) =>
+              <Grid key=i item xs={12} lg={6}>
+                <ResCard {...appointment} />
+              </Grid>
+            )} */}
+            <Grid item xs={12} md={6}>
+              <ResCard />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <ResCard />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <ResCard />
+            </Grid>
+          </Grid>
         </div>
       </div>
     );
