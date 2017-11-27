@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { withStyles } from 'material-ui/styles';
-import classnames from 'classnames';
 import Card, { CardHeader, CardMedia, CardTitle, CardContent, CardActions } from 'material-ui/Card';
 import Collapse from 'material-ui/transitions/Collapse';
 import Button from 'material-ui/Button';

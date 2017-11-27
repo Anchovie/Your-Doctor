@@ -13,7 +13,6 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    var dateFormat = require('dateformat');
 
     this.state = {
       currentView: "main",

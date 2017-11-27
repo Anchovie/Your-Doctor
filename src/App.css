@@ -37,3 +37,14 @@ a {
   right: 30px;
   top: 62px;
  }
+
+ .Grid-Icon {
+   justify-content: center;
+   margin: auto;
+ }
+
+/* MIKS HELVETIS PITÄÄ OVERRIDEE=!=!=!=!=!)!)!)!)!)!?!?!*/
+ .MuiAvatar-root-173 {
+   width: 80px!important;
+   height: 80px!important;
+ }

@@ -10,7 +10,6 @@ import Typography from 'material-ui/Typography';
 import ExpandMoreIcon from 'mui-icons/cmdi/chevron-down';
 import VideoIcon from 'mui-icons/cmdi/message-video';
 import CardBackground from './img/corgi.png';
-import CardImage from './img/card.png';
 import { Link } from 'react-router-dom';
 
 const styles = theme => ({

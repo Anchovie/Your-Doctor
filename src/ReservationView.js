@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import IconGrid from './IconGrid';
 import IconButton from 'material-ui/IconButton';
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
 import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
@@ -33,6 +34,8 @@ export default class ReservationView extends Component {
     if (this.state.currentStep < 3) {
       // Go to next step
       this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}));
+    } else { //Save reservation
+      // This click listener need to be pulled up to the parent to get new reservation there
     }
   }
 
@@ -42,6 +45,7 @@ export default class ReservationView extends Component {
     return (
       <div className="Reservation-view-content">
         <p> This is a reservation view</p>
+        <IconGrid />
         {/* Desktop */}
         <MediaQuery query="(min-device-width: 1224px)">
           <Link to='/'>
