@@ -13,6 +13,7 @@ import VideoIcon from 'mui-icons/cmdi/message-video';
 import CardBackground from './img/corgi.png';
 
 import CardImage from './img/card.png';
+import { Link } from 'react-router-dom';
 
 const styles = theme => ({
   card: {
@@ -81,9 +82,11 @@ class ReservationCard extends Component {
             <IconButton aria-label="Videochat">
               <VideoIcon />
             </IconButton>
-            <Button className="Videochat-button" fab color="primary" aria-label="videochat">
-              <VideoIcon />
-            </Button>
+            <Link to='/appointment/:1'>
+              <Button className="Videochat-button" fab color="primary">
+                <VideoIcon />
+              </Button>
+            </Link>
             <div className={classes.flexGrow} />
             <IconButton
               className={classnames(classes.expand, {
