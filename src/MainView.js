@@ -17,7 +17,7 @@ export default class MainView extends Component {
     return (
       <div className="MainView">
         <Link to='/reservation'>
-          <Button className="Add-button" fab color="primary" aria-label="Create new appointment">
+          <Button className="Add-button" fab color="accent" aria-label="Create new appointment">
             <PlusIcon />
           </Button>
         </Link>
