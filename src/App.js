@@ -1,30 +1,35 @@
 import React, { Component } from 'react';
 import './App.css';
-import Grid from 'material-ui/Grid';
 import MainView from './MainView';
 import ReservationView from './ReservationView';
 import LoginView from './LoginView';
+import Navbar from './Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ExpandedCardView from './ExpandedCardView';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import dateFormat from 'dateformat';
 
 
 class App extends Component {
 
   constructor(props) {
     super(props);
+    var dateFormat = require('dateformat');
+
     this.state = {
       currentView: "main",
       reservations: [
         {
-          date: Date.now(),
+          date: dateFormat(new Date(2017, 11, 28, 12, 30)),
           doctor: 'Tohtori Tolonen',
+          occupation: 'Ylilääkäri',
           bodyPart: 'head',
           symptoms: 'nausea',
           text: 'Kauhee darra! Mikä eteen????'
        },
        {
-         date: Date.now()+5000,
+         date: dateFormat(new Date(2017, 12, 29, 8, 15)),
          doctor: 'Dogtori',
+         occupation: 'Iholääkäri',
          bodyPart: 'limbs',
          symptoms: 'eczema',
          text: 'Mul on atooppinen iho, antakaa rasvoja halvalla!'
@@ -32,8 +37,9 @@ class App extends Component {
      ],
      pastReservations: [
        {
-         date: Date.now()-23000,
+         date: dateFormat(new Date(2017, 12, 2, 10, 30)),
          doctor: 'Tohtori Tolonen',
+         occupation: 'Darralääkäri',
          bodyPart: 'torso',
          symptoms: 'heart problems',
          text: 'Sydämeen sattuu, joko darra tai delaamassa.'
@@ -41,24 +47,30 @@ class App extends Component {
      ]
     };
   }
-  
+
+  setNewAppointment = (appointment) => {
+    this.setState()
+  }
+
   render() {
     return (
       <div>
         <Router>
-          <Grid container justify='center' alignItems='center'>
-            <div className="content">
+          <div>
+            <Navbar />
+            <main className="content">
               <Switch>
                 <Route exact path="/" render={()=>
-                  <MainView reservations={this.state.reservations} pastReservations={this.state.pastReservations} />
-                }
-                />
-                <Route path="/reservation" component={ReservationView} />
+                  <MainView reservations={this.state.reservations}
+                    pastReservations={this.state.pastReservations}
+                  />
+                }/>
+                <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
                 <Route path="/login" component={LoginView} />
-                <Route path="/appointment/:id" component={ExpandedCardView} />
+                <Route path="/appointment/:id" render={()=> <ExpandedCardView data={this.state.reservations[0]} /> }/>
               </Switch>
-            </div>
-          </Grid>
+            </main>
+          </div>
         </Router>
       </div>
     );

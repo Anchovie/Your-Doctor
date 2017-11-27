@@ -45,7 +45,7 @@ export default class ReservationView extends Component {
         {/* Desktop */}
         <MediaQuery query="(min-device-width: 1224px)">
           <Link to='/'>
-            <IconButton onClick={this.handleBackClick}>
+            <IconButton>
               <ArrowLeftIcon className="Arrow-left-icon"/>
             </IconButton>
           </Link>

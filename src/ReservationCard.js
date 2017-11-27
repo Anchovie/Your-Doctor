@@ -2,34 +2,24 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import classnames from 'classnames';
-import Card, { CardHeader, CardMedia, CardTitle, CardContent, CardActions } from 'material-ui/Card';
+import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
 import Collapse from 'material-ui/transitions/Collapse';
 import Button from 'material-ui/Button';
-
 import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
 import ExpandMoreIcon from 'mui-icons/cmdi/chevron-down';
 import VideoIcon from 'mui-icons/cmdi/message-video';
 import CardBackground from './img/corgi.png';
-
 import CardImage from './img/card.png';
 import { Link } from 'react-router-dom';
 
 const styles = theme => ({
   card: {
-    maxWidth: 400,
-    width: 350,
-    padding: '10px',
-    //border: '10px solid transparent',
-    margin: 'auto auto',
     overflow: 'auto',
     backgroundImage: "url(" + CardBackground + ")",
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'right',
     backgroundSize: '80px 80px'
-  },
-  media: {
-    height: 194,
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -66,51 +56,54 @@ class ReservationCard extends Component {
     const { classes } = this.props;
     return (
       <Card raised={true} className={classes.card}>
-          <CardHeader
-            title="Videopuheluaika"
-            subheader={Date(this.props.data.date)}
-          />
+        <CardContent>
+          <Typography type="body1">
+            Video appointment
+          </Typography>
+          <Typography type="headline" component="h2">
+            {this.props.doctor}
+          </Typography>
+          <Typography type="body1">
+            {this.props.occupation}
+          </Typography>
+          <Typography component="p">
+            {this.props.date}
+          </Typography>
+          <Typography component="p">
+            Symptoms: {this.props.symptoms}
+          </Typography>
+        </CardContent>
+        <CardActions disableActionSpacing>
+          <Button dense color="primary">
+            Cancel
+          </Button>
+          <Link to='/appointment/:1'>
+            <Button dense color="primary">
+              Open
+            </Button>
+          </Link>
+          <div className={classes.flexGrow} />
+          <IconButton
+            className={classnames(classes.expand, {
+              [classes.expandOpen]: this.state.expanded,
+            })}
+            onClick={this.handleExpandClick}
+            aria-expanded={this.state.expanded}
+            aria-label="Show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={this.state.expanded} transitionDuration="auto" unmountOnExit>
           <CardContent>
-            <Typography component="p">
-              Doctor: {this.props.data.doctor}
-            </Typography>
-            <Typography component="p">
-              Symptoms: {this.props.data.symptoms}
+            <Typography paragraph type="body2">
+              Oireet: päänsärky, vatsakipu.
             </Typography>
           </CardContent>
-          <CardActions disableActionSpacing>
-            <IconButton aria-label="Videochat">
-              <VideoIcon />
-            </IconButton>
-            <Link to='/appointment/:1'>
-              <Button className="Videochat-button" fab color="primary">
-                <VideoIcon />
-              </Button>
-            </Link>
-            <div className={classes.flexGrow} />
-            <IconButton
-              className={classnames(classes.expand, {
-                [classes.expandOpen]: this.state.expanded,
-              })}
-              onClick={this.handleExpandClick}
-              aria-expanded={this.state.expanded}
-              aria-label="Show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
-          </CardActions>
-          <Collapse in={this.state.expanded} transitionDuration="auto" unmountOnExit>
-            <CardContent>
-              <Typography paragraph type="body2">
-                Oireet: päänsärky, vatsakipu.
-              </Typography>
-            </CardContent>
-          </Collapse>
-        </Card>
+        </Collapse>
+      </Card>
     );
   }
-
-
 }
 
 ReservationCard.propTypes = {
