@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import Grid from 'material-ui/Grid';
 import ResCard from './ReservationCard';
 import Button from 'material-ui/Button';
+import Typography from 'material-ui/Typography';
 import PlusIcon from 'mui-icons/cmdi/plus';
 import { Link } from 'react-router-dom';
 
 
 export default class MainView extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    console.log(this.props.appointments);
     return (
       <div className="MainView">
         <Link to='/reservation'>
@@ -19,21 +23,18 @@ export default class MainView extends Component {
         </Link>
         <div className="MainView-Content">
           <Grid container spacing={24}>
-            {/* This will be the actual implementation when we have real data*/}
-            {/* { this.props.appointments.map((appointment, i) =>
-              <Grid key=i item xs={12} lg={6}>
+          <Typography>Upcoming</Typography>
+            { this.props.reservations.map((appointment, i) =>
+              <Grid key={i} item xs={12} lg={6}>
                 <ResCard {...appointment} />
               </Grid>
-            )} */}
-            <Grid item xs={12} md={6}>
-              <ResCard />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <ResCard />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <ResCard />
-            </Grid>
+            )}
+           <Typography>Past</Typography>
+           { this.props.pastReservations.map((appointment, i) =>
+              <Grid key={i} item xs={12} lg={6}>
+                <ResCard {...appointment} />
+              </Grid>
+            )}
           </Grid>
         </div>
       </div>

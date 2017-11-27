@@ -5,6 +5,7 @@ import ReservationView from './ReservationView';
 import LoginView from './LoginView';
 import Navbar from './Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ExpandedCardView from './ExpandedCardView';
 
 
 class App extends Component {
@@ -13,7 +14,32 @@ class App extends Component {
     super(props);
 
     this.state = {
-      appointments: [],
+      currentView: "main",
+      reservations: [
+        {
+          date: Date.now(),
+          doctor: 'Tohtori Tolonen',
+          bodyPart: 'head',
+          symptoms: 'nausea',
+          text: 'Kauhee darra! Mikä eteen????'
+       },
+       {
+         date: Date.now()+5000,
+         doctor: 'Dogtori',
+         bodyPart: 'limbs',
+         symptoms: 'eczema',
+         text: 'Mul on atooppinen iho, antakaa rasvoja halvalla!'
+       }
+     ],
+     pastReservations: [
+       {
+         date: Date.now()-23000,
+         doctor: 'Tohtori Tolonen',
+         bodyPart: 'torso',
+         symptoms: 'heart problems',
+         text: 'Sydämeen sattuu, joko darra tai delaamassa.'
+       }
+     ]
     };
   }
 
@@ -29,9 +55,13 @@ class App extends Component {
             <Navbar />
             <main className="content">
               <Switch>
-                <Route exact path="/" render={() => <MainView appointments={this.state.appointments}/>} />
+                <Route exact path="/" render={()=>
+                  <MainView reservations={this.state.reservations} pastReservations={this.state.pastReservations} />
+                }
+                />
                 <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
                 <Route path="/login" component={LoginView} />
+                <Route path="/appointment/:id" component={ExpandedCardView} />
               </Switch>
             </main>
           </div>
