@@ -11,6 +11,31 @@ class App extends Component {
 
     this.state = {
       currentView: "main",
+      reservations: [
+        {
+          date: Date.now(),
+          doctor: 'Tohtori Tolonen',
+          bodyPart: 'head',
+          symptoms: 'nausea',
+          text: 'Kauhee darra! Mikä eteen????'
+       },
+       {
+         date: Date.now()+5000,
+         doctor: 'Dogtori',
+         bodyPart: 'limbs',
+         symptoms: 'eczema',
+         text: 'Mul on atooppinen iho, antakaa rasvoja halvalla!'
+       }
+     ],
+     pastReservations: [
+       {
+         date: Date.now()-23000,
+         doctor: 'Tohtori Tolonen',
+         bodyPart: 'torso',
+         symptoms: 'heart problems',
+         text: 'Sydämeen sattuu, joko darra tai delaamassa.'
+       }
+     ]
     };
   }
 
@@ -42,6 +67,8 @@ class App extends Component {
               handleNewReservationClick={this.handleNewReservationClick}
               handleHelpClick={this.handleHelpClick}
               handleLogoutClick={this.handleLogoutClick}
+              reservations={this.state.reservations}
+              pastReservations={this.state.pastReservations}
             />
           }
           {this.state.currentView === "reservation" &&

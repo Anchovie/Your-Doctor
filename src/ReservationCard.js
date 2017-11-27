@@ -44,8 +44,19 @@ const styles = theme => ({
   }
 });
 
+
 class ReservationCard extends Component {
-  state = { expanded: false };
+  constructor(props) {
+    super(props);
+    console.log(props);
+
+    this.state = {
+      expanded: false
+    };
+  }
+
+  //console.log("Reservation card props:");
+  //console.log(this.props);
 
   handleExpandClick = () => {
     this.setState({ expanded: !this.state.expanded });
@@ -57,8 +68,16 @@ class ReservationCard extends Component {
       <Card raised={true} className={classes.card}>
           <CardHeader
             title="Videopuheluaika"
-            subheader="10:00 1.12.2017"
+            subheader={this.props.data.date +'\n'+  this.props.data.doctor}
           />
+          <CardContent>
+            <Typography component="p">
+              Doctor: {this.props.data.doctor}
+            </Typography>
+            <Typography component="p">
+              Symptoms: {this.props.data.symptoms}
+            </Typography>
+          </CardContent>
           <CardActions disableActionSpacing>
             <IconButton aria-label="Videochat">
               <VideoIcon />

@@ -20,6 +20,7 @@ export default class MainView extends Component {
 
   constructor(props) {
     super(props);
+    console.log(props);
   }
 
   render() {
@@ -34,13 +35,13 @@ export default class MainView extends Component {
         </Button>
         <div className="MainView-Content">
           <div className="MainView-Spacer"></div>
-          <ResCard />
+          <ResCard data={this.props.reservations[0]} />
           <div className="MainView-Spacer"></div>
-          <ResCard />
+          <ResCard data={this.props.reservations[1]} />
           <div className="MainView-Spacer"></div>
-          <ResCard />
+          <ResCard data={this.props.reservations[1]} />
           <hr className="style2" />
-          <ResCard />
+          <ResCard data={this.props.pastReservations[0]} />
           <div className="MainView-Spacer"></div>
         </div>
       </div>
