@@ -10,7 +10,7 @@ a {
 }
 
 .App-header {
-  height: 90px;
+  height: 130px;
 }
 
 .App-title {
@@ -22,9 +22,17 @@ a {
 }
 
 .content {
-  background-color: #CCFFFF;
+  background-color: #fff;
   height: 100%;
-  padding: 3%;
+  padding: 2%;
+}
+
+.MainView-subheading {
+  padding: 5px;
+}
+
+.MainView-subheading2 {
+  padding: 20px 5px 5px 5px;
 }
 
 @keyframes App-logo-spin {
@@ -35,16 +43,16 @@ a {
 .Add-button {
   position: absolute !important;
   right: 30px;
-  top: 62px;
+  top: 102px;
  }
 
- .Grid-Icon {
-   justify-content: center;
-   margin: auto;
- }
+.Grid-Icon {
+  justify-content: center;
+  margin: auto;
+}
 
 /* MIKS HELVETIS PITÄÄ OVERRIDEE=!=!=!=!=!)!)!)!)!)!?!?!*/
- .MuiAvatar-root-173 {
-   width: 80px!important;
-   height: 80px!important;
- }
+.MuiAvatar-root-173 {
+  width: 80px!important;
+  height: 80px!important;
+}
