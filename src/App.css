@@ -25,6 +25,7 @@ a {
   background-color: #fff;
   height: 100%;
   padding: 2%;
+  margin-top: 130px;
 }
 
 .MainView-subheading {
@@ -41,9 +42,10 @@ a {
 }
 
 .Add-button {
-  position: absolute !important;
+  position: fixed !important;
   right: 30px;
   top: 102px;
+  z-index: 1101;
  }
 
 .Grid-Icon {

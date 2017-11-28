@@ -35,7 +35,7 @@ export default class Navbar extends Component {
     const open = Boolean(this.state.anchorEl);
     return (
       <div className="Navbar">
-        <AppBar position="static" className="App-header">
+        <AppBar className="App-header">
           <Toolbar>
             <Typography type="title" color="inherit" className="App-title">
               Your Doctor
