@@ -23,7 +23,8 @@ class App extends Component {
           occupation: 'Ylilääkäri',
           bodyPart: 'head',
           symptoms: 'nausea',
-          text: 'Kauhee darra! Mikä eteen????'
+          text: 'Kauhee darra! Mikä eteen????',
+          id: 0,
        },
        {
          date: dateFormat(new Date(2017, 12, 29, 8, 15)),
@@ -31,7 +32,8 @@ class App extends Component {
          occupation: 'Iholääkäri',
          bodyPart: 'limbs',
          symptoms: 'eczema',
-         text: 'Mul on atooppinen iho, antakaa rasvoja halvalla!'
+         text: 'Mul on atooppinen iho, antakaa rasvoja halvalla!',
+         id: 1,
        }
      ],
      pastReservations: [
@@ -41,7 +43,8 @@ class App extends Component {
          occupation: 'Darralääkäri',
          bodyPart: 'torso',
          symptoms: 'heart problems',
-         text: 'Sydämeen sattuu, joko darra tai delaamassa.'
+         text: 'Sydämeen sattuu, joko darra tai delaamassa.',
+         id: 2,
        }
      ]
     };
@@ -66,7 +69,7 @@ class App extends Component {
                 }/>
                 <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
                 <Route path="/login" component={LoginView} />
-                <Route path="/appointment/:id" render={()=> <ExpandedCardView data={this.state.reservations[0]} /> }/>
+                <Route path="/appointment/:id" render={(routeProps) => <ExpandedCardView data={this.state.reservations[routeProps.match.params.id]} /> }/>
               </Switch>
             </main>
           </div>

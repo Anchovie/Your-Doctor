@@ -76,7 +76,7 @@ class ReservationCard extends Component {
           <Button dense color="primary">
             Cancel
           </Button>
-          <Link to='/appointment/:1'>
+          <Link to={`/appointment/${this.props.id}`}>
             <Button dense color="primary">
               Open
             </Button>
