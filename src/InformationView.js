@@ -2,6 +2,10 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 
+/* PARENTS (called from):
+* ReservationView.js
+*/
+
 export default class InformationView extends React.Component {
 
   constructor(props) {
