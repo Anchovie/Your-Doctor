@@ -50,12 +50,22 @@ class App extends React.Component {
     };
   }
 
-  setNewAppointment = () => {
-    this.setState()
+  setNewAppointment = (reservationObject) => {
+    let newReservation = {
+      date: dateFormat(new Date(2017, 12, 24, 10, 0)),
+      doctor: 'JoUlU PuKkI',
+      occupation: 'Ravintoneuvoja',
+      bodyPart: 'torso',
+      symptoms: 'obesity',
+      text: 'Liika kinkkua, maha kasvanu oudosti : /',
+      id: 4,
+    }
+    this.setState(prevState => ({ reservations: prevState.reservations.concat([newReservation]) }));
+    console.log(this.state.reservations);
   }
 
   cancelReservation = (reservation) => {
-    this.setState(prevState => ({ reservations: prevState.reservations.filter((_, i) => i != reservation.id )}));
+    this.setState(prevState => ({ reservations: prevState.reservations.filter((_, i) => i !== reservation.id )}));
   }
 
   render() {
