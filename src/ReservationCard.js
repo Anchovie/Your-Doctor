@@ -42,7 +42,6 @@ class ReservationCard extends React.Component {
   }
 
   handleCancelDialogOpen = () => {
-    console.log("boobaaa")
     this.setState({ cancelDialogOpen: true })
   }
 
@@ -50,6 +49,11 @@ class ReservationCard extends React.Component {
     this.setState({ cancelDialogOpen: false })
   }
 
+  handleCancelling = () => {
+    // console.log(this.props)
+    this.props.cancelReservation(this.props.appointment)
+    this.setState({ cancelDialogOpen: false })
+  }
   //console.log("Reservation card props:");
   //console.log(this.props);
 
@@ -62,24 +66,24 @@ class ReservationCard extends React.Component {
             Video appointment
           </Typography>
           <Typography type="headline" component="h2">
-            {this.props.doctor}
+            {this.props.appointment.doctor}
           </Typography>
           <Typography type="body1">
-            {this.props.occupation}
+            {this.props.appointment.occupation}
           </Typography>
           <Typography component="p">
-            {this.props.date}
+            {this.props.appointment.date}
           </Typography>
           <Typography component="p">
-            Symptoms: {this.props.symptoms}
+            Symptoms: {this.props.appointment.symptoms}
           </Typography>
         </CardContent>
         <CardActions disableActionSpacing>
           <Button onClick={this.handleCancelDialogOpen} dense color="primary">
             Cancel
           </Button>
-          <CancelDialog open={this.state.cancelDialogOpen} handleCancelRequestClose={this.handleCancelRequestClose} />
-          <Link to={`/appointment/${this.props.id}`}>
+          <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
+          <Link to={`/appointment/${this.props.appointment.id}`}>
             <Button dense color="primary">
               Open
             </Button>

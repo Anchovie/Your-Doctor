@@ -17,11 +17,15 @@ export default class ExpandedCardView extends React.Component {
   }
 
   handleCancelDialogOpen = () => {
-    console.log("boobaaa")
     this.setState({ cancelDialogOpen: true })
   }
 
   handleCancelRequestClose = () => {
+    this.setState({ cancelDialogOpen: false })
+  }
+
+  handleCancelling = () => {
+    this.props.cancelReservation(this.props.appointment)
     this.setState({ cancelDialogOpen: false })
   }
 
@@ -49,7 +53,7 @@ export default class ExpandedCardView extends React.Component {
           <Button onClick={this.handleCancelDialogOpen} dense color="primary">
             Cancel
           </Button>
-          <CancelDialog open={this.state.cancelDialogOpen} handleCancelRequestClose={this.handleCancelRequestClose} />
+          <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
         </CardActions>
       </Card>
     )
