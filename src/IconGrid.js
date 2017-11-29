@@ -24,9 +24,9 @@ export default class IconGrid extends React.Component {
       return 'Grid-Icon chosen';
     }
   }
-  
+
   render() {
-    const icons = this.props.getIcons(1);
+    const icons = this.props.getIcons(this.props.body?1:2);
     return(
       <Grid container spacing={40}>
         { icons.map((Icon, i) =>

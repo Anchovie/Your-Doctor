@@ -20,7 +20,7 @@ export default class SymptomsView extends React.Component {
     return (
         <div className="Symptoms-view-content">
             <p> This is symptoms view ! </p>
-            <IconGrid chosen={this.props.chosen} getIcons={this.props.getIcons} handleIconClick={this.props.handleIconClick} />
+            <IconGrid chosen={this.props.chosen} body={false} getIcons={this.props.getIcons} handleIconClick={this.props.handleIconClick} />
         </div>
     )
   }

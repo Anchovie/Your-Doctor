@@ -9,6 +9,16 @@ import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
 import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
 import CheckIcon from 'mui-icons/cmdi/check';
 import SymptomIcon from './img/corgi.png';
+import BodyHeadIcon from './img/body_head.png';
+import BodyTorsoIcon from './img/body_torso.png';
+import BodyStomachIcon from './img/body_stomach.png';
+import BodyBackIcon from './img/body_back.png';
+import BodyHandIcon from './img/body_hand.png';
+import BodyFootIcon from './img/body_foot.png';
+import BodyBodyIcon from './img/body_body.png';
+import BodyIntimateIcon from './img/body_intimate.png';
+import BodyMedicineIcon from './img/body_medicine.png';
+
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import MobileStepper from 'material-ui/MobileStepper';
 import Hidden from 'material-ui/Hidden';
@@ -36,11 +46,11 @@ export default class ReservationView extends React.Component {
 
   getIcons = (gridType) => {
     switch(gridType){
-      case 1:
-      return [SymptomIcon, SymptomIcon, SymptomIcon,
-        SymptomIcon,SymptomIcon,SymptomIcon,
-        SymptomIcon,SymptomIcon,SymptomIcon,];
-      case 2:
+      case 1: //BODY
+      return [BodyHeadIcon, BodyTorsoIcon, BodyStomachIcon,
+        BodyBackIcon, BodyHandIcon, BodyFootIcon,
+        BodyBodyIcon, BodyIntimateIcon, BodyMedicineIcon];
+      case 2: //HEAD etc...
       return [SymptomIcon, SymptomIcon, SymptomIcon,
         SymptomIcon,SymptomIcon,SymptomIcon,
         SymptomIcon,SymptomIcon,SymptomIcon,
@@ -82,7 +92,6 @@ export default class ReservationView extends React.Component {
       this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}));
     } else { //Save reservation
       this.props.setNewAppointment({paa: "huu"});
-      // This click listener need to be pulled up to the parent to get new reservation there
     }
   }
 
