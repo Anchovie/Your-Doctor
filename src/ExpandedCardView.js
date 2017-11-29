@@ -1,11 +1,12 @@
 import React from 'react';
-import Card, { CardContent, CardActions } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import CancelDialog from './CancelDialog';
 import { Link } from 'react-router-dom';
 import IconButton from 'material-ui/IconButton';
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
+import VideoImage from './img/videocall_placeholder.png';
+import Grid from 'material-ui/Grid';
 
 /* PARENTS (called from):
 * (ReservationCard.js)
@@ -40,7 +41,7 @@ export default class ExpandedCardView extends React.Component {
   render() {
     return (
       <div>
-      <Link to='/'>
+        <Link to='/'>
          <IconButton>
            <ArrowLeftIcon className="Arrow-left-icon"/>
          </IconButton>
@@ -57,6 +58,11 @@ export default class ExpandedCardView extends React.Component {
         <Typography component="p">
           {this.props.appointment.date +'\n'+  this.props.appointment.doctor}
         </Typography>
+        <Grid container spacing={24}>
+          <Grid item xs={12} sm={10} md={8} lg={6}>
+            <img className="Video-Image" src={VideoImage} alt="" />
+          </Grid>
+        </Grid>
         <Typography component="p">
           Symptoms: {this.props.appointment.symptoms}
         </Typography>
