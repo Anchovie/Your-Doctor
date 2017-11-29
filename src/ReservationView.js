@@ -10,7 +10,7 @@ import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import MobileStepper from 'material-ui/MobileStepper';
 import Hidden from 'material-ui/Hidden';
 import { Link } from 'react-router-dom';
-import ConfirmedDialog from './ConfirmedDialog';
+import ConfirmedDialog from './Components/ConfirmedDialog';
 import Button from 'material-ui/Button';
 
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
@@ -27,7 +27,8 @@ import BodyBodyIcon from './img/body_body.png';
 import BodyIntimateIcon from './img/body_intimate.png';
 import BodyMedicineIcon from './img/body_medicine.png';
 import SymptomWoundIcon from './img/symptom_cut.png';
-import SymptomOtherIcon from './img/symptom_wound.png'; //Muuta
+//import SymptomWound2Icon from './img/symptom_wound.png';
+import SymptomOtherIcon from './img/symptom_other.png';
 import SymptomHeadIcon from './img/symptom_head2.png';
 import SymptomEyeIcon from './img/symptom_eye.png';
 import SymptomEarIcon from './img/symptom_ear.png';
@@ -35,15 +36,25 @@ import SymptomNoseIcon from './img/symptom_nose.png';
 import SymptomOralIcon from './img/symptom_mouth.png';
 import SymptomToothAcheIcon from './img/symptom_tooth_broken.png';
 import SymptomToothIcon from './img/symptom_tooth.png';
+import SymptomMentalIcon from './img/symptom_head.png';
+import SymptomBosomIcon from './img/symptom_bosom.png';
 import SymptomHeartIcon from './img/symptom_heart.png';
 import SymptomLungIcon from './img/symptom_lungs.png';
+import SymptomThroatIcon from './img/symptom_throat.png';
 import SymptomButtIcon from './img/symptom_butt.png';
 import SymptomBowelIcon from './img/symptom_bowels.png';
+import SymptomStomachIcon from './img/symptom_stomach.png';
 import SymptomBoneIcon from './img/symptom_bone.png';
+import SymptomSpineIcon from './img/symptom_spine.png';
+import SymptomKidneyIcon from './img/symptom_kidney.png';
 import SymptomUterusIcon from './img/symptom_uterus.png';
+import SymptomHipsIcon from './img/symptom_hips.png';
+import SymptomPissIcon from './img/symptom_piss.png';
+import SymptomSexIcon from './img/symptom_sex.png';
 import SymptomFetusIcon from './img/body_fetus.png';
 import SymptomMedicineIcon from './img/body_medicine2.png';
 import SymptomTestIcon from './img/symptom_testtube.png';
+import SymptomXrayIcon from './img/symptom_xray.png';
 import SymptomSyringeIcon from './img/symptom_syringe.png';
 
 /* PARENTS (called from):
@@ -88,7 +99,7 @@ export default class ReservationView extends React.Component {
         symptoms = ['Stomach pain', 'Diarrhea', 'Digestive issues', 'Nutritional problems', 'Wound', 'Other'];
         break;
       case 3: // BACK
-        symptoms = ['Back pain', 'Spinal problems', 'Posture problems', 'Wound', 'Other'];
+        symptoms = ['Back pain', 'Spinal problems', 'Kidney problems', 'Posture problems', 'Wound', 'Other'];
         break;
       case 4: // HAND
       case 5: //LEG
@@ -98,10 +109,10 @@ export default class ReservationView extends React.Component {
         symptoms = ['Overall pain', 'Broken bones', 'Eczema/Rash', 'Wound', 'Other'];
         break;
       case 7: //INTIMATE
-        symptoms = ['Genital pain', 'Urinary problems', 'STD', 'Menstruation problems', 'UTI', 'Pregnancy', 'Wound', 'Other'];
+        symptoms = ['Genital pain', 'Urinary problems', 'STD', 'Menstruation problems', 'Pregnancy', 'Wound', 'Other'];
         break;
       case 8: //MEDICINE
-        symptoms = ['Prescriptions', 'Medicine inquiries', 'Laboratory tests', 'Vaccination', 'Other'];
+        symptoms = ['Prescriptions', 'Medicine inquiries', 'Laboratory tests', 'X-ray', 'Vaccination', 'Other'];
         break;
       default:
         symptoms = ['corgi', 'corgi','corgi', 'corgi','corgi', 'corgi','corgi', 'corgi', 'corgi','corgi', 'corgi', 'corgi'];
@@ -122,18 +133,18 @@ export default class ReservationView extends React.Component {
       case 0: //HEAD
         return [SymptomHeadIcon, SymptomEyeIcon, SymptomEarIcon,
           SymptomNoseIcon,SymptomOralIcon,SymptomToothAcheIcon,
-          SymptomToothIcon,SymptomIcon/*mental*/,SymptomWoundIcon,
+          SymptomToothIcon,SymptomMentalIcon,SymptomWoundIcon,
           SymptomOtherIcon];
       case 1: //TORSO
-        return [SymptomIcon/*chestpain*/, SymptomHeartIcon, SymptomIcon/*Breathing*/,
+        return [SymptomBosomIcon, SymptomHeartIcon, SymptomThroatIcon,
           SymptomLungIcon,SymptomIcon/*heartburn*/,SymptomWoundIcon,
           SymptomOtherIcon];
       case 2: //STOMACH
-        return [SymptomIcon/*stomachpain*/, SymptomButtIcon, SymptomBowelIcon,
+        return [SymptomStomachIcon, SymptomButtIcon, SymptomBowelIcon,
           SymptomIcon/*Nutritional*/,SymptomWoundIcon,SymptomOtherIcon];
       case 3: //BACK
-        return [SymptomIcon/*backpain*/, SymptomIcon/*spinal*/, SymptomIcon/*posture*/,
-          SymptomWoundIcon,SymptomOtherIcon];
+        return [SymptomIcon/*backpain*/, SymptomSpineIcon, SymptomKidneyIcon,
+          SymptomIcon/*posture*/, SymptomWoundIcon,SymptomOtherIcon];
       case 4: //HAND
       case 5: //FOOT
         return [SymptomIcon/*pain*/, SymptomBoneIcon, SymptomIcon/*burn*/,
@@ -142,12 +153,12 @@ export default class ReservationView extends React.Component {
         return [SymptomIcon/*pain*/, SymptomBoneIcon, SymptomIcon/*rash*/,
           SymptomWoundIcon,SymptomOtherIcon];
       case 7: //INTIMATE
-        return [SymptomIcon/*pain*/, SymptomIcon/*urinary*/, SymptomIcon/*STD*/,
-          SymptomUterusIcon, SymptomIcon/*UTI*/, SymptomFetusIcon,
+        return [SymptomHipsIcon, SymptomPissIcon, SymptomSexIcon,
+          SymptomUterusIcon, SymptomFetusIcon,
           SymptomWoundIcon,SymptomOtherIcon];
       case 8: //MEDICINE
         return [BodyMedicineIcon, SymptomMedicineIcon, SymptomTestIcon,
-          SymptomSyringeIcon, SymptomOtherIcon];
+          SymptomXrayIcon, SymptomSyringeIcon, SymptomOtherIcon];
       default:
       return [SymptomIcon, SymptomIcon, SymptomIcon,
         SymptomIcon,SymptomIcon,SymptomIcon,

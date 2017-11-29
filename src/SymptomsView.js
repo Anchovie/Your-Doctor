@@ -1,5 +1,5 @@
 import React from 'react';
-import IconGrid from './IconGrid';
+import IconGrid from './Components/IconGrid';
 
 /* PARENTS (called from):
 * ReservationView.js

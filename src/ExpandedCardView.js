@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
-import CancelDialog from './CancelDialog';
+import CancelDialog from './Components/CancelDialog';
 import { Link } from 'react-router-dom';
 import IconButton from 'material-ui/IconButton';
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
@@ -73,7 +73,7 @@ export default class ExpandedCardView extends React.Component {
           Duration: {this.props.appointment.duration}
         </Typography>
         <Typography component="p">
-          Duration: {this.props.appointment.extraInfo}
+          Information: {this.props.appointment.extraInfo}
         </Typography>
         <Button onClick={this.handleCancelDialogOpen} dense color="primary">
           Cancel

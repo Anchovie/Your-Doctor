@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from 'material-ui/Grid';
-import ResCard from './ReservationCard';
+import ResCard from './Components/ReservationCard';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import PlusIcon from 'mui-icons/cmdi/plus';

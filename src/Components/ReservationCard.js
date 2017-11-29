@@ -4,7 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardContent, CardActions } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
-import CardBackground from './img/corgi.png';
+import CardBackground from '../img/corgi.png';
 import { Link } from 'react-router-dom';
 import CancelDialog from './CancelDialog';
 
