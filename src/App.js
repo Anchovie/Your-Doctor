@@ -64,7 +64,7 @@ class App extends React.Component {
       bodyPart: 'torso',
       symptoms: 'obesity',
       text: 'Liika kinkkua, maha kasvanu oudosti : /',
-      id: 4,
+      id: '4',
     }
     this.setState(prevState => ({ reservations: prevState.reservations.concat([newReservation]) }));
     console.log(this.state.reservations);
