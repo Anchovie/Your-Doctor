@@ -1,5 +1,6 @@
 import React from 'react';
-import IconGrid from './IconGrid';
+import TextField from 'material-ui/TextField';
+import Typography from 'material-ui/Typography';
 
 export default class InformationView extends React.Component {
 
