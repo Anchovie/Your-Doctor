@@ -4,7 +4,7 @@ import MainView from './MainView';
 import ReservationView from './ReservationView';
 import LoginView from './LoginView';
 import Navbar from './Navbar';
-import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import ExpandedCardView from './ExpandedCardView';
 import dateFormat from 'dateformat';
 
@@ -75,25 +75,25 @@ class App extends React.Component {
   }
 
   render() {
+    const location = this.props.location.pathname;
+    const contentClass = location === "/" ? "Content-main" : "Content";
     return (
-      <Router>
-        <div>
-          <Navbar />
-          <main className="content">
-            <Switch>
-              <Route exact path="/" render={()=>
-                <MainView reservations={this.state.reservations}
-                  pastReservations={this.state.pastReservations}
-                  cancelReservation={this.cancelReservation}
-                />
-              }/>
-              <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
-              <Route path="/login" component={LoginView} />
-              <Route path="/appointment/:id" render={(routeProps) => <ExpandedCardView appointment={this.state.reservations.find(res => res.id === routeProps.match.params.id)} cancelReservation={this.cancelReservation} /> }/>
-            </Switch>
-          </main>
-        </div>
-      </Router>
+      <div>
+        <Navbar location={location} />
+        <main className={contentClass}>
+          <Switch>
+            <Route exact path="/" render={()=>
+              <MainView reservations={this.state.reservations}
+                pastReservations={this.state.pastReservations}
+                cancelReservation={this.cancelReservation}
+              />
+            }/>
+            <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
+            <Route path="/login" component={LoginView} />
+            <Route path="/appointment/:id" render={(routeProps) => <ExpandedCardView appointment={this.state.reservations.find(res => res.id === routeProps.match.params.id)} cancelReservation={this.cancelReservation} /> }/>
+          </Switch>
+        </main>
+      </div>
     );
   }
 }

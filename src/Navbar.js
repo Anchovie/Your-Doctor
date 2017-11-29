@@ -34,9 +34,10 @@ export default class Navbar extends React.Component {
 
   render() {
     const open = Boolean(this.state.anchorEl);
+    const classname = (this.props.location === "/") ? "App-header-main" : "App-header";
     return (
       <div className="Navbar">
-        <AppBar className="App-header">
+        <AppBar className={classname}>
           <Toolbar>
             <Typography type="title" color="inherit" className="App-title">
               Your Doctor

@@ -41,7 +41,9 @@ export default class ReservationView extends React.Component {
       chosenBody: [-1],
       chosenSymptoms: [],
       confirmationDialogOpen: false,
-      resCounter: 1
+      resCounter: 1,
+      duration: "",
+      extraInfo: "",
     };
   }
 
@@ -78,28 +80,26 @@ export default class ReservationView extends React.Component {
         SymptomIcon,SymptomIcon,SymptomIcon,
         SymptomIcon,SymptomIcon,SymptomIcon,
         SymptomIcon,SymptomIcon,SymptomIcon];
-      default:
-        break;
     }
   }
   handleBodyClick = (i) => {
     console.log("Icon " + i + " pressed!");
     this.setState({chosenBody: [i]});
     console.log(this.state.chosenBody);
-    this.handleNextClick();
     //this.state.chosen.push(i);
   }
 
   handleSymptomClick = (i) => {
     console.log("Icon " + i + " pressed!");
-    if(this.state.chosenSymptoms.indexOf(i)===-1){
-      this.setState((prevState) => ({chosenSymptoms: prevState.chosenSymptoms.concat([i])}));
-    } else {
-      let arr = this.state.chosenSymptoms;
-      arr.splice(this.state.chosenSymptoms.indexOf(i), 1);
-      this.setState((prevState) => ({chosenSymptoms: arr}));
-    }
+    this.setState((prevState) => ({chosenSymptoms: prevState.chosenSymptoms.concat([i])}));
     console.log(this.state.chosenSymptoms);
+    //this.state.chosen.push(i);
+  }
+
+  handleTextChange = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
   }
 
   handleBackClick = () => {
@@ -115,6 +115,7 @@ export default class ReservationView extends React.Component {
       this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}));
     } else { //Save reservation
       //Siirretty confirmationdialogii
+      // This click listener need to be pulled up to the parent to get new reservation there
     }
   }
 
@@ -144,7 +145,7 @@ export default class ReservationView extends React.Component {
         <p> This is a reservation view</p>
         {this.state.currentStep === 0 && <BodyView chosen={this.state.chosenBody} getIcons={this.getIcons} handleIconClick={this.handleBodyClick} />}
         {this.state.currentStep === 1 && <SymptomsView chosen={this.state.chosenSymptoms} getIcons={this.getIcons} handleIconClick={this.handleSymptomClick} />}
-        {this.state.currentStep === 2 && <InformationView />}
+        {this.state.currentStep === 2 && <InformationView handleTextChange={this.handleTextChange} />}
         {this.state.currentStep === 3 && <AvailableTimesView />}
         {this.state.currentStep === 4 && <ConfirmationView />}
         {/* Desktop */}
