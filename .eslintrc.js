@@ -37,5 +37,7 @@ module.exports = {
         "no-extra-semi":[0],
         "no-console":[0],
         "no-mixed-spaces-and-tabs":[0],
+        "react/jsx-uses-vars": 2,
       },
+      "parser": "babel-eslint",
 };
