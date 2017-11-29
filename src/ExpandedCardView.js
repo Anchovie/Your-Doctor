@@ -11,6 +11,7 @@ import CardBackground from './img/corgi.png';
 
 import CardImage from './img/card.png';
 import { Link } from 'react-router-dom';
+import CancelDialog from './CancelDialog';
 
 
 export default class ExpandedCardView extends Component {
@@ -19,8 +20,18 @@ export default class ExpandedCardView extends Component {
     super(props);
 
     this.state = {
-      expanded: false
+      expanded: false,
+      cancelDialogOpen: false
     };
+  }
+
+  handleCancelDialogOpen = () => {
+    console.log("boobaaa")
+    this.setState({ cancelDialogOpen: true })
+  }
+
+  handleCancelRequestClose = () => {
+    this.setState({ cancelDialogOpen: false })
   }
 
   render() {
@@ -45,9 +56,10 @@ export default class ExpandedCardView extends Component {
           </Typography>
         </CardContent>
         <CardActions disableActionSpacing>
-          <Button dense color="primary">
+          <Button onClick={this.handleCancelDialogOpen} dense color="primary">
             Cancel
           </Button>
+          <CancelDialog open={this.state.cancelDialogOpen} handleCancelRequestClose={this.handleCancelRequestClose} />
         </CardActions>
       </Card>
     )

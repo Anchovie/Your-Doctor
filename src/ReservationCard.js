@@ -6,6 +6,8 @@ import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import CardBackground from './img/corgi.png';
 import { Link } from 'react-router-dom';
+import CancelDialog from './CancelDialog';
+
 
 const styles = theme => ({
   card: {
@@ -35,16 +37,21 @@ class ReservationCard extends Component {
     super(props);
 
     this.state = {
-      expanded: false
+      cancelDialogOpen: false
     };
+  }
+
+  handleCancelDialogOpen = () => {
+    console.log("boobaaa")
+    this.setState({ cancelDialogOpen: true })
+  }
+
+  handleCancelRequestClose = () => {
+    this.setState({ cancelDialogOpen: false })
   }
 
   //console.log("Reservation card props:");
   //console.log(this.props);
-
-  handleExpandClick = () => {
-    this.setState({ expanded: !this.state.expanded });
-  };
 
   render() {
     const { classes } = this.props;
@@ -68,9 +75,10 @@ class ReservationCard extends Component {
           </Typography>
         </CardContent>
         <CardActions disableActionSpacing>
-          <Button dense color="primary">
+          <Button onClick={this.handleCancelDialogOpen} dense color="primary">
             Cancel
           </Button>
+          <CancelDialog open={this.state.cancelDialogOpen} handleCancelRequestClose={this.handleCancelRequestClose} />
           <Link to={`/appointment/${this.props.id}`}>
             <Button dense color="primary">
               Open
