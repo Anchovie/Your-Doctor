@@ -1,5 +1,6 @@
 import React from 'react';
-import IconGrid from './IconGrid';
+import TextField from 'material-ui/TextField';
+
 
 /* PARENTS (called from):
 * ReservationView.js
@@ -11,7 +12,7 @@ export default class AvailableTimesView extends React.Component {
     super(props);
 
     this.state = {
-
+      date : new Date()
     };
   }
 
@@ -20,6 +21,16 @@ export default class AvailableTimesView extends React.Component {
     return (
         <div className="AvailableTimes-view-content">
             <p> This is available times view ! </p>
+
+              <TextField
+                id="date"
+                label="Date"
+                type="date"
+                defaultValue="2018-01-24"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
         </div>
     )
   }
