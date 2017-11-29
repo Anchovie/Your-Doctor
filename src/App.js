@@ -24,6 +24,8 @@ class App extends React.Component {
           bodyPart: 'head',
           symptoms: 'nausea',
           text: 'Kauhee darra! Mikä eteen????',
+          price: '80 €',
+          duration: '45 min',
           id: '0',
        },
        {
@@ -33,6 +35,8 @@ class App extends React.Component {
          bodyPart: 'limbs',
          symptoms: 'eczema',
          text: 'Mul on atooppinen iho, antakaa rasvoja halvalla!',
+         price: '120 €',
+         duration: '60 min',
          id: '1',
        }
      ],
@@ -44,6 +48,8 @@ class App extends React.Component {
          bodyPart: 'torso',
          symptoms: 'heart problems',
          text: 'Sydämeen sattuu, joko darra tai delaamassa.',
+         price: '65 €',
+         duration: '45 min',
          id: '2',
        }
      ]
