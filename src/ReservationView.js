@@ -1,5 +1,9 @@
 import React from 'react';
-import IconGrid from './IconGrid';
+import BodyView from './BodyView';
+import SymptomsView from './SymptomsView';
+import InformationView from './InformationView';
+import AvailableTimesView from './AvailableTimesView';
+import ConfirmationView from './ConfirmationView';
 import IconButton from 'material-ui/IconButton';
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
 import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
@@ -45,7 +49,11 @@ export default class ReservationView extends React.Component {
     return (
       <div className="Reservation-view-content">
         <p> This is a reservation view</p>
-        <IconGrid />
+        {this.state.currentStep === 0 && <BodyView />}
+        {this.state.currentStep === 1 && <SymptomsView />}
+        {this.state.currentStep === 2 && <InformationView />}
+        {this.state.currentStep === 3 && <AvailableTimesView />}
+        {this.state.currentStep === 4 && <ConfirmationView />}
         {/* Desktop */}
         <Hidden mdDown implementation="css">
           <Link to='/'>
