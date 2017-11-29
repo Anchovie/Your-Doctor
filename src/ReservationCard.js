@@ -64,7 +64,7 @@ class ReservationCard extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <Card raised={true} className={classes.card}>
+      <Card raised={true} className={this.props.past?(classes.card+" past"):classes.card}>
         <CardContent>
           <Typography type="body1">
             Video appointment

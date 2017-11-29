@@ -72,6 +72,9 @@ export default class ExpandedCardView extends React.Component {
         <Typography component="p">
           Duration: {this.props.appointment.duration}
         </Typography>
+        <Typography component="p">
+          Duration: {this.props.appointment.extraInfo}
+        </Typography>
         <Button onClick={this.handleCancelDialogOpen} dense color="primary">
           Cancel
         </Button>

@@ -4,7 +4,7 @@ import MainView from './MainView';
 import ReservationView from './ReservationView';
 import LoginView from './LoginView';
 import Navbar from './Navbar';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import ExpandedCardView from './ExpandedCardView';
 import dateFormat from 'dateformat';
 

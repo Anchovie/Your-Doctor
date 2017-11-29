@@ -19,7 +19,7 @@ export default class BodyView extends React.Component {
     return (
         <div className="Body-view-content">
             <p>This is body view ! </p>
-            <IconGrid chosen={this.props.chosen} body={true} getIcons={this.props.getIcons} handleIconClick={this.props.handleIconClick} />
+            <IconGrid chosen={this.props.chosen} body={-1} getIcons={this.props.getIcons} handleIconClick={this.props.handleIconClick} />
         </div>
     )
   }

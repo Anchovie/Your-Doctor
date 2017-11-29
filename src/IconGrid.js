@@ -11,7 +11,6 @@ export default class IconGrid extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
 
     };
@@ -26,11 +25,11 @@ export default class IconGrid extends React.Component {
   }
 
   render() {
-    const icons = this.props.getIcons(this.props.body?1:2);
+    const icons = this.props.getIcons(this.props.body);
     return(
       <Grid container spacing={40}>
         { icons.map((Icon, i) =>
-          <Grid key={i} item xs={4} lg={4}>
+          <Grid key={i} item xs={4} lg={3}>
             <Avatar
               className={this.isChosen(i)}
               sizes='100'
