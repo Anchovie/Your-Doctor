@@ -9,8 +9,14 @@ a {
   text-align: center;
 }
 
+.App-header-main {
+  height: 128px;
+  transition: height 0.5s;
+}
+
 .App-header {
-  height: 130px;
+  height: 64px;
+  transition: height 0.5s;
 }
 
 .App-title {
@@ -21,11 +27,20 @@ a {
   font-size: large;
 }
 
-.content {
+.Content-main {
   background-color: #fff;
   height: 100%;
   padding: 2%;
-  margin-top: 130px;
+  margin-top: 128px;
+  transition: margin-top 0.5s;
+}
+
+.Content {
+  background-color: #fff;
+  height: 100%;
+  padding: 2%;
+  margin-top: 64px;
+  transition: margin-top 0.5s;
 }
 
 .MainView-subheading {
@@ -44,7 +59,7 @@ a {
 .Add-button {
   position: fixed !important;
   right: 30px;
-  top: 102px;
+  top: 100px;
   z-index: 1101;
  }
 
