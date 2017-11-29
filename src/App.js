@@ -24,7 +24,7 @@ class App extends React.Component {
           bodyPart: 'head',
           symptoms: 'nausea',
           text: 'Kauhee darra! Mikä eteen????',
-          id: 0,
+          id: '0',
        },
        {
          date: dateFormat(new Date(2017, 12, 29, 8, 15)),
@@ -33,7 +33,7 @@ class App extends React.Component {
          bodyPart: 'limbs',
          symptoms: 'eczema',
          text: 'Mul on atooppinen iho, antakaa rasvoja halvalla!',
-         id: 1,
+         id: '1',
        }
      ],
      pastReservations: [
@@ -44,7 +44,7 @@ class App extends React.Component {
          bodyPart: 'torso',
          symptoms: 'heart problems',
          text: 'Sydämeen sattuu, joko darra tai delaamassa.',
-         id: 2,
+         id: '2',
        }
      ]
     };
@@ -65,7 +65,7 @@ class App extends React.Component {
   }
 
   cancelReservation = (reservation) => {
-    this.setState(prevState => ({ reservations: prevState.reservations.filter((_, i) => i !== reservation.id )}));
+    this.setState(prevState => ({ reservations: prevState.reservations.filter(res => res.id != reservation.id )}));
   }
 
   render() {
@@ -83,7 +83,7 @@ class App extends React.Component {
               }/>
               <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
               <Route path="/login" component={LoginView} />
-              <Route path="/appointment/:id" render={(routeProps) => <ExpandedCardView data={this.state.reservations[routeProps.match.params.id]} cancelReservation={this.cancelReservation} /> }/>
+              <Route path="/appointment/:id" render={(routeProps) => <ExpandedCardView appointment={this.state.reservations.find(res => res.id === routeProps.match.params.id)} cancelReservation={this.cancelReservation} /> }/>
             </Switch>
           </main>
         </div>
