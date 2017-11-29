@@ -21,7 +21,7 @@ export default class ReservationView extends Component {
   }
 
   getSteps = () => {
-    return ['Select body part', 'Select symptoms', 'Select appointment', 'Confirm appointment'];
+    return ['Select body part', 'Select symptoms', 'Extra information', 'Select appointment', 'Confirm appointment'];
   }
 
   handleBackClick = () => {
@@ -32,7 +32,7 @@ export default class ReservationView extends Component {
   }
 
   handleNextClick = () => {
-    if (this.state.currentStep < 3) {
+    if (this.state.currentStep < 4) {
       // Go to next step
       this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}));
     } else { //Save reservation
@@ -66,7 +66,7 @@ export default class ReservationView extends Component {
           <IconButton onClick={this.handleBackClick}>
             <ArrowLeftIcon className="Arrow-left-icon"/>
           </IconButton>
-          {this.state.currentStep < 3 ? (
+          {this.state.currentStep < 4 ? (
             <IconButton onClick={this.handleNextClick}>
               <ArrowRightIcon className="Arrow-right-icon"/>
             </IconButton>
@@ -80,7 +80,7 @@ export default class ReservationView extends Component {
         <Hidden mdUp>
           <MobileStepper
             type="dots"
-            steps={4}
+            steps={5}
             position="static"
             activeStep={this.state.currentStep}
             backButton={
@@ -89,7 +89,7 @@ export default class ReservationView extends Component {
               </IconButton>
             }
             nextButton={
-                this.state.currentStep < 3 ? (
+                this.state.currentStep < 4 ? (
                   <IconButton onClick={this.handleNextClick}>
                     <ArrowRightIcon className="Arrow-right-icon"/>
                   </IconButton>
