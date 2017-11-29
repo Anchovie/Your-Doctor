@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import MainView from './MainView';
 import ReservationView from './ReservationView';
@@ -9,7 +9,7 @@ import ExpandedCardView from './ExpandedCardView';
 import dateFormat from 'dateformat';
 
 
-class App extends Component {
+class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -50,7 +50,7 @@ class App extends Component {
     };
   }
 
-  setNewAppointment = (appointment) => {
+  setNewAppointment = () => {
     this.setState()
   }
 

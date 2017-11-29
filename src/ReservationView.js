@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import IconGrid from './IconGrid';
 import IconButton from 'material-ui/IconButton';
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
@@ -6,11 +6,10 @@ import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
 import CheckIcon from 'mui-icons/cmdi/check';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import MobileStepper from 'material-ui/MobileStepper';
-import MediaQuery from 'react-responsive';
 import Hidden from 'material-ui/Hidden';
 import { Link } from 'react-router-dom';
 
-export default class ReservationView extends Component {
+export default class ReservationView extends React.Component {
 
   constructor(props) {
     super(props);

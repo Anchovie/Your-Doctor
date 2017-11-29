@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Grid from 'material-ui/Grid';
-import Button from 'material-ui/Button';
 import Avatar from 'material-ui/Avatar';
 import SymptomIcon from './img/corgi.png';
 
 
-export default class IconGrid extends Component {
+export default class IconGrid extends React.Component {
 
   constructor(props) {
     super(props);

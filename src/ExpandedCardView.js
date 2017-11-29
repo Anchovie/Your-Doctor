@@ -1,19 +1,9 @@
-import React, { Component } from 'react';
-import Card, { CardHeader, CardMedia, CardTitle, CardContent, CardActions } from 'material-ui/Card';
-import Collapse from 'material-ui/transitions/Collapse';
+import React from 'react';
+import Card, { CardContent, CardActions } from 'material-ui/Card';
 import Button from 'material-ui/Button';
-
-import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
-import ExpandMoreIcon from 'mui-icons/cmdi/chevron-down';
-import VideoIcon from 'mui-icons/cmdi/message-video';
-import CardBackground from './img/corgi.png';
 
-import CardImage from './img/card.png';
-import { Link } from 'react-router-dom';
-
-
-export default class ExpandedCardView extends Component {
+export default class ExpandedCardView extends React.Component {
 
   constructor(props) {
     super(props);
@@ -24,7 +14,6 @@ export default class ExpandedCardView extends Component {
   }
 
   render() {
-    const { classes } = this.props;
     return (
       <Card raised={true}>
         <CardContent>
