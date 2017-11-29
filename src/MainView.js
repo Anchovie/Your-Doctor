@@ -6,6 +6,10 @@ import Typography from 'material-ui/Typography';
 import PlusIcon from 'mui-icons/cmdi/plus';
 import { Link } from 'react-router-dom';
 
+/* PARENTS (called from):
+* App.js
+*/
+
 
 export default class MainView extends React.Component {
 

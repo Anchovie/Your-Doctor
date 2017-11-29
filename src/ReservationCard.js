@@ -8,7 +8,11 @@ import CardBackground from './img/corgi.png';
 import { Link } from 'react-router-dom';
 import CancelDialog from './CancelDialog';
 
-
+/* PARENTS (called from):
+* MainView.js
+*
+*
+*/
 const styles = theme => ({
   card: {
     overflow: 'auto',

@@ -7,6 +7,11 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 
+/* PARENTS (called from):
+* App.js
+*
+*
+*/
 
 export default class Navbar extends React.Component {
 
