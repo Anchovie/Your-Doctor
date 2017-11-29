@@ -1,6 +1,10 @@
 import React from 'react';
 import IconGrid from './IconGrid';
 
+/* PARENTS (called from):
+* ReservationView.js
+*/
+
 export default class AvailableTimesView extends React.Component {
 
   constructor(props) {
@@ -16,7 +20,6 @@ export default class AvailableTimesView extends React.Component {
     return (
         <div className="AvailableTimes-view-content">
             <p> This is available times view ! </p>
-            <IconGrid />
         </div>
     )
   }

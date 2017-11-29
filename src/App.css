@@ -51,10 +51,15 @@ a {
 .Grid-Icon {
   justify-content: center;
   margin: auto;
-}
-
-/* MIKS HELVETIS PITÄÄ OVERRIDEE=!=!=!=!=!)!)!)!)!)!?!?!*/
-.MuiAvatar-root-173 {
+  background-color: #FF0000;
+  border: 3px transparent;
   width: 80px!important;
   height: 80px!important;
+}
+
+.Grid-Icon.chosen {
+  justify-content: center;
+  margin: auto;
+  background-color: #FF0000;
+  border: 3px solid #3f51b5;
 }

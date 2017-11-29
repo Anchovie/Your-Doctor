@@ -4,6 +4,11 @@ import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import CancelDialog from './CancelDialog';
 
+/* PARENTS (called from):
+* (ReservationCard.js)
+* App.js
+*
+*/
 
 export default class ExpandedCardView extends React.Component {
 

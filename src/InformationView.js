@@ -16,7 +16,6 @@ export default class InformationView extends React.Component {
     return (
         <div className="Information-view-content">
             <p> This is information view ! </p>
-            <IconGrid />
         </div>
     )
   }

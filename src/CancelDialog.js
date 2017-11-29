@@ -8,6 +8,11 @@ import Dialog, {
   withMobileDialog,
 } from 'material-ui/Dialog';
 
+/* PARENTS (called from):
+* ReservationCard.js
+* ExpandedCardView.js
+*
+*/
 
 function OpenCancelDialog(props) {
   return (

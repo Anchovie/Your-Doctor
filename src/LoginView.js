@@ -2,6 +2,9 @@ import React from 'react';
 import Button from 'material-ui/Button';
 import { Link } from 'react-router-dom';
 
+/* PARENTS (called from):
+* App.js
+*/
 
 export default class LoginView extends React.Component {
 
