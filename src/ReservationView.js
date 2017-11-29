@@ -45,12 +45,15 @@ export default class ReservationView extends React.Component {
         SymptomIcon,SymptomIcon,SymptomIcon,
         SymptomIcon,SymptomIcon,SymptomIcon,
         SymptomIcon,SymptomIcon,SymptomIcon];
+      default:
+        break;
     }
   }
   handleBodyClick = (i) => {
     console.log("Icon " + i + " pressed!");
     this.setState({chosenBody: [i]});
     console.log(this.state.chosenBody);
+    this.handleNextClick();
     //this.state.chosen.push(i);
   }
 
@@ -63,9 +66,7 @@ export default class ReservationView extends React.Component {
       arr.splice(this.state.chosenSymptoms.indexOf(i), 1);
       this.setState((prevState) => ({chosenSymptoms: arr}));
     }
-
     console.log(this.state.chosenSymptoms);
-    //this.state.chosen.push(i);
   }
 
   handleBackClick = () => {
@@ -80,6 +81,7 @@ export default class ReservationView extends React.Component {
       // Go to next step
       this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}));
     } else { //Save reservation
+      this.props.setNewAppointment({paa: "huu"});
       // This click listener need to be pulled up to the parent to get new reservation there
     }
   }
