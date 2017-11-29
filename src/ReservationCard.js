@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import classnames from 'classnames';
-import Card, { CardHeader, CardContent, CardActions } from 'material-ui/Card';
-import Collapse from 'material-ui/transitions/Collapse';
+import Card, { CardContent, CardActions } from 'material-ui/Card';
 import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
-import ExpandMoreIcon from 'mui-icons/cmdi/chevron-down';
-import VideoIcon from 'mui-icons/cmdi/message-video';
 import CardBackground from './img/corgi.png';
 import { Link } from 'react-router-dom';
 
@@ -82,24 +77,7 @@ class ReservationCard extends Component {
             </Button>
           </Link>
           <div className={classes.flexGrow} />
-          <IconButton
-            className={classnames(classes.expand, {
-              [classes.expandOpen]: this.state.expanded,
-            })}
-            onClick={this.handleExpandClick}
-            aria-expanded={this.state.expanded}
-            aria-label="Show more"
-          >
-            <ExpandMoreIcon />
-          </IconButton>
         </CardActions>
-        <Collapse in={this.state.expanded} transitionDuration="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph type="body2">
-              Oireet: päänsärky, vatsakipu.
-            </Typography>
-          </CardContent>
-        </Collapse>
       </Card>
     );
   }
