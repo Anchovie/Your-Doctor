@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import IconGrid from './IconGrid';
 import IconButton from 'material-ui/IconButton';
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
@@ -6,10 +6,10 @@ import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
 import CheckIcon from 'mui-icons/cmdi/check';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import MobileStepper from 'material-ui/MobileStepper';
-import MediaQuery from 'react-responsive';
+import Hidden from 'material-ui/Hidden';
 import { Link } from 'react-router-dom';
 
-export default class ReservationView extends Component {
+export default class ReservationView extends React.Component {
 
   constructor(props) {
     super(props);
@@ -20,7 +20,7 @@ export default class ReservationView extends Component {
   }
 
   getSteps = () => {
-    return ['Select body part', 'Select symptoms', 'Select appointment', 'Confirm appointment'];
+    return ['Select body part', 'Select symptoms', 'Extra information', 'Select appointment', 'Confirm appointment'];
   }
 
   handleBackClick = () => {
@@ -31,7 +31,7 @@ export default class ReservationView extends Component {
   }
 
   handleNextClick = () => {
-    if (this.state.currentStep < 3) {
+    if (this.state.currentStep < 4) {
       // Go to next step
       this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}));
     } else { //Save reservation
@@ -47,7 +47,7 @@ export default class ReservationView extends Component {
         <p> This is a reservation view</p>
         <IconGrid />
         {/* Desktop */}
-        <MediaQuery query="(min-device-width: 1224px)">
+        <Hidden mdDown implementation="css">
           <Link to='/'>
             <IconButton>
               <ArrowLeftIcon className="Arrow-left-icon"/>
@@ -65,7 +65,7 @@ export default class ReservationView extends Component {
           <IconButton onClick={this.handleBackClick}>
             <ArrowLeftIcon className="Arrow-left-icon"/>
           </IconButton>
-          {this.state.currentStep < 3 ? (
+          {this.state.currentStep < 4 ? (
             <IconButton onClick={this.handleNextClick}>
               <ArrowRightIcon className="Arrow-right-icon"/>
             </IconButton>
@@ -74,12 +74,12 @@ export default class ReservationView extends Component {
               <CheckIcon className="Check-icon"/>
             </IconButton>
           )}
-        </MediaQuery>
+        </Hidden>
         {/* Mobile */}
-        <MediaQuery query="(max-device-width: 1224px)">
+        <Hidden mdUp>
           <MobileStepper
             type="dots"
-            steps={4}
+            steps={5}
             position="static"
             activeStep={this.state.currentStep}
             backButton={
@@ -88,7 +88,7 @@ export default class ReservationView extends Component {
               </IconButton>
             }
             nextButton={
-                this.state.currentStep < 3 ? (
+                this.state.currentStep < 4 ? (
                   <IconButton onClick={this.handleNextClick}>
                     <ArrowRightIcon className="Arrow-right-icon"/>
                   </IconButton>
@@ -99,7 +99,7 @@ export default class ReservationView extends Component {
                 )
             }
           />
-        </MediaQuery>
+        </Hidden>
       </div>
     );
   }

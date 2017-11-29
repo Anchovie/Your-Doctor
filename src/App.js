@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import MainView from './MainView';
 import ReservationView from './ReservationView';
@@ -9,7 +9,7 @@ import ExpandedCardView from './ExpandedCardView';
 import dateFormat from 'dateformat';
 
 
-class App extends Component {
+class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -50,31 +50,29 @@ class App extends Component {
     };
   }
 
-  setNewAppointment = (appointment) => {
+  setNewAppointment = () => {
     this.setState()
   }
 
   render() {
     return (
-      <div>
-        <Router>
-          <div>
-            <Navbar />
-            <main className="content">
-              <Switch>
-                <Route exact path="/" render={()=>
-                  <MainView reservations={this.state.reservations}
-                    pastReservations={this.state.pastReservations}
-                  />
-                }/>
-                <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
-                <Route path="/login" component={LoginView} />
-                <Route path="/appointment/:id" render={(routeProps) => <ExpandedCardView data={this.state.reservations[routeProps.match.params.id]} /> }/>
-              </Switch>
-            </main>
-          </div>
-        </Router>
-      </div>
+      <Router>
+        <div>
+          <Navbar />
+          <main className="content">
+            <Switch>
+              <Route exact path="/" render={()=>
+                <MainView reservations={this.state.reservations}
+                  pastReservations={this.state.pastReservations}
+                />
+              }/>
+              <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
+              <Route path="/login" component={LoginView} />
+              <Route path="/appointment/:id" render={(routeProps) => <ExpandedCardView data={this.state.reservations[routeProps.match.params.id]} /> }/>
+            </Switch>
+          </main>
+        </div>
+      </Router>
     );
   }
 }

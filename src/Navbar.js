@@ -1,18 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import IconButton from 'material-ui/IconButton';
 import DotsIcon from 'mui-icons/cmdi/dots-vertical';
-import Menu, { MenuItem, MenuList } from 'material-ui/Menu';
-import Grow from 'material-ui/transitions/Grow';
-import Paper from 'material-ui/Paper';
-import { Manager, Target, Popper } from 'react-popper';
-import ClickAwayListener from 'material-ui/utils/ClickAwayListener';
+import Menu, { MenuItem } from 'material-ui/Menu';
 import { Link } from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 
 
-export default class Navbar extends Component {
+export default class Navbar extends React.Component {
 
   constructor(props) {
     super(props);

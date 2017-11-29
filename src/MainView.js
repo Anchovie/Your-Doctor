@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Grid from 'material-ui/Grid';
 import ResCard from './ReservationCard';
 import Button from 'material-ui/Button';
@@ -7,11 +7,7 @@ import PlusIcon from 'mui-icons/cmdi/plus';
 import { Link } from 'react-router-dom';
 
 
-export default class MainView extends Component {
-
-  constructor(props) {
-    super(props);
-  }
+export default class MainView extends React.Component {
 
   render() {
     return (

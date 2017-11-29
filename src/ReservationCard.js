@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Card, { CardContent, CardActions } from 'material-ui/Card';
@@ -32,7 +32,7 @@ const styles = theme => ({
 });
 
 
-class ReservationCard extends Component {
+class ReservationCard extends React.Component {
   constructor(props) {
     super(props);
 
