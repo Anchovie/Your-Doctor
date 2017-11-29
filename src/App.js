@@ -4,7 +4,7 @@ import MainView from './MainView';
 import ReservationView from './ReservationView';
 import LoginView from './LoginView';
 import Navbar from './Navbar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom';
 import ExpandedCardView from './ExpandedCardView';
 import dateFormat from 'dateformat';
 
@@ -15,7 +15,6 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      currentView: "main",
       reservations: [
         {
           date: dateFormat(new Date(2017, 11, 28, 12, 30)),
