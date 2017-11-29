@@ -19,6 +19,7 @@ import BodyBodyIcon from './img/body_body.png';
 import BodyIntimateIcon from './img/body_intimate.png';
 import BodyMedicineIcon from './img/body_medicine.png';
 
+import dateFormat from 'dateformat';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import MobileStepper from 'material-ui/MobileStepper';
 import Hidden from 'material-ui/Hidden';
@@ -39,12 +40,31 @@ export default class ReservationView extends React.Component {
       currentStep: 0,
       chosenBody: [-1],
       chosenSymptoms: [],
-      confirmationDialogOpen: false
+      confirmationDialogOpen: false,
+      resCounter: 1
     };
   }
 
   getSteps = () => {
     return ['Select body part', 'Select symptoms', 'Extra information', 'Select appointment', 'Confirm appointment'];
+  }
+
+  iToBody =(i) =>{
+    let bodyParts = ['Head', 'Torso', 'Stomach', 'Back', 'Hand', 'Foot', 'Body', 'Intimate', 'Medicine'];
+    return bodyParts[i];
+  }
+
+  iToSymptom =(bodyPart, iArr)=>{
+    let symptomString = "";
+    for (let i in iArr){
+      switch(bodyPart){
+        default:
+        case 0:
+          let symptoms = ['corgi', 'corgi','corgi', 'corgi','corgi', 'corgi','corgi', 'corgi', 'corgi','corgi', 'corgi', 'corgi'];
+          symptomString+=symptoms[i]+", ";
+      }
+    }
+    return symptomString;
   }
 
   getIcons = (gridType) => {
@@ -94,12 +114,26 @@ export default class ReservationView extends React.Component {
       // Go to next step
       this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}));
     } else { //Save reservation
-      this.props.setNewAppointment({paa: "huu"});
+      //Siirretty confirmationdialogii
     }
   }
 
   handleConfirmationDialogOpen = () => {
     this.setState({ confirmationDialogOpen: true })
+    this.createNewReservation();
+  }
+
+  createNewReservation = () => {
+    let newReservation = {
+      date: dateFormat(new Date(2017, 12, 24, 10, 0)),
+      doctor: 'JoUlU PuKkI',
+      occupation: 'Ravintoneuvoja',
+      bodyPart: this.iToBody(this.state.chosenBody),
+      symptoms: this.iToSymptom(this.state.chosenBody, this.state.chosenSymptoms),
+      text: 'Liika kinkkua, maha kasvanu oudosti : /',
+      id: (''+this.resCounter++),
+    }
+    this.props.setNewAppointment(newReservation);
   }
 
   render() {

@@ -56,6 +56,7 @@ class App extends React.Component {
   }
 
   setNewAppointment = (reservationObject) => {
+    /*
     let newReservation = {
       date: dateFormat(new Date(2017, 12, 24, 10, 0)),
       doctor: 'JoUlU PuKkI',
@@ -64,8 +65,8 @@ class App extends React.Component {
       symptoms: 'obesity',
       text: 'Liika kinkkua, maha kasvanu oudosti : /',
       id: '4',
-    }
-    this.setState(prevState => ({ reservations: prevState.reservations.concat([newReservation]) }));
+    }*/
+    this.setState(prevState => ({ reservations: prevState.reservations.concat([reservationObject]) }));
     console.log(this.state.reservations);
   }
 
