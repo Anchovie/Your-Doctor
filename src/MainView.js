@@ -26,7 +26,7 @@ export default class MainView extends React.Component {
           <Grid container spacing={24}>
             { this.props.reservations.map((appointment, i) =>
               <Grid key={i} item xs={12} lg={6}>
-                <ResCard {...appointment} />
+                <ResCard appointment={appointment} cancelReservation={this.props.cancelReservation} />
               </Grid>
             )}
           </Grid>
@@ -34,7 +34,7 @@ export default class MainView extends React.Component {
           <Grid container spacing={24}>
            { this.props.pastReservations.map((appointment, i) =>
               <Grid key={i} item xs={12} lg={6}>
-                <ResCard {...appointment} />
+                <ResCard appointment={appointment} />
               </Grid>
             )}
           </Grid>

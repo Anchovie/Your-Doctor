@@ -54,6 +54,10 @@ class App extends React.Component {
     this.setState()
   }
 
+  cancelReservation = (reservation) => {
+    this.setState(prevState => ({ reservations: prevState.reservations.filter((_, i) => i != reservation.id )}));
+  }
+
   render() {
     return (
       <Router>
@@ -64,11 +68,12 @@ class App extends React.Component {
               <Route exact path="/" render={()=>
                 <MainView reservations={this.state.reservations}
                   pastReservations={this.state.pastReservations}
+                  cancelReservation={this.cancelReservation}
                 />
               }/>
               <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
               <Route path="/login" component={LoginView} />
-              <Route path="/appointment/:id" render={(routeProps) => <ExpandedCardView data={this.state.reservations[routeProps.match.params.id]} /> }/>
+              <Route path="/appointment/:id" render={(routeProps) => <ExpandedCardView data={this.state.reservations[routeProps.match.params.id]} cancelReservation={this.cancelReservation} /> }/>
             </Switch>
           </main>
         </div>

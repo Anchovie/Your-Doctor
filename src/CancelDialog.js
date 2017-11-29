@@ -28,7 +28,7 @@ function OpenCancelDialog(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.handleCancelRequestClose} color="primary">
+          <Button onClick={props.handleCancelling} color="primary">
             Yes, Cancel it
           </Button>
           <Button onClick={props.handleCancelRequestClose} color="primary" autoFocus>
