@@ -13,6 +13,8 @@ import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import MobileStepper from 'material-ui/MobileStepper';
 import Hidden from 'material-ui/Hidden';
 import { Link } from 'react-router-dom';
+import ConfirmedDialog from './ConfirmedDialog';
+import Button from 'material-ui/Button';
 
 /* PARENTS (called from):
 * App.js
@@ -27,6 +29,7 @@ export default class ReservationView extends React.Component {
       currentStep: 0,
       chosenBody: [-1],
       chosenSymptoms: [],
+      confirmationDialogOpen: false
     };
   }
 
@@ -86,6 +89,10 @@ export default class ReservationView extends React.Component {
     }
   }
 
+  handleConfirmationDialogOpen = () => {
+    this.setState({ confirmationDialogOpen: true })
+  }
+
   render() {
     const steps = this.getSteps();
 
@@ -121,9 +128,9 @@ export default class ReservationView extends React.Component {
               <ArrowRightIcon className="Arrow-right-icon"/>
             </IconButton>
           ) : (
-            <IconButton onClick={this.handleNextClick}>
-              <CheckIcon className="Check-icon"/>
-            </IconButton>
+            <Button onClick={this.handleConfirmationDialogOpen} dense color="primary">
+              Confirm
+            </Button>
           )}
         </Hidden>
         {/* Mobile */}
@@ -144,13 +151,14 @@ export default class ReservationView extends React.Component {
                     <ArrowRightIcon className="Arrow-right-icon"/>
                   </IconButton>
                 ) : (
-                  <IconButton onClick={this.handleNextClick}>
-                    <CheckIcon className="Check-icon"/>
-                  </IconButton>
+                  <Button onClick={this.handleConfirmationDialogOpen} dense color="primary">
+                    Confirm
+                  </Button>
                 )
             }
           />
         </Hidden>
+        <ConfirmedDialog open={this.state.confirmationDialogOpen} />
       </div>
     );
   }
