@@ -9,10 +9,23 @@ import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
 import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
 import CheckIcon from 'mui-icons/cmdi/check';
 import SymptomIcon from './img/corgi.png';
+import BodyHeadIcon from './img/body_head.png';
+import BodyTorsoIcon from './img/body_torso.png';
+import BodyStomachIcon from './img/body_stomach.png';
+import BodyBackIcon from './img/body_back.png';
+import BodyHandIcon from './img/body_hand.png';
+import BodyFootIcon from './img/body_foot.png';
+import BodyBodyIcon from './img/body_body.png';
+import BodyIntimateIcon from './img/body_intimate.png';
+import BodyMedicineIcon from './img/body_medicine.png';
+
+import dateFormat from 'dateformat';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import MobileStepper from 'material-ui/MobileStepper';
 import Hidden from 'material-ui/Hidden';
 import { Link } from 'react-router-dom';
+import ConfirmedDialog from './ConfirmedDialog';
+import Button from 'material-ui/Button';
 
 /* PARENTS (called from):
 * App.js
@@ -27,6 +40,10 @@ export default class ReservationView extends React.Component {
       currentStep: 0,
       chosenBody: [-1],
       chosenSymptoms: [],
+      confirmationDialogOpen: false,
+      resCounter: 1,
+      duration: "",
+      extraInfo: "",
     };
   }
 
@@ -34,39 +51,55 @@ export default class ReservationView extends React.Component {
     return ['Select body part', 'Select symptoms', 'Extra information', 'Select appointment', 'Confirm appointment'];
   }
 
+  iToBody =(i) =>{
+    let bodyParts = ['Head', 'Torso', 'Stomach', 'Back', 'Hand', 'Foot', 'Body', 'Intimate', 'Medicine'];
+    return bodyParts[i];
+  }
+
+  iToSymptom =(bodyPart, iArr)=>{
+    let symptomString = "";
+    for (let i in iArr){
+      switch(bodyPart){
+        default:
+        case 0:
+          let symptoms = ['corgi', 'corgi','corgi', 'corgi','corgi', 'corgi','corgi', 'corgi', 'corgi','corgi', 'corgi', 'corgi'];
+          symptomString+=symptoms[i]+", ";
+      }
+    }
+    return symptomString;
+  }
+
   getIcons = (gridType) => {
     switch(gridType){
-      case 1:
-      return [SymptomIcon, SymptomIcon, SymptomIcon,
-        SymptomIcon,SymptomIcon,SymptomIcon,
-        SymptomIcon,SymptomIcon,SymptomIcon,];
-      case 2:
+      case 1: //BODY
+      return [BodyHeadIcon, BodyTorsoIcon, BodyStomachIcon,
+        BodyBackIcon, BodyHandIcon, BodyFootIcon,
+        BodyBodyIcon, BodyIntimateIcon, BodyMedicineIcon];
+      case 2: //HEAD etc...
       return [SymptomIcon, SymptomIcon, SymptomIcon,
         SymptomIcon,SymptomIcon,SymptomIcon,
         SymptomIcon,SymptomIcon,SymptomIcon,
         SymptomIcon,SymptomIcon,SymptomIcon];
-      default:
-        break;
     }
   }
   handleBodyClick = (i) => {
     console.log("Icon " + i + " pressed!");
     this.setState({chosenBody: [i]});
     console.log(this.state.chosenBody);
-    this.handleNextClick();
     //this.state.chosen.push(i);
   }
 
   handleSymptomClick = (i) => {
     console.log("Icon " + i + " pressed!");
-    if(this.state.chosenSymptoms.indexOf(i)===-1){
-      this.setState((prevState) => ({chosenSymptoms: prevState.chosenSymptoms.concat([i])}));
-    } else {
-      let arr = this.state.chosenSymptoms;
-      arr.splice(this.state.chosenSymptoms.indexOf(i), 1);
-      this.setState((prevState) => ({chosenSymptoms: arr}));
-    }
+    this.setState((prevState) => ({chosenSymptoms: prevState.chosenSymptoms.concat([i])}));
     console.log(this.state.chosenSymptoms);
+    //this.state.chosen.push(i);
+  }
+
+  handleTextChange = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
   }
 
   handleBackClick = () => {
@@ -81,9 +114,27 @@ export default class ReservationView extends React.Component {
       // Go to next step
       this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}));
     } else { //Save reservation
-      this.props.setNewAppointment({paa: "huu"});
+      //Siirretty confirmationdialogii
       // This click listener need to be pulled up to the parent to get new reservation there
     }
+  }
+
+  handleConfirmationDialogOpen = () => {
+    this.setState({ confirmationDialogOpen: true })
+    this.createNewReservation();
+  }
+
+  createNewReservation = () => {
+    let newReservation = {
+      date: dateFormat(new Date(2017, 12, 24, 10, 0)),
+      doctor: 'JoUlU PuKkI',
+      occupation: 'Ravintoneuvoja',
+      bodyPart: this.iToBody(this.state.chosenBody),
+      symptoms: this.iToSymptom(this.state.chosenBody, this.state.chosenSymptoms),
+      text: 'Liika kinkkua, maha kasvanu oudosti : /',
+      id: (''+this.resCounter++),
+    }
+    this.props.setNewAppointment(newReservation);
   }
 
   render() {
@@ -94,7 +145,7 @@ export default class ReservationView extends React.Component {
         <p> This is a reservation view</p>
         {this.state.currentStep === 0 && <BodyView chosen={this.state.chosenBody} getIcons={this.getIcons} handleIconClick={this.handleBodyClick} />}
         {this.state.currentStep === 1 && <SymptomsView chosen={this.state.chosenSymptoms} getIcons={this.getIcons} handleIconClick={this.handleSymptomClick} />}
-        {this.state.currentStep === 2 && <InformationView />}
+        {this.state.currentStep === 2 && <InformationView handleTextChange={this.handleTextChange} />}
         {this.state.currentStep === 3 && <AvailableTimesView />}
         {this.state.currentStep === 4 && <ConfirmationView />}
         {/* Desktop */}
@@ -121,9 +172,9 @@ export default class ReservationView extends React.Component {
               <ArrowRightIcon className="Arrow-right-icon"/>
             </IconButton>
           ) : (
-            <IconButton onClick={this.handleNextClick}>
-              <CheckIcon className="Check-icon"/>
-            </IconButton>
+            <Button onClick={this.handleConfirmationDialogOpen} dense color="primary">
+              Confirm
+            </Button>
           )}
         </Hidden>
         {/* Mobile */}
@@ -144,13 +195,14 @@ export default class ReservationView extends React.Component {
                     <ArrowRightIcon className="Arrow-right-icon"/>
                   </IconButton>
                 ) : (
-                  <IconButton onClick={this.handleNextClick}>
-                    <CheckIcon className="Check-icon"/>
-                  </IconButton>
+                  <Button onClick={this.handleConfirmationDialogOpen} dense color="primary">
+                    Confirm
+                  </Button>
                 )
             }
           />
         </Hidden>
+        <ConfirmedDialog open={this.state.confirmationDialogOpen} />
       </div>
     );
   }

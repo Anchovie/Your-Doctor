@@ -32,6 +32,7 @@ export default class InformationView extends React.Component {
                         label="How long have your symptoms lasted?" 
                         helperText="e.g. 5 days"
                         style={{width: '25%'}}
+                        onChange={this.props.handleTextChange('duration')}
                     />
                 </div>
                 <div>
@@ -40,6 +41,7 @@ export default class InformationView extends React.Component {
                         label="Give more details if you want:"
                         multiline
                         style={{width:'50%'}}
+                        onChange={this.props.handleTextChange('extraInfo')}
                     />
                 </div>
             </Hidden>
@@ -51,6 +53,7 @@ export default class InformationView extends React.Component {
                         label="How long have your symptoms lasted?" 
                         helperText="e.g. 5 days"
                         fullWidth
+                        onChange={this.props.handleTextChange('duration')}
                     />
                 </div>
                 <div>
@@ -59,6 +62,7 @@ export default class InformationView extends React.Component {
                         label="Give more details if you want:"
                         multiline
                         fullWidth
+                        onChange={this.props.handleTextChange('extraInfo')}
                     />
                 </div>
             </Hidden>
