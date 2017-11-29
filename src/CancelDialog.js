@@ -7,6 +7,7 @@ import Dialog, {
   DialogTitle,
   withMobileDialog,
 } from 'material-ui/Dialog';
+import { Link } from 'react-router-dom';
 
 /* PARENTS (called from):
 * ReservationCard.js
@@ -28,9 +29,11 @@ function OpenCancelDialog(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.handleCancelling} color="primary">
-            Yes, Cancel it
-          </Button>
+          <Link to='/'>
+            <Button onClick={props.handleCancelling} color="primary">
+              Yes, Cancel it
+            </Button>
+          </Link>
           <Button onClick={props.handleCancelRequestClose} color="primary" autoFocus>
             No, keep it
           </Button>

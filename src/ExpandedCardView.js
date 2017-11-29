@@ -42,16 +42,16 @@ export default class ExpandedCardView extends React.Component {
             Video appointment
           </Typography>
           <Typography type="headline" component="h2">
-            {this.props.data.doctor}
+            {this.props.appointment.doctor}
           </Typography>
           <Typography type="body1">
-            {this.props.data.occupation}
+            {this.props.appointment.occupation}
           </Typography>
           <Typography component="p">
-            {this.props.data.date +'\n'+  this.props.data.doctor}
+            {this.props.appointment.date +'\n'+  this.props.appointment.doctor}
           </Typography>
           <Typography component="p">
-            Symptoms: {this.props.data.symptoms}
+            Symptoms: {this.props.appointment.symptoms}
           </Typography>
         </CardContent>
         <CardActions disableActionSpacing>
