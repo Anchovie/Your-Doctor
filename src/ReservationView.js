@@ -7,6 +7,7 @@ import CheckIcon from 'mui-icons/cmdi/check';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
 import MobileStepper from 'material-ui/MobileStepper';
 import MediaQuery from 'react-responsive';
+import Hidden from 'material-ui/Hidden';
 import { Link } from 'react-router-dom';
 
 export default class ReservationView extends Component {
@@ -47,7 +48,7 @@ export default class ReservationView extends Component {
         <p> This is a reservation view</p>
         <IconGrid />
         {/* Desktop */}
-        <MediaQuery query="(min-device-width: 1224px)">
+        <Hidden mdDown implementation="css">
           <Link to='/'>
             <IconButton>
               <ArrowLeftIcon className="Arrow-left-icon"/>
@@ -74,9 +75,9 @@ export default class ReservationView extends Component {
               <CheckIcon className="Check-icon"/>
             </IconButton>
           )}
-        </MediaQuery>
+        </Hidden>
         {/* Mobile */}
-        <MediaQuery query="(max-device-width: 1224px)">
+        <Hidden mdUp>
           <MobileStepper
             type="dots"
             steps={4}
@@ -99,7 +100,7 @@ export default class ReservationView extends Component {
                 )
             }
           />
-        </MediaQuery>
+        </Hidden>
       </div>
     );
   }
