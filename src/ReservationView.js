@@ -41,7 +41,7 @@ export default class ReservationView extends React.Component {
       chosenBody: [-1],
       chosenSymptoms: [],
       confirmationDialogOpen: false,
-      resCounter: 1,
+      resCounter: 3, //TÄN PITÄÄ OLLA ISOMPI KU ESITEHDYT RESERVATIONIT
       duration: "",
       extraInfo: "",
     };
@@ -80,6 +80,12 @@ export default class ReservationView extends React.Component {
         SymptomIcon,SymptomIcon,SymptomIcon,
         SymptomIcon,SymptomIcon,SymptomIcon,
         SymptomIcon,SymptomIcon,SymptomIcon];
+      default:
+      return [SymptomIcon, SymptomIcon, SymptomIcon,
+        SymptomIcon,SymptomIcon,SymptomIcon,
+        SymptomIcon,SymptomIcon,SymptomIcon,
+        SymptomIcon,SymptomIcon,SymptomIcon];
+
     }
   }
   handleBodyClick = (i) => {
@@ -131,9 +137,11 @@ export default class ReservationView extends React.Component {
       occupation: 'Ravintoneuvoja',
       bodyPart: this.iToBody(this.state.chosenBody),
       symptoms: this.iToSymptom(this.state.chosenBody, this.state.chosenSymptoms),
-      text: 'Liika kinkkua, maha kasvanu oudosti : /',
-      id: (''+this.resCounter++),
+      duration: this.state.duration,
+      extraInfo: this.state.extraInfo,
+      id: String(this.state.resCounter),
     }
+    this.setState({resCounter: this.state.resCounter++});
     this.props.setNewAppointment(newReservation);
   }
 

@@ -71,7 +71,7 @@ class App extends React.Component {
   }
 
   cancelReservation = (reservation) => {
-    this.setState(prevState => ({ reservations: prevState.reservations.filter(res => res.id != reservation.id )}));
+    this.setState(prevState => ({ reservations: prevState.reservations.filter(res => res.id !== reservation.id )}));
   }
 
   render() {
