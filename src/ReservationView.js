@@ -56,7 +56,14 @@ export default class ReservationView extends React.Component {
 
   handleSymptomClick = (i) => {
     console.log("Icon " + i + " pressed!");
-    this.setState((prevState) => ({chosenSymptoms: prevState.chosenSymptoms.concat([i])}));
+    if(this.state.chosenSymptoms.indexOf(i)===-1){
+      this.setState((prevState) => ({chosenSymptoms: prevState.chosenSymptoms.concat([i])}));
+    } else {
+      let arr = this.state.chosenSymptoms;
+      arr.splice(this.state.chosenSymptoms.indexOf(i), 1);
+      this.setState((prevState) => ({chosenSymptoms: arr}));
+    }
+
     console.log(this.state.chosenSymptoms);
     //this.state.chosen.push(i);
   }
