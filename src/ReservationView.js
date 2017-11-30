@@ -12,9 +12,11 @@ import Hidden from 'material-ui/Hidden';
 import { Link } from 'react-router-dom';
 import ConfirmedDialog from './Components/ConfirmedDialog';
 import Button from 'material-ui/Button';
+import Typography from 'material-ui/Typography';
 
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
 import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
+import Home from 'mui-icons/cmdi/home';
 //import CheckIcon from 'mui-icons/cmdi/check';
 import SymptomIcon from './img/corgi.png';
 import BodyHeadIcon from './img/body_head.png';
@@ -238,9 +240,12 @@ export default class ReservationView extends React.Component {
         <Hidden mdDown implementation="css">
           <Link to='/'>
             <IconButton>
-              <ArrowLeftIcon className="Arrow-left-icon"/>
+              <Home className="Home-icon"/>
             </IconButton>
           </Link>
+          <Typography type="title">
+            New appointment
+          </Typography>
           <Stepper activeStep={this.state.currentStep} alternativeLabel>
             {steps.map(label => {
               return (
