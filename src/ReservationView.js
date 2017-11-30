@@ -81,7 +81,7 @@ export default class ReservationView extends React.Component {
   }
 
   iToBody =(i) =>{
-    let bodyParts = ['Head', 'Torso', 'Stomach', 'Back', 'Hand', 'Foot', 'Body', 'Intimate', 'Medicine'];
+    const bodyParts = ['Head', 'Torso', 'Stomach', 'Back', 'Hand', 'Foot', 'Body', 'Intimate', 'Medicine'];
     return bodyParts[i];
   }
 
@@ -210,7 +210,7 @@ export default class ReservationView extends React.Component {
   }
 
   createNewReservation = () => {
-    let newReservation = {
+    const newReservation = {
       date: dateFormat(new Date(2017, 12, 24, 10, 0)),
       doctor: 'JoUlU PuKkI',
       occupation: 'Ravintoneuvoja',
@@ -229,12 +229,7 @@ export default class ReservationView extends React.Component {
 
     return (
       <div className="Reservation-view-content">
-        <p> This is a reservation view</p>
-        {this.state.currentStep === 0 && <BodyView chosen={this.state.chosenBody} getIcons={this.getIcons} handleIconClick={this.handleBodyClick} />}
-        {this.state.currentStep === 1 && <SymptomsView chosen={this.state.chosenSymptoms} chosenBody={this.state.chosenBody} getIcons={this.getIcons} handleIconClick={this.handleSymptomClick} />}
-        {this.state.currentStep === 2 && <InformationView handleTextChange={this.handleTextChange} />}
-        {this.state.currentStep === 3 && <AvailableTimesView />}
-        {this.state.currentStep === 4 && <ConfirmationView />}
+        
         {/* Desktop */}
         <Hidden mdDown implementation="css">
           <Link to='/'>
@@ -264,6 +259,11 @@ export default class ReservationView extends React.Component {
             </Button>
           )}
         </Hidden>
+        {this.state.currentStep === 0 && <BodyView chosen={this.state.chosenBody} getIcons={this.getIcons} handleIconClick={this.handleBodyClick} />}
+        {this.state.currentStep === 1 && <SymptomsView chosen={this.state.chosenSymptoms} chosenBody={this.state.chosenBody} getIcons={this.getIcons} handleIconClick={this.handleSymptomClick} />}
+        {this.state.currentStep === 2 && <InformationView handleTextChange={this.handleTextChange} />}
+        {this.state.currentStep === 3 && <AvailableTimesView />}
+        {this.state.currentStep === 4 && <ConfirmationView />}
         {/* Mobile */}
         <Hidden mdUp>
           <MobileStepper
