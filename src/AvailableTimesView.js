@@ -13,8 +13,11 @@ export default class AvailableTimesView extends React.Component {
   constructor(props) {
     super(props);
 
+    var newDate = new Date(),
+     today = newDate.getFullYear() + '-' + (newDate.getMonth() +1) + '-' + newDate.getDate();
+
     this.state = {
-      date : new Date()
+      date: today
     };
   }
 
@@ -27,7 +30,7 @@ export default class AvailableTimesView extends React.Component {
                 id="date"
                 label="Date"
                 type="date"
-                defaultValue="2018-01-24"
+                defaultValue={this.state.date}
                 InputLabelProps={{
                   shrink: true,
                 }}
