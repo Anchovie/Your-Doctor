@@ -7,6 +7,8 @@ import IconButton from 'material-ui/IconButton';
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
 import VideoImage from './img/videocall_placeholder.png';
 import Grid from 'material-ui/Grid';
+import Card, { CardContent, CardActions } from 'material-ui/Card';
+
 
 /* PARENTS (called from):
 * (ReservationCard.js)
@@ -40,46 +42,50 @@ export default class ExpandedCardView extends React.Component {
 
   render() {
     return (
-      <div>
-        <Link to='/'>
-         <IconButton>
-           <ArrowLeftIcon className="Arrow-left-icon"/>
-         </IconButton>
-       </Link>
-       <Typography type="body1">
-          Video appointment
-        </Typography>
-        <Typography type="headline" component="h2">
-          {this.props.appointment.doctor}
-        </Typography>
-        <Typography type="body1">
-          {this.props.appointment.occupation}
-        </Typography>
-        <Typography component="p">
-          {this.props.appointment.date +'\n'+  this.props.appointment.doctor}
-        </Typography>
-        <Grid container spacing={24}>
-          <Grid item xs={12} sm={10} md={8} lg={6}>
-            <img className="Video-Image" src={VideoImage} alt="" />
+      <Card className="ExpandedCard" raised={true}>
+        <CardContent>
+          <Link to='/'>
+           <IconButton>
+             <ArrowLeftIcon className="Arrow-left-icon"/>
+           </IconButton>
+         </Link>
+         <Typography type="body1">
+            Video appointment
+          </Typography>
+          <Typography type="headline" component="h2">
+            {this.props.appointment.doctor}
+          </Typography>
+          <Typography type="body1">
+            {this.props.appointment.occupation}
+          </Typography>
+          <Typography component="p">
+            {this.props.appointment.date +'\n'+  this.props.appointment.doctor}
+          </Typography>
+          <Grid container spacing={24}>
+            <Grid item xs={12} sm={10} md={8} lg={6}>
+              <img className="Video-Image" src={VideoImage} alt="" />
+            </Grid>
           </Grid>
-        </Grid>
-        <Typography component="p">
-          Symptoms: {this.props.appointment.symptoms}
-        </Typography>
-        <Typography component="p">
-          Price: {this.props.appointment.price}
-        </Typography>
-        <Typography component="p">
-          Duration: {this.props.appointment.duration}
-        </Typography>
-        <Typography component="p">
-          Information: {this.props.appointment.extraInfo}
-        </Typography>
-        <Button onClick={this.handleCancelDialogOpen} dense color="primary">
-          Cancel
-        </Button>
-        <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
-      </div>
+          <Typography component="p">
+            Symptoms: {this.props.appointment.symptoms}
+          </Typography>
+          <Typography component="p">
+            Price: {this.props.appointment.price}
+          </Typography>
+          <Typography component="p">
+            Duration: {this.props.appointment.duration}
+          </Typography>
+          <Typography component="p">
+            Information: {this.props.appointment.extraInfo}
+          </Typography>
+        </CardContent>
+        <CardActions disableActionSpacing>
+          <Button onClick={this.handleCancelDialogOpen} dense color="primary">
+            Cancel
+          </Button>
+          <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
+        </CardActions>
+      </Card>
     )
   }
 }
