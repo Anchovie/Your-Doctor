@@ -253,21 +253,27 @@ export default class ReservationView extends React.Component {
           <IconButton onClick={this.handleBackClick}>
             <ArrowLeftIcon className="Arrow-left-icon"/>
           </IconButton>
-          {this.state.currentStep < 4 ? (
-            <IconButton onClick={this.handleNextClick}>
-              <ArrowRightIcon className="Arrow-right-icon"/>
-            </IconButton>
-          ) : (
-            <Button onClick={this.handleConfirmationDialogOpen} dense color="primary">
-              Confirm
-            </Button>
-          )}
         </Hidden>
         {this.state.currentStep === 0 && <BodyView chosen={this.state.chosenBody} getIcons={this.getIcons} handleIconClick={this.handleBodyClick} />}
-        {this.state.currentStep === 1 && <SymptomsView chosen={this.state.chosenSymptoms} chosenBody={this.state.chosenBody} getIcons={this.getIcons} handleIconClick={this.handleSymptomClick} />}
-        {this.state.currentStep === 2 && <InformationView handleTextChange={this.handleTextChange} />}
-        {this.state.currentStep === 3 && <AvailableTimesView />}
-        {this.state.currentStep === 4 && <ConfirmationView />}
+        {this.state.currentStep === 1 && 
+        <SymptomsView 
+          chosen={this.state.chosenSymptoms} 
+          chosenBody={this.state.chosenBody} 
+          getIcons={this.getIcons} 
+          handleIconClick={this.handleSymptomClick} 
+          handleNextClick={this.handleNextClick} 
+        />}
+        {this.state.currentStep === 2 && 
+        <InformationView 
+          handleTextChange={this.handleTextChange} 
+          handleNextClick={this.handleNextClick}
+        />}
+        {this.state.currentStep === 3 && <AvailableTimesView handleNextClick={this.handleNextClick}/>}
+        {this.state.currentStep === 4 && 
+        <ConfirmationView 
+          handleConfirmationDialogOpen={this.handleConfirmationDialogOpen}
+          handleBackClick={this.handleBackClick}  
+        />}
         {/* Mobile */}
         <Hidden mdUp>
           <MobileStepper

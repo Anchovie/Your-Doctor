@@ -68,7 +68,7 @@ export default class InformationView extends React.Component {
             </Hidden>
             <br />
             <div>
-                <Button raised color="primary" float="right">
+                <Button raised color="primary" float="right" onClick={this.props.handleNextClick}>
                 Next
                 <ArrowRightIcon className="Arrow-right-icon"/>
                 </Button>

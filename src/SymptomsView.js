@@ -1,5 +1,7 @@
 import React from 'react';
 import IconGrid from './Components/IconGrid';
+import Button from 'material-ui/Button';
+import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
 
 /* PARENTS (called from):
 * ReservationView.js
@@ -19,8 +21,11 @@ export default class SymptomsView extends React.Component {
 
     return (
         <div className="Symptoms-view-content">
-            <p> This is symptoms view ! </p>
-            <IconGrid chosen={this.props.chosen} body={this.props.chosenBody[0]} getIcons={this.props.getIcons} handleIconClick={this.props.handleIconClick} />
+          <IconGrid chosen={this.props.chosen} body={this.props.chosenBody[0]} getIcons={this.props.getIcons} handleIconClick={this.props.handleIconClick} />
+          <Button raised color="primary" onClick={this.props.handleNextClick}>
+            Next
+            <ArrowRightIcon className="Arrow-right-icon"/>
+          </Button>
         </div>
     )
   }
