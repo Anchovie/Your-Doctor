@@ -235,10 +235,7 @@ export default class ReservationView extends React.Component {
 
     return (
       <div className="Reservation-view-content">
-        
-        {/* Desktop */}
-        <Hidden mdDown implementation="css">
-          <Link to='/'>
+        <Link to='/'>
             <IconButton>
               <Home className="Home-icon"/>
             </IconButton>
@@ -246,6 +243,9 @@ export default class ReservationView extends React.Component {
           <Typography type="title">
             New appointment
           </Typography>
+        
+        {/* Desktop */}
+        <Hidden mdDown implementation="css">
           <Stepper activeStep={this.state.currentStep} alternativeLabel>
             {steps.map(label => {
               return (
