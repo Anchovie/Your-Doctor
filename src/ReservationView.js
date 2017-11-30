@@ -171,6 +171,10 @@ export default class ReservationView extends React.Component {
     console.log("Icon " + i + " pressed!");
     this.setState({chosenBody: [i]});
     console.log(this.state.chosenBody);
+    // Go to next step from body click
+    if (this.state.currentStep < 4) {
+      this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}))
+    }
     //this.state.chosen.push(i);
   }
 
