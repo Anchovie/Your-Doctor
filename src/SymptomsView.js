@@ -22,7 +22,7 @@ export default class SymptomsView extends React.Component {
     return (
         <div className="Symptoms-view-content">
           <IconGrid chosen={this.props.chosen} body={this.props.chosenBody[0]} getIcons={this.props.getIcons} handleIconClick={this.props.handleIconClick} />
-          <Button raised color="primary" onClick={this.props.handleNextClick}>
+          <Button className="PulseButton" raised color="primary" onClick={this.props.handleNextClick}>
             Next
             <ArrowRightIcon className="Arrow-right-icon"/>
           </Button>

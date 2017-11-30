@@ -37,7 +37,7 @@ export default class AvailableTimesView extends React.Component {
               />
               <br />
               {/* This button will go when the appointment list is implemented. */}
-              <Button raised color="primary" float="right" onClick={this.props.handleNextClick}>
+              <Button className="PulseButton" raised color="primary" float="right" onClick={this.props.handleNextClick}>
                 Next
                 <ArrowRightIcon className="Arrow-right-icon"/>
               </Button>

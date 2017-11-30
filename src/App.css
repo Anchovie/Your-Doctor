@@ -86,3 +86,49 @@ a {
   height: auto;
   margin: 10px 0px 10px 0px;
 }
+
+.PulseButton {
+  display: block;
+  box-shadow: 0 0 0 rgba(204,169,44, 0.4);
+  animation: pulse 2s 2;
+}
+.PulseButton:hover {
+  animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(55,72,172, 0.8);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(55,72,172, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(55,72,172, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(55,72,172, 0.8);
+    box-shadow: 0 0 0 0 rgba(55,72,172, 0.8);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(55,72,172, 0);
+      box-shadow: 0 0 0 10px rgba(55,72,172, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(55,72,172, 0);
+      box-shadow: 0 0 0 0 rgba(55,72,172, 0);
+  }
+}
+
+.Arrow-right-icon {
+  position:relative;
+  -webkit-animation: moveRight 2s;
+  animation: moveRight 2s 2;
+}
+
+@keyframes moveRight {
+  0% {left:-2px;}
+  100% {left:20%;}
+}

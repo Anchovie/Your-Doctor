@@ -27,9 +27,9 @@ export default class InformationView extends React.Component {
             {/*Desktop*/}
             <Hidden mdDown implementation="css">
                 <div className="Information-details" >
-                    <TextField 
-                        id="info-duration" 
-                        label="How long have your symptoms lasted?" 
+                    <TextField
+                        id="info-duration"
+                        label="How long have your symptoms lasted?"
                         helperText="e.g. 5 days"
                         style={{width: '25%'}}
                         onChange={this.props.handleTextChange('duration')}
@@ -48,9 +48,9 @@ export default class InformationView extends React.Component {
             {/*Mobile*/}
             <Hidden mdUp>
                 <div className="Information-details" >
-                    <TextField 
-                        id="info-duration" 
-                        label="How long have your symptoms lasted?" 
+                    <TextField
+                        id="info-duration"
+                        label="How long have your symptoms lasted?"
                         helperText="e.g. 5 days"
                         fullWidth
                         onChange={this.props.handleTextChange('duration')}
@@ -68,12 +68,12 @@ export default class InformationView extends React.Component {
             </Hidden>
             <br />
             <div>
-                <Button raised color="primary" float="right" onClick={this.props.handleNextClick}>
+                <Button className="PulseButton" raised color="primary" float="right" onClick={this.props.handleNextClick}>
                 Next
                 <ArrowRightIcon className="Arrow-right-icon"/>
                 </Button>
             </div>
-            
+
         </div>
     )
   }
