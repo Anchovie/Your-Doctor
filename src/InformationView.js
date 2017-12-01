@@ -1,7 +1,5 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import Button from 'material-ui/Button';
-import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
 import Hidden from 'material-ui/Hidden'
 
 /* PARENTS (called from):
@@ -31,7 +29,7 @@ export default class InformationView extends React.Component {
                         id="info-duration"
                         label="How long have your symptoms lasted?"
                         helperText="e.g. 5 days"
-                        style={{width: '25%'}}
+                        style={{width: '50%'}}
                         onChange={this.props.handleTextChange('duration')}
                     />
                 </div>
@@ -40,7 +38,7 @@ export default class InformationView extends React.Component {
                         id="info-details"
                         label="Give more details if you want:"
                         multiline
-                        style={{width:'50%'}}
+                        style={{width:'70%'}}
                         onChange={this.props.handleTextChange('extraInfo')}
                     />
                 </div>
@@ -66,14 +64,6 @@ export default class InformationView extends React.Component {
                     />
                 </div>
             </Hidden>
-            <br />
-            <div>
-                <Button className="PulseButton" raised color="primary" float="right" onClick={this.props.handleNextClick}>
-                Next
-                <ArrowRightIcon className="Arrow-right-icon"/>
-                </Button>
-            </div>
-
         </div>
     )
   }

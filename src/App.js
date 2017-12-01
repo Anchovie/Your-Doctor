@@ -7,6 +7,7 @@ import Navbar from './Components/Navbar';
 import { Switch, Route } from 'react-router-dom';
 import ExpandedCardView from './ExpandedCardView';
 import dateFormat from 'dateformat';
+import Grid from 'material-ui/Grid';
 
 
 class App extends React.Component {
@@ -80,19 +81,21 @@ class App extends React.Component {
     return (
       <div>
         <Navbar location={location} />
-        <main className={contentClass}>
-          <Switch>
-            <Route exact path="/" render={()=>
-              <MainView reservations={this.state.reservations}
-                pastReservations={this.state.pastReservations}
-                cancelReservation={this.cancelReservation}
-              />
-            }/>
-            <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
-            <Route path="/login" component={LoginView} />
-            <Route path="/appointment/:id" render={(routeProps) => <ExpandedCardView appointment={this.state.reservations.find(res => res.id === routeProps.match.params.id)||this.state.pastReservations.find(res => res.id === routeProps.match.params.id)} cancelReservation={this.cancelReservation} /> }/>
-          </Switch>
-        </main>
+        <Grid container justify="center" className={contentClass}>
+          <Grid item xs={12}>
+            <Switch>
+              <Route exact path="/" render={()=>
+                <MainView reservations={this.state.reservations}
+                  pastReservations={this.state.pastReservations}
+                  cancelReservation={this.cancelReservation}
+                />
+              }/>
+              <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
+              <Route path="/login" component={LoginView} />
+              <Route path="/appointment/:id" render={(routeProps) => <ExpandedCardView appointment={this.state.reservations.find(res => res.id === routeProps.match.params.id)||this.state.pastReservations.find(res => res.id === routeProps.match.params.id)} cancelReservation={this.cancelReservation} /> }/>
+            </Switch>
+          </Grid>
+        </Grid>
       </div>
     );
   }

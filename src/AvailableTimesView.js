@@ -22,7 +22,7 @@ export default class AvailableTimesView extends React.Component {
     } else {
       day = newDate.getDate()
     };
-    
+
     today = newDate.getFullYear() + '-' + (newDate.getMonth() +1) + '-' + day;
     console.log(today);
 
@@ -45,12 +45,6 @@ export default class AvailableTimesView extends React.Component {
                   shrink: true,
                 }}
               />
-              <br />
-              {/* This button will go when the appointment list is implemented. */}
-              <Button className="PulseButton" raised color="primary" float="right" onClick={this.props.handleNextClick}>
-                Next
-                <ArrowRightIcon className="Arrow-right-icon"/>
-              </Button>
               {/*TODO appointment list */}
         </div>
     )
