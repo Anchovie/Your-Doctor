@@ -13,8 +13,18 @@ export default class AvailableTimesView extends React.Component {
   constructor(props) {
     super(props);
 
-    var newDate = new Date(),
-     today = newDate.getFullYear() + '-' + (newDate.getMonth() +1) + '-' + newDate.getDate();
+    var newDate = new Date();
+    var day;
+    var today;
+
+    if(newDate.getDate() < 10) {
+      day = "0" + newDate.getDate();
+    } else {
+      day = newDate.getDate()
+    };
+    
+    today = newDate.getFullYear() + '-' + (newDate.getMonth() +1) + '-' + day;
+    console.log(today);
 
     this.state = {
       date: today
@@ -46,3 +56,8 @@ export default class AvailableTimesView extends React.Component {
     )
   }
 }
+function newFunction() {
+  {
+  }
+}
+
