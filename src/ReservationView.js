@@ -78,6 +78,7 @@ export default class ReservationView extends React.Component {
       confirmationDialogOpen: false,
       duration: "",
       extraInfo: "",
+      isNextDisabled: true,
     };
   }
 
@@ -186,6 +187,9 @@ export default class ReservationView extends React.Component {
   handleSymptomClick = (i) => {
     console.log("Icon " + i + " pressed!");
     this.setState((prevState) => ({chosenSymptoms: prevState.chosenSymptoms.concat([i])}));
+    if (this.state.isNextDisabled === true) {
+      this.setState({isNextDisabled: false});
+    }
     console.log(this.state.chosenSymptoms);
     //this.state.chosen.push(i);
   }
@@ -193,6 +197,7 @@ export default class ReservationView extends React.Component {
   handleTextChange = name => event => {
     this.setState({
       [name]: event.target.value,
+      isNextDisabled: false,
     });
   }
 
@@ -207,9 +212,12 @@ export default class ReservationView extends React.Component {
     if (this.state.currentStep < 4) {
       // Go to next step
       this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}));
-    } else { //Save reservation
-      //Siirretty confirmationdialogii
-      // This click listener need to be pulled up to the parent to get new reservation there
+    }
+    // TODO: should be disabled in the last step also before some appointment has been chosen
+    if (this.state.currentStep < 2) {
+      this.setState({isNextDisabled: true});
+    } else {
+      this.setState({isNextDisabled: false});
     }
   }
 handleConfirmationDialogOpen = () => {
@@ -317,11 +325,17 @@ handleConfirmationDialogOpen = () => {
             <Hidden mdDown implementation="css">
               <div className="Button-bar">
                 {this.state.currentStep < 4 &&
-                  <Button className="PulseButton" raised color="primary" onClick={this.handleNextClick}>
+                (this.state.isNextDisabled ? (
+                  <Button disabled raised color="primary">
                     Next
-                    <ArrowRightIcon className="Arrow-right-icon"/>
+                    <ArrowRightIcon/>
                   </Button>
-                }
+                ) : (
+                  <Button className="PulseButton" raised color="primary" onClick={this.handleNextClick}>
+                  Next
+                  <ArrowRightIcon className="Arrow-right-icon"/>
+                </Button>
+                ))}
                 {this.state.currentStep === 4 &&
                   <div>
                     <Button dense color="default" onClick={this.props.handleBackClick}>
