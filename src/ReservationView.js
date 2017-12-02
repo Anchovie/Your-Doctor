@@ -186,12 +186,23 @@ export default class ReservationView extends React.Component {
 
   handleSymptomClick = (i) => {
     console.log("Icon " + i + " pressed!");
-    this.setState((prevState) => ({chosenSymptoms: prevState.chosenSymptoms.concat([i])}));
+    // If symptom already in chosen symptoms, deselect it
+    const index = this.state.chosenSymptoms.indexOf(i);
+    if (index > -1) {
+      this.setState(prevState => ({ chosenSymptoms: prevState.chosenSymptoms.filter(symptom => symptom !== i )}), () => {
+        if (this.state.chosenSymptoms.length === 0) {
+          this.setState({isNextDisabled: true});
+        }
+        console.log(this.state.chosenSymptoms);
+      });
+    } else {
+      this.setState((prevState) => ({chosenSymptoms: prevState.chosenSymptoms.concat([i])}), () => {
+        console.log(this.state.chosenSymptoms);
+      });
+    }
     if (this.state.isNextDisabled === true) {
       this.setState({isNextDisabled: false});
     }
-    console.log(this.state.chosenSymptoms);
-    //this.state.chosen.push(i);
   }
 
   handleTextChange = name => event => {
