@@ -7,7 +7,6 @@ import ConfirmationView from './ConfirmationView';
 import IconButton from 'material-ui/IconButton';
 import dateFormat from 'dateformat';
 import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
-import MobileStepper from 'material-ui/MobileStepper';
 import Hidden from 'material-ui/Hidden';
 import { Link } from 'react-router-dom';
 import ConfirmedDialog from './Components/ConfirmedDialog';
@@ -85,6 +84,10 @@ export default class ReservationView extends React.Component {
 
   getSteps = () => {
     return ['Select body part', 'Select symptoms', 'Extra information', 'Select appointment', 'Confirm appointment'];
+  }
+
+  getMobileSteps = () => {
+    return ['', '', '', '', ''];
   }
 
   iToBody =(i) =>{
@@ -265,7 +268,7 @@ export default class ReservationView extends React.Component {
 
   render() {
     const steps = this.getSteps();
-
+    const mobileSteps = this.getMobileSteps();
     return (
       <Grid container justify="center" className="New-reservation-grid">
         <Grid item md={8} sm={12} xs={12}>
@@ -286,6 +289,20 @@ export default class ReservationView extends React.Component {
               <Hidden mdDown implementation="css">
                 <Stepper activeStep={this.state.currentStep} alternativeLabel>
                   {steps.map(label => {
+                    return (
+                      <Step key={label}>
+                        <StepLabel>{label}</StepLabel>
+                      </Step>
+                    );
+                  })}
+                </Stepper>
+                <IconButton onClick={this.handleBackClick}>
+                  <ArrowLeftIcon className="Arrow-left-icon"/>
+                </IconButton>
+              </Hidden>
+              <Hidden mdUp>
+                <Stepper activeStep={this.state.currentStep} alternativeLabel>
+                  {mobileSteps.map(label => {
                     return (
                       <Step key={label}>
                         <StepLabel>{label}</StepLabel>
@@ -326,61 +343,34 @@ export default class ReservationView extends React.Component {
                 handleConfirmationDialogOpen={this.handleConfirmationDialogOpen}
                 handleBackClick={this.handleBackClick}
               />}
-              {/* Mobile */}
-              <Hidden mdUp>
-                <MobileStepper
-                  type="dots"
-                  steps={5}
-                  position="bottom"
-                  activeStep={this.state.currentStep}
-                  backButton={
-                    <IconButton onClick={this.handleBackClick}>
-                      <ArrowLeftIcon className="Arrow-left-icon"/>
-                    </IconButton>
-                  }
-                  nextButton={
-                      this.state.currentStep < 4 ? (
-                        <IconButton onClick={this.handleNextClick}>
-                          <ArrowRightIcon className="Arrow-right-icon"/>
-                        </IconButton>
-                      ) : (
-                        <Button onClick={this.handleConfirmationDialogOpen} dense color="primary">
-                          Confirm
-                        </Button>
-                      )
-                  }
-                />
-              </Hidden>
               <ConfirmedDialog open={this.state.confirmationDialogOpen} />
             </CardContent>
             </div>
-            <Hidden mdDown implementation="css">
-              <div className="Button-bar">
-                {this.state.currentStep < 4 &&
-                (this.state.isNextDisabled ? (
-                  <Button disabled raised color="primary">
-                    Next
-                    <ArrowRightIcon/>
-                  </Button>
-                ) : (
-                  <Button className="PulseButton" raised color="primary" onClick={this.handleNextClick}>
+            <div className="Button-bar">
+              {(this.state.currentStep === 1 || this.state.currentStep === 2) &&
+              (this.state.isNextDisabled ? (
+                <Button disabled raised color="primary">
                   Next
-                  <ArrowRightIcon className="Arrow-right-icon"/>
+                  <ArrowRightIcon/>
                 </Button>
-                ))}
-                {this.state.currentStep === 4 &&
-                  <div>
-                    <Button dense color="default" onClick={this.props.handleBackClick}>
-                    Cancel
-                    </Button>
-                    <Button raised dense color="primary" onClick={this.handleConfirmationDialogOpen}>
-                      Confirm
-                      <Check className="Check-icon"/>
-                    </Button>
-                  </div>
-                }
-              </div>
-            </Hidden>
+              ) : (
+                <Button className="PulseButton" raised color="primary" onClick={this.handleNextClick}>
+                Next
+                <ArrowRightIcon className="Arrow-right-icon"/>
+              </Button>
+              ))}
+              {this.state.currentStep === 4 &&
+                <div>
+                  <Button dense color="default" onClick={this.props.handleBackClick}>
+                  Cancel
+                  </Button>
+                  <Button raised dense color="primary" onClick={this.handleConfirmationDialogOpen}>
+                    Confirm
+                    <Check className="Check-icon"/>
+                  </Button>
+                </div>
+              }
+            </div>
           </Card>
         </Grid>
       </Grid>
