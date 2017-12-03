@@ -179,7 +179,8 @@ export default class ReservationView extends React.Component {
   }
   handleBodyClick = (i) => {
     console.log("Icon " + i + " pressed!");
-    this.setState({chosenBody: [i]});
+    // Set chosen body and clear chosen symptoms
+    this.setState({chosenBody: [i], chosenSymptoms: []});
     console.log(this.state.chosenBody);
     // Go to next step from body click
     if (this.state.currentStep < 4) {
@@ -361,7 +362,7 @@ export default class ReservationView extends React.Component {
               ))}
               {this.state.currentStep === 4 &&
                 <div>
-                  <Button dense color="default" onClick={this.props.handleBackClick}>
+                  <Button dense color="default" onClick={this.handleBackClick}>
                   Cancel
                   </Button>
                   <Button raised dense color="primary" onClick={this.handleConfirmationDialogOpen}>
