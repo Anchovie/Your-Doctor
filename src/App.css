@@ -56,6 +56,15 @@ a {
   overflow-y: scroll;
 }
 
+.Scrolled-container {
+  padding: 0 30px 30px 30px;
+}
+
+.New-reservation-stepper {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 .New-reservation-card {
   height: 100%;
   display: flex;

@@ -1,25 +1,22 @@
 import React from 'react';
+import dateFormat from 'dateformat';
+
 import BodyView from './BodyView';
 import SymptomsView from './SymptomsView';
 import InformationView from './InformationView';
 import AvailableTimesView from './AvailableTimesView';
 import ConfirmationView from './ConfirmationView';
-import IconButton from 'material-ui/IconButton';
-import dateFormat from 'dateformat';
-import Stepper, { Step, StepLabel } from 'material-ui/Stepper';
-import Hidden from 'material-ui/Hidden';
-import { Link } from 'react-router-dom';
 import ConfirmedDialog from './Components/ConfirmedDialog';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
-import Card, { CardContent } from 'material-ui/Card';
+import ReservationHeading from './Components/ReservationHeading';
+import ReservationButtons from './Components/ReservationButtons';
+import ReservationStepper from './Components/ReservationStepper';
+
 import Grid from 'material-ui/Grid';
-import Check from 'mui-icons/cmdi/check';
+import IconButton from 'material-ui/IconButton';
+import Hidden from 'material-ui/Hidden';
+import Card, { CardContent } from 'material-ui/Card';
 
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
-import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
-import Home from 'mui-icons/cmdi/home';
-//import CheckIcon from 'mui-icons/cmdi/check';
 import SymptomIcon from './img/corgi.png';
 import BodyHeadIcon from './img/body_head.png';
 import BodyTorsoIcon from './img/body_torso.png';
@@ -180,13 +177,13 @@ export default class ReservationView extends React.Component {
   handleBodyClick = (i) => {
     console.log("Icon " + i + " pressed!");
     // Set chosen body and clear chosen symptoms
-    this.setState({chosenBody: [i], chosenSymptoms: []});
+    this.setState({chosenBody: [i], chosenSymptoms: [], isNextDisabled: true});
     console.log(this.state.chosenBody);
     // Go to next step from body click
     if (this.state.currentStep < 4) {
       this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}))
     }
-    //this.state.chosen.push(i);
+    //this.state.chosen.push(i);§
   }
 
   handleSymptomClick = (i) => {
@@ -273,106 +270,103 @@ export default class ReservationView extends React.Component {
     return (
       <Grid container justify="center" className="New-reservation-grid">
         <Grid item md={8} sm={12} xs={12}>
-          <Card className="New-reservation-card">
-            <div className="Scrolled-container-wrapper">
-            <CardContent>
-              <div className="New-reservation-heading">
-                <Link to='/'>
-                  <IconButton>
-                    <Home className="Home-icon"/>
+          {/* Desktop */}
+          <Hidden mdDown implementation="css">
+            <Card className="New-reservation-card">
+              <div className="Scrolled-container-wrapper">
+                <CardContent>
+                  <ReservationHeading />
+                  <ReservationStepper steps={steps} currentStep={this.state.currentStep}/>
+                  <IconButton onClick={this.handleBackClick}>
+                    <ArrowLeftIcon className="Arrow-left-icon"/>
                   </IconButton>
-                </Link>
-                <Typography type="title">
-                  New appointment
-                </Typography>
+                  {this.state.currentStep === 0 &&
+                  <BodyView
+                    chosen={this.state.chosenBody}
+                    getIcons={this.getIcons}
+                    handleIconClick={this.handleBodyClick} />}
+                  {this.state.currentStep === 1 &&
+                  <SymptomsView
+                    chosen={this.state.chosenSymptoms}
+                    chosenBody={this.state.chosenBody}
+                    getIcons={this.getIcons}
+                    handleIconClick={this.handleSymptomClick}
+                  />}
+                  {this.state.currentStep === 2 &&
+                  <InformationView
+                    handleTextChange={this.handleTextChange}
+                  />}
+                  {this.state.currentStep === 3 &&
+                  <AvailableTimesView
+                    chosen={this.state.chosenAppointment}
+                    availableTimes={this.props.availableReservations}
+                    handleAppointmentClick={this.handleAppointmentClick}
+                  />}
+                  {this.state.currentStep === 4 &&
+                  <ConfirmationView
+                    handleConfirmationDialogOpen={this.handleConfirmationDialogOpen}
+                  />}
+                  <ConfirmedDialog open={this.state.confirmationDialogOpen} />
+                </CardContent>
               </div>
-              {/* Desktop */}
-              <Hidden mdDown implementation="css">
-                <Stepper activeStep={this.state.currentStep} alternativeLabel>
-                  {steps.map(label => {
-                    return (
-                      <Step key={label}>
-                        <StepLabel>{label}</StepLabel>
-                      </Step>
-                    );
-                  })}
-                </Stepper>
-                <IconButton onClick={this.handleBackClick}>
-                  <ArrowLeftIcon className="Arrow-left-icon"/>
-                </IconButton>
-              </Hidden>
-              <Hidden mdUp>
-                <Stepper activeStep={this.state.currentStep} alternativeLabel>
-                  {mobileSteps.map(label => {
-                    return (
-                      <Step key={label}>
-                        <StepLabel>{label}</StepLabel>
-                      </Step>
-                    );
-                  })}
-                </Stepper>
-                <IconButton onClick={this.handleBackClick}>
-                  <ArrowLeftIcon className="Arrow-left-icon"/>
-                </IconButton>
-              </Hidden>
-              {this.state.currentStep === 0 &&
-              <BodyView
-                chosen={this.state.chosenBody}
-                getIcons={this.getIcons}
-                handleIconClick={this.handleBodyClick} />}
-              {this.state.currentStep === 1 &&
-              <SymptomsView
-                chosen={this.state.chosenSymptoms}
-                chosenBody={this.state.chosenBody}
-                getIcons={this.getIcons}
-                handleIconClick={this.handleSymptomClick}
+              <ReservationButtons
+                currentStep={this.state.currentStep}
+                isNextDisabled={this.state.isNextDisabled}
                 handleNextClick={this.handleNextClick}
-              />}
-              {this.state.currentStep === 2 &&
-              <InformationView
-                handleTextChange={this.handleTextChange}
-                handleNextClick={this.handleNextClick}
-              />}
-              {this.state.currentStep === 3 &&
-              <AvailableTimesView
-                chosen={this.state.chosenAppointment}
-                availableTimes={this.props.availableReservations}
-                handleAppointmentClick={this.handleAppointmentClick}
-                handleNextClick={this.handleNextClick}/>}
-              {this.state.currentStep === 4 &&
-              <ConfirmationView
-                handleConfirmationDialogOpen={this.handleConfirmationDialogOpen}
                 handleBackClick={this.handleBackClick}
-              />}
-              <ConfirmedDialog open={this.state.confirmationDialogOpen} />
-            </CardContent>
+                handleConfirmationDialogOpen={this.handleConfirmationDialogOpen}
+              />
+            </Card>
+          </Hidden>
+          {/* Mobile */}
+          <Hidden mdUp>
+            <div className="Scrolled-container-wrapper">
+              <div className="Scrolled-container">
+                <ReservationHeading />
+                <ReservationStepper steps={mobileSteps} currentStep={this.state.currentStep}/>
+                <IconButton onClick={this.handleBackClick}>
+                  <ArrowLeftIcon className="Arrow-left-icon"/>
+                </IconButton>
+                {this.state.currentStep === 0 &&
+                <BodyView
+                  chosen={this.state.chosenBody}
+                  getIcons={this.getIcons}
+                  handleIconClick={this.handleBodyClick} />}
+                {this.state.currentStep === 1 &&
+                <SymptomsView
+                  chosen={this.state.chosenSymptoms}
+                  chosenBody={this.state.chosenBody}
+                  getIcons={this.getIcons}
+                  handleIconClick={this.handleSymptomClick}
+                  handleNextClick={this.handleNextClick}
+                />}
+                {this.state.currentStep === 2 &&
+                <InformationView
+                  handleTextChange={this.handleTextChange}
+                  handleNextClick={this.handleNextClick}
+                />}
+                {this.state.currentStep === 3 &&
+                <AvailableTimesView
+                  chosen={this.state.chosenAppointment}
+                  availableTimes={this.props.availableReservations}
+                  handleAppointmentClick={this.handleAppointmentClick}
+                  handleNextClick={this.handleNextClick}/>}
+                {this.state.currentStep === 4 &&
+                <ConfirmationView
+                  handleConfirmationDialogOpen={this.handleConfirmationDialogOpen}
+                  handleBackClick={this.handleBackClick}
+                />}
+                <ConfirmedDialog open={this.state.confirmationDialogOpen} />
+              </div>
+              <ReservationButtons
+                currentStep={this.state.currentStep}
+                isNextDisabled={this.state.isNextDisabled}
+                handleNextClick={this.handleNextClick}
+                handleBackClick={this.handleBackClick}
+                handleConfirmationDialogOpen={this.handleConfirmationDialogOpen}
+              />
             </div>
-            <div className="Button-bar">
-              {(this.state.currentStep === 1 || this.state.currentStep === 2) &&
-              (this.state.isNextDisabled ? (
-                <Button disabled raised color="primary">
-                  Next
-                  <ArrowRightIcon/>
-                </Button>
-              ) : (
-                <Button className="PulseButton" raised color="primary" onClick={this.handleNextClick}>
-                Next
-                <ArrowRightIcon className="Arrow-right-icon"/>
-              </Button>
-              ))}
-              {this.state.currentStep === 4 &&
-                <div>
-                  <Button dense color="default" onClick={this.handleBackClick}>
-                  Cancel
-                  </Button>
-                  <Button raised dense color="primary" onClick={this.handleConfirmationDialogOpen}>
-                    Confirm
-                    <Check className="Check-icon"/>
-                  </Button>
-                </div>
-              }
-            </div>
-          </Card>
+          </Hidden>
         </Grid>
       </Grid>
     );
