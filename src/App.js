@@ -52,6 +52,25 @@ class App extends React.Component {
          duration: '45 min',
          id: '2',
        }
+     ],
+     availableReservations: [
+        {
+          date: dateFormat(new Date(2017, 12, 5, 10, 30)),
+          doctor: 'Dr. Corgi',
+          occupation: 'Ylilääkäri',
+          bodyPart: 'head',
+          price: '50 €',
+          duration: '20 min',
+          id: '3',
+       },
+       {
+         date: dateFormat(new Date(2017, 12, 5, 8, 20)),
+         doctor: 'Tohtori Tolonen',
+         occupation: 'Iholääkäri',
+         price: '160 €',
+         duration: '80 min',
+         id: '4',
+       }
      ]
     };
   }
@@ -90,7 +109,7 @@ class App extends React.Component {
                   cancelReservation={this.cancelReservation}
                 />
               }/>
-              <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} />} />
+              <Route path="/reservation" render={() => <ReservationView setNewAppointment={this.setNewAppointment} availableReservations={this.state.availableReservations}/>} />
               <Route path="/login" component={LoginView} />
               <Route path="/appointment/:id" render={(routeProps) => <ExpandedCardView appointment={this.state.reservations.find(res => res.id === routeProps.match.params.id)||this.state.pastReservations.find(res => res.id === routeProps.match.params.id)} cancelReservation={this.cancelReservation} /> }/>
             </Switch>

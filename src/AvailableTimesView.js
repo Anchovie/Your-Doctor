@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import Button from 'material-ui/Button';
-import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
+import Grid from 'material-ui/Grid';
+import AvailableTimeCard from './Components/AvailableTimeCard';
 
 
 /* PARENTS (called from):
@@ -45,13 +45,15 @@ export default class AvailableTimesView extends React.Component {
                   shrink: true,
                 }}
               />
-              {/*TODO appointment list */}
+            <Grid container spacing={24}>
+              { this.props.availableTimes.map((appointment, i) =>
+                <Grid key={i} item xs={12} lg={6}>
+                  <AvailableTimeCard appointment={appointment} handleAppointmentClick={this.props.handleAppointmentClick}/>
+                </Grid>
+              )}
+            </Grid>
         </div>
     )
-  }
-}
-function newFunction() {
-  {
   }
 }
 

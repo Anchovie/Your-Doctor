@@ -75,6 +75,7 @@ export default class ReservationView extends React.Component {
       currentStep: 0,
       chosenBody: [-1],
       chosenSymptoms: [],
+      chosenAppointment: [-1],
       confirmationDialogOpen: false,
       duration: "",
       extraInfo: "",
@@ -212,6 +213,17 @@ export default class ReservationView extends React.Component {
     });
   }
 
+  handleAppointmentClick = (i) => {
+    console.log("Appointment " + i + " pressed!");
+    this.setState({chosenAppointment: [i]});
+    console.log(this.state.chosenAppointment);
+    // Go to next step from body click
+    if (this.state.currentStep < 4) {
+      this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}))
+    }
+    //this.state.chosen.push(i);
+  }
+
   handleBackClick = () => {
     if (this.state.currentStep > 0) {
       // Go back to previous step
@@ -231,7 +243,7 @@ export default class ReservationView extends React.Component {
       this.setState({isNextDisabled: false});
     }
   }
-handleConfirmationDialogOpen = () => {
+  handleConfirmationDialogOpen = () => {
     this.setState({ confirmationDialogOpen: true })
     this.createNewReservation();
   }
@@ -285,7 +297,11 @@ handleConfirmationDialogOpen = () => {
                   <ArrowLeftIcon className="Arrow-left-icon"/>
                 </IconButton>
               </Hidden>
-              {this.state.currentStep === 0 && <BodyView chosen={this.state.chosenBody} getIcons={this.getIcons} handleIconClick={this.handleBodyClick} />}
+              {this.state.currentStep === 0 &&
+              <BodyView
+                chosen={this.state.chosenBody}
+                getIcons={this.getIcons}
+                handleIconClick={this.handleBodyClick} />}
               {this.state.currentStep === 1 &&
               <SymptomsView
                 chosen={this.state.chosenSymptoms}
@@ -299,7 +315,12 @@ handleConfirmationDialogOpen = () => {
                 handleTextChange={this.handleTextChange}
                 handleNextClick={this.handleNextClick}
               />}
-              {this.state.currentStep === 3 && <AvailableTimesView handleNextClick={this.handleNextClick}/>}
+              {this.state.currentStep === 3 &&
+              <AvailableTimesView
+                chosen={this.state.chosenAppointment}
+                availableTimes={this.props.availableReservations}
+                handleAppointmentClick={this.handleAppointmentClick}
+                handleNextClick={this.handleNextClick}/>}
               {this.state.currentStep === 4 &&
               <ConfirmationView
                 handleConfirmationDialogOpen={this.handleConfirmationDialogOpen}
