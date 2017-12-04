@@ -52,7 +52,7 @@ a {
   flex-grow: 1;
 }
 
-.New-reservation-grid {
+.New-reservation-view, .New-reservation-grid {
   height: 100%;
 }
 

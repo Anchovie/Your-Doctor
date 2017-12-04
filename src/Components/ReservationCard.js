@@ -80,9 +80,11 @@ class ReservationCard extends React.Component {
           </Typography>
         </CardContent>
         <CardActions disableActionSpacing className="Reservation-card-actions">
-          <Button onClick={this.handleCancelDialogOpen} dense color="primary">
-            Cancel
-          </Button>
+          {this.props.appointment.past === false &&
+            <Button onClick={this.handleCancelDialogOpen} dense color="primary">
+              Cancel
+            </Button>
+          }
           <Link to={`/appointment/${this.props.appointment.id}`}>
             <Button dense color="primary">
               Open
