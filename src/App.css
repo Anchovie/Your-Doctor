@@ -121,16 +121,17 @@ a {
   justify-content: center;
   margin: auto;
   background-color: #B0C4DE;
-  border: 3px transparent!important;
+  /*border: 3px transparent!important;*/
   width: 80px!important;
   height: 80px!important;
 }
 
 .Grid-Icon.chosen {
-  border: 3px solid #3f51b5!important;
+  /*border: 3px solid #3f51b5!important;*/
+  background-color: #deb0c4;
 }
 
-.ReservationCard-card-187.past{
+.past{
   background-color: #DBDBD4
 }
 
@@ -195,4 +196,9 @@ a {
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+.Card-row {
+  display: flex;
+  align-items: center;
 }
