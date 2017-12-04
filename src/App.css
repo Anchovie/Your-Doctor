@@ -131,6 +131,10 @@ a {
   background-color: #DBDBD4
 }
 
+.Reservation-card-actions {
+  justify-content: flex-end;
+}
+
 .Video-Image {
   width: 100%;
   height: auto;
