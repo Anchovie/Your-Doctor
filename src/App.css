@@ -89,7 +89,9 @@ a {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 20px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
 }
 
 .MainView-subheading {

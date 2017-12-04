@@ -10,20 +10,24 @@ import Check from 'mui-icons/cmdi/check';
 
 function ReservationButtons(props) {
   return (
-    <div className="Button-bar">
-      {(props.currentStep === 1 || props.currentStep === 2) &&
-      (props.isNextDisabled ? (
-        <Button disabled raised color="primary">
-          Next
-          <ArrowRightIcon/>
-        </Button>
-      ) : (
-        <Button className="PulseButton" raised color="primary" onClick={props.handleNextClick}>
-        Next
-        <ArrowRightIcon className="Arrow-right-icon"/>
-      </Button>
-      ))}
-      {props.currentStep === 4 &&
+    <div>
+    {(props.currentStep === 1 || props.currentStep === 2) &&
+      <div className="Button-bar">
+        {props.isNextDisabled ? (
+          <Button disabled raised color="primary">
+            Next
+            <ArrowRightIcon/>
+          </Button>
+        ) : (
+          <Button className="PulseButton" raised color="primary" onClick={props.handleNextClick}>
+            Next
+            <ArrowRightIcon className="Arrow-right-icon"/>
+          </Button>
+        )}
+      </div>
+    }
+    {props.currentStep === 4 &&
+      <div className="Button-bar">
         <div>
           <Button dense color="default" onClick={props.handleBackClick}>
           Cancel
@@ -33,7 +37,8 @@ function ReservationButtons(props) {
             <Check className="Check-icon"/>
           </Button>
         </div>
-      }
+      </div>
+    }
     </div>
   );
 }
