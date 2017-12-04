@@ -33,7 +33,7 @@ a {
 .Content-login {
   background-color: #fff;
   position: absolute;
-  height: calc(100% - 64px);
+  height: 100%;
   transition: margin-top 0.3s;
   overflow: auto;
   flex-grow: 1;
@@ -45,12 +45,27 @@ a {
   background: -o-linear-gradient(-90deg, #19237E, #7986CB); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(-90deg, #19237E, #7986CB); /* For Firefox 3.6 to 15 */
   background: linear-gradient(-90deg, #19237E, #7986CB); /* Standard syntax */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.LoginList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.LoginButton {
+  text-align: center;
 }
 .LoginTexts h3 {
   color: #ffffff;
 }
 .loginIcon g {
   color: #ADBAF1;
+}
+.Logo-Image {
+  height: 160px;
+  filter: invert(100%);
 }
 
 .Content-main {
