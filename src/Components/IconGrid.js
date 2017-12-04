@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
 import Avatar from 'material-ui/Avatar';
 
@@ -30,7 +29,7 @@ export default class IconGrid extends React.Component {
   render() {
     const icons = this.props.getIcons(this.props.body);
     return(
-      <Grid container spacing={24}>
+      <Grid className={"IconGrid"} container spacing={24}>
         { icons.map((Icon, i) =>
         <Grid item key={i} xs={4} lg={3} >
           <Grid container direction="column" justify="center" alignItems="center" style={{textAlign: "center"}}>
