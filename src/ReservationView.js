@@ -18,7 +18,7 @@ import Card, { CardContent } from 'material-ui/Card';
 
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
 import SymptomIcon from './img/corgi.png';
-import BodyHeadIcon from './img/body_head.png';
+import BodyHeadIcon from './img/body_head_offset.png';//body_head.png';
 import BodyTorsoIcon from './img/body_torso.png';
 import BodyStomachIcon from './img/body_stomach.png';
 import BodyBackIcon from './img/body_back.png';

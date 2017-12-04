@@ -128,6 +128,10 @@ a {
   background-color: #deb0c4;
 }
 
+.Grid-Icon img {
+  filter: invert(100%);
+}
+
 .past{
   background-color: #DBDBD4
 }
