@@ -28,6 +28,7 @@ class App extends React.Component {
           price: '80 €',
           duration: '45 min',
           id: '0',
+          past: false,
        },
        {
          date: dateFormat(new Date(2017, 12, 29, 8, 15)),
@@ -40,6 +41,7 @@ class App extends React.Component {
          price: '120 €',
          duration: '60 min',
          id: '1',
+         past: false,
        }
      ],
      pastReservations: [
@@ -54,6 +56,7 @@ class App extends React.Component {
          price: '65 €',
          duration: '45 min',
          id: '2',
+         past: true,
        }
      ],
      availableReservations: [
@@ -65,6 +68,7 @@ class App extends React.Component {
           bodyPart: 'head',
           price: '50 €',
           duration: '20 min',
+          past: false,
        },
        {
          date: dateFormat(new Date(2017, 12, 5)),
@@ -73,6 +77,7 @@ class App extends React.Component {
          occupation: 'Iholääkäri',
          price: '160 €',
          duration: '80 min',
+         past: false,
        }
      ]
     };
