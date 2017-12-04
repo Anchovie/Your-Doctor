@@ -80,14 +80,22 @@ export default class ReservationView extends React.Component {
     };
   }
 
-  iToBody =(i) =>{
+  iToBody =(x, i) =>{
     const bodyParts = ['Head', 'Torso', 'Stomach', 'Back', 'Hand', 'Foot', 'Body', 'Intimate', 'Medicine'];
     return bodyParts[i];
   }
 
-  iToSymptom =(bodyPart, iArr)=>{
+  iToSymptom = (bodyPart, iArr) => {
     let symptomString = "";
     let symptoms = [];
+    console.log("iARR="+ iArr);
+    if (iArr.length==0 || iArr.length == undefined){
+      console.log("Iarr not array, making it one");
+      let x=iArr;
+      iArr=[];
+      iArr.push(x);
+      console.log("Iarr now = " + iArr);
+    }
     switch(bodyPart){
       case 0: //HEAD
         symptoms = ['Headache', 'Eye problems','Ear problems', 'Nose problems','Oral problems', 'Toothache', 'Dental examination', 'Mental problems', 'Wound', 'Other'];
@@ -118,9 +126,14 @@ export default class ReservationView extends React.Component {
         symptoms = ['corgi', 'corgi','corgi', 'corgi','corgi', 'corgi','corgi', 'corgi', 'corgi','corgi', 'corgi', 'corgi'];
         break;
     }
+    for (let i=0; i<iArr.length; i++){
+      console.log("I IN SYMPTOMSTRING = " + iArr[i]);
+      symptomString+=symptoms[iArr[i]]+" ";
+    } /*
     for (let i in iArr){
-      symptomString+=symptoms[i]+", ";
-    }
+      console.log("I IN SYMPTOMSTRING = " + i);
+      symptomString+=symptoms[i]+" ";
+    } */
     return symptomString;
   }
 
@@ -272,12 +285,14 @@ export default class ReservationView extends React.Component {
                     <BodyView
                       chosen={this.state.chosenBody}
                       getIcons={this.getIcons}
+                      getNames={this.iToBody}
                       handleIconClick={this.handleBodyClick} />}
                     {this.state.currentStep === 1 &&
                     <SymptomsView
                       chosen={this.state.chosenSymptoms}
                       chosenBody={this.state.chosenBody}
                       getIcons={this.getIcons}
+                      getNames={this.iToSymptom}
                       handleIconClick={this.handleSymptomClick}
                     />}
                     {this.state.currentStep === 2 &&
@@ -319,12 +334,14 @@ export default class ReservationView extends React.Component {
                 <BodyView
                   chosen={this.state.chosenBody}
                   getIcons={this.getIcons}
+                  getNames={this.iToBody}
                   handleIconClick={this.handleBodyClick} />}
                 {this.state.currentStep === 1 &&
                 <SymptomsView
                   chosen={this.state.chosenSymptoms}
                   chosenBody={this.state.chosenBody}
                   getIcons={this.getIcons}
+                  getNames={this.iToSymptom}
                   handleIconClick={this.handleSymptomClick}
                   handleNextClick={this.handleNextClick}
                 />}

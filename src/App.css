@@ -140,8 +140,8 @@ a {
  }
 
 .Grid-Icon {
-  justify-content: center;
-  margin: auto;
+  /*justify-content: center;*/
+  /*margin: auto; */
   background-color: #B0C4DE;
   /*border: 3px transparent!important;*/
   width: 80px!important;
@@ -159,6 +159,15 @@ a {
 
 .past{
   background-color: #DBDBD4
+}
+
+label {
+
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 .Reservation-card-actions {

@@ -9,7 +9,6 @@ export default class SymptomsView extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
 
     };
@@ -19,7 +18,7 @@ export default class SymptomsView extends React.Component {
 
     return (
         <div className="Symptoms-view-content">
-          <IconGrid chosen={this.props.chosen} body={this.props.chosenBody[0]} getIcons={this.props.getIcons} handleIconClick={this.props.handleIconClick} />
+          <IconGrid chosen={this.props.chosen} body={this.props.chosenBody[0]} getIcons={this.props.getIcons} getNames={this.props.getNames} handleIconClick={this.props.handleIconClick} />
         </div>
     )
   }
