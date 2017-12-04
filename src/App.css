@@ -194,3 +194,8 @@ a {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.Card-row {
+  display: flex;
+  align-items: center;
+}
