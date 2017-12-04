@@ -18,7 +18,8 @@ class App extends React.Component {
     this.state = {
       reservations: [
         {
-          date: dateFormat(new Date(2017, 11, 28, 12, 30)),
+          date: dateFormat(new Date(2017, 11, 28), "longDate"),
+          time: '12:30',
           doctor: 'Tohtori Tolonen',
           occupation: 'Ylilääkäri',
           bodyPart: 'head',
@@ -27,9 +28,11 @@ class App extends React.Component {
           price: '80 €',
           duration: '45 min',
           id: '0',
+          past: false,
        },
        {
          date: dateFormat(new Date(2017, 12, 29, 8, 15)),
+         time: '8:15',
          doctor: 'Dogtori',
          occupation: 'Iholääkäri',
          bodyPart: 'limbs',
@@ -38,11 +41,13 @@ class App extends React.Component {
          price: '120 €',
          duration: '60 min',
          id: '1',
+         past: false,
        }
      ],
      pastReservations: [
        {
-         date: dateFormat(new Date(2017, 12, 2, 10, 30)),
+         date: dateFormat(new Date(2017, 12, 2)),
+         time: '10:30',
          doctor: 'Tohtori Tolonen',
          occupation: 'Darralääkäri',
          bodyPart: 'torso',
@@ -51,23 +56,28 @@ class App extends React.Component {
          price: '65 €',
          duration: '45 min',
          id: '2',
+         past: true,
        }
      ],
      availableReservations: [
         {
-          date: dateFormat(new Date(2017, 12, 5, 10, 30)),
+          date: dateFormat(new Date(2017, 12, 5)),
+          time: '14:30',
           doctor: 'Dr. Corgi',
           occupation: 'Ylilääkäri',
           bodyPart: 'head',
           price: '50 €',
           duration: '20 min',
+          past: false,
        },
        {
-         date: dateFormat(new Date(2017, 12, 5, 8, 20)),
+         date: dateFormat(new Date(2017, 12, 5)),
+         time: '8:20',
          doctor: 'Tohtori Tolonen',
          occupation: 'Iholääkäri',
          price: '160 €',
          duration: '80 min',
+         past: false,
        }
      ]
     };

@@ -74,7 +74,7 @@ a {
   flex-grow: 1;
 }
 
-.New-reservation-grid {
+.New-reservation-view, .New-reservation-grid {
   height: 100%;
 }
 
@@ -99,6 +99,10 @@ a {
   justify-content: center;
 }
 
+.New-reservation-action-button {
+  margin: 10px;
+}
+
 .PulseButton {
   align-self: flex-end;
 }
@@ -110,9 +114,8 @@ a {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 10px;
   background-color: rgba(255, 255, 255, 0.8);
-  width: 98%;
+  width: 100%;
 }
 
 .MainView-subheading {
@@ -140,16 +143,21 @@ a {
   justify-content: center;
   margin: auto;
   background-color: #B0C4DE;
-  border: 3px transparent!important;
+  /*border: 3px transparent!important;*/
   width: 80px!important;
   height: 80px!important;
 }
 
 .Grid-Icon.chosen {
-  border: 3px solid #3f51b5!important;
+  /*border: 3px solid #3f51b5!important;*/
+  background-color: #deb0c4;
 }
 
-.ReservationCard-card-187.past{
+.Grid-Icon img {
+  filter: invert(100%);
+}
+
+.past{
   background-color: #DBDBD4
 }
 
@@ -214,4 +222,9 @@ a {
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+.Card-row {
+  display: flex;
+  align-items: center;
 }

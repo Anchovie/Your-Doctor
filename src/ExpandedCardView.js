@@ -5,9 +5,16 @@ import CancelDialog from './Components/CancelDialog';
 import { Link } from 'react-router-dom';
 import IconButton from 'material-ui/IconButton';
 import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
+import Calendar from 'mui-icons/cmdi/calendar';
 import VideoImage from './img/videocall_placeholder.png';
 import Grid from 'material-ui/Grid';
 import Card, { CardContent, CardActions } from 'material-ui/Card';
+import Clock from 'mui-icons/cmdi/clock';
+import TagTextOutline from 'mui-icons/cmdi/tag-text-outline';
+import TimerSand from 'mui-icons/cmdi/timer-sand';
+import MessageTextOutline from 'mui-icons/cmdi/message-text-outline';
+import ClipboardText from 'mui-icons/cmdi/clipboard-text';
+
 
 
 /* PARENTS (called from):
@@ -58,33 +65,56 @@ export default class ExpandedCardView extends React.Component {
           <Typography type="body1">
             {this.props.appointment.occupation}
           </Typography>
-          <Typography component="p">
-            {this.props.appointment.date +'\n'+  this.props.appointment.doctor}
-          </Typography>
+          <div className="Card-row">
+            <Calendar />
+            <Typography component="p">
+              {this.props.appointment.date }
+            </Typography>
+          </div>
+          <div className="Card-row">
+          <Clock />
+            <Typography component="p">
+              {this.props.appointment.time }
+            </Typography>
+          </div>
           <Grid container spacing={24}>
             <Grid item xs={12} sm={10} md={8} lg={6}>
               <img className="Video-Image" src={VideoImage} alt="" />
             </Grid>
           </Grid>
-          <Typography component="p">
-            Symptoms: {this.props.appointment.symptoms}
-          </Typography>
-          <Typography component="p">
-            Price: {this.props.appointment.price}
-          </Typography>
-          <Typography component="p">
-            Duration: {this.props.appointment.duration}
-          </Typography>
-          <Typography component="p">
-            Information: {this.props.appointment.extraInfo}
-          </Typography>
+          <div className='Card-row'>
+            <ClipboardText />
+            <Typography component="p">
+              Symptoms: {this.props.appointment.symptoms}
+            </Typography>
+          </div>
+          <div className='Card-row'>
+            <TagTextOutline />
+            <Typography component="p">
+              Price: {this.props.appointment.price}
+            </Typography>
+          </div>
+          <div className="Card-row">
+            <TimerSand />
+            <Typography component="p">
+              Duration: {this.props.appointment.duration}
+            </Typography>
+          </div>
+          <div className="Card-row">
+            <MessageTextOutline />
+            <Typography component="p">
+              Information: {this.props.appointment.extraInfo}
+            </Typography>
+          </div>
         </CardContent>
-        <CardActions disableActionSpacing>
-          <Button onClick={this.handleCancelDialogOpen} dense color="primary">
-            Cancel
-          </Button>
-          <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
-        </CardActions>
+        {this.props.appointment.past === false &&
+          <CardActions disableActionSpacing >
+            <Button onClick={this.handleCancelDialogOpen} dense color="primary">
+              Cancel
+            </Button>
+            <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
+          </CardActions>
+        }
       </Card>
     )
   }
