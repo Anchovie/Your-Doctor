@@ -111,7 +111,7 @@ export default class ExpandedCardView extends React.Component {
                   </CardContent>
                 </div>
                 <CardActions disableActionSpacing>
-                  <div className="Expanded-card-buttons">
+                  <div className="Button-bar">
                     <Link to='/'>
                       <Button dense className="Action-button">
                         <ChevronLeft className="Arrow-left-icon"/>
@@ -133,7 +133,7 @@ export default class ExpandedCardView extends React.Component {
         </Hidden>
         {/* Mobile */}
         <Hidden mdUp implementation="css">
-          <div className="Expanded-card">
+          <div className="Expanded-card-content">
             <div className="Scrolled-container-wrapper">
               <div className="Scrolled-container">
                 <Typography type="body1">
@@ -186,7 +186,7 @@ export default class ExpandedCardView extends React.Component {
                   </Typography>
                 </div>
               </div>
-              <div className="Expanded-card-buttons">
+              <div className="Button-bar">
                 <Link to='/'>
                   <Button dense className="Action-button">
                     <ChevronLeft className="Arrow-left-icon"/>
