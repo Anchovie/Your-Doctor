@@ -61,7 +61,6 @@ class App extends React.Component {
           bodyPart: 'head',
           price: '50 €',
           duration: '20 min',
-          id: '3',
        },
        {
          date: dateFormat(new Date(2017, 12, 5, 8, 20)),
@@ -69,7 +68,6 @@ class App extends React.Component {
          occupation: 'Iholääkäri',
          price: '160 €',
          duration: '80 min',
-         id: '4',
        }
      ]
     };

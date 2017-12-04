@@ -6,6 +6,9 @@ import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import CardBackground from '../img/corgi.png';
 
+/*
+* AvailableTimesView.js
+*/
 
 const styles = theme => ({
   card: {
@@ -36,9 +39,13 @@ class AvailableTimeCard extends React.Component {
           <Typography component="p">
             {this.props.appointment.date}
           </Typography>
+          <Typography component="p">
+            {this.props.appointment.duration}
+            {this.props.appointment.price}
+          </Typography>
         </CardContent>
         <CardActions disableActionSpacing>
-          <Button onClick={this.props.handleAppointmentClick} dense color="primary">
+          <Button onClick={()=>this.props.handleAppointmentClick(this.props.appointment)} dense color="primary">
             Choose me
           </Button>
         </CardActions>
