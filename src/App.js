@@ -31,7 +31,7 @@ class App extends React.Component {
           past: false,
        },
        {
-         date: dateFormat(new Date(2017, 12, 29, 8, 15)),
+         date: dateFormat(new Date(2017, 12, 29), "longDate"),
          time: '8:15',
          doctor: 'Dogtori',
          occupation: 'Iholääkäri',
@@ -46,7 +46,7 @@ class App extends React.Component {
      ],
      pastReservations: [
        {
-         date: dateFormat(new Date(2017, 12, 2)),
+         date: dateFormat(new Date(2017, 12, 2), "longDate"),
          time: '10:30',
          doctor: 'Tohtori Tolonen',
          occupation: 'Darralääkäri',
@@ -61,7 +61,7 @@ class App extends React.Component {
      ],
      availableReservations: [
         {
-          date: dateFormat(new Date(2017, 12, 5)),
+          date: dateFormat(new Date(2017, 12, 5), "longDate"),
           time: '14:30',
           doctor: 'Dr. Corgi',
           occupation: 'Ylilääkäri',
@@ -71,7 +71,7 @@ class App extends React.Component {
           past: false,
        },
        {
-         date: dateFormat(new Date(2017, 12, 5)),
+         date: dateFormat(new Date(2017, 12, 5), "longDate"),
          time: '8:20',
          doctor: 'Tohtori Tolonen',
          occupation: 'Iholääkäri',
