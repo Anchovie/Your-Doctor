@@ -273,9 +273,9 @@ export default class ReservationView extends React.Component {
         <Hidden mdDown implementation="css">
           <Grid container justify="center" className="New-reservation-grid">
             <Grid item md={8} sm={12} xs={12}>
-              <Card className="New-reservation">
+              <Card className="New-reservation New-reservation-card">
                 <div className="Scrolled-container-wrapper">
-                  <CardContent>
+                  <CardContent className="Scrolled-container">
                     <ReservationHeading />
                     <ReservationStepper currentStep={this.state.currentStep}/>
                     {this.state.currentStep === 0 &&
