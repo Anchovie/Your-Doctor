@@ -1,5 +1,4 @@
 import React from 'react';
-import dateFormat from 'dateformat';
 
 import BodyView from './BodyView';
 import SymptomsView from './SymptomsView';
@@ -12,11 +11,9 @@ import ReservationButtons from './Components/ReservationButtons';
 import ReservationStepper from './Components/ReservationStepper';
 
 import Grid from 'material-ui/Grid';
-import IconButton from 'material-ui/IconButton';
 import Hidden from 'material-ui/Hidden';
 import Card, { CardContent } from 'material-ui/Card';
 
-import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
 import SymptomIcon from './img/corgi.png';
 import BodyHeadIcon from './img/body_head_offset.png';//body_head.png';
 import BodyTorsoIcon from './img/body_torso.png';
@@ -89,7 +86,7 @@ export default class ReservationView extends React.Component {
     let symptomString = "";
     let symptoms = [];
     console.log("iARR="+ iArr);
-    if (iArr.length==0 || iArr.length == undefined){
+    if (iArr.length === 0 || iArr.length === undefined){
       console.log("Iarr not array, making it one");
       let x=iArr;
       iArr=[];

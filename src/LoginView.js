@@ -25,24 +25,24 @@ export default class LoginView extends React.Component {
         </Grid>
         <Grid container spacing={24} justify="center">
           <Grid item xs={8} sm={6} md={4}>
-            <List class="LoginList">
+            <List className="LoginList">
               <ListItem>
                 <ListItemIcon>
                   <ListIcon className="loginIcon" />
                 </ListItemIcon>
-                <ListItemText class="LoginTexts" inset primary="Reserve appointments easily" />
+                <ListItemText className="LoginTexts" inset primary="Reserve appointments easily" />
               </ListItem>
               <ListItem>
                 <ListItemIcon>
                   <DoctorIcon className="loginIcon" />
                 </ListItemIcon>
-                <ListItemText class="LoginTexts" inset primary="Meet your doctor online" />
+                <ListItemText className="LoginTexts" inset primary="Meet your doctor online" />
               </ListItem>
               <ListItem>
                 <ListItemIcon>
                   <HeartIcon className="loginIcon" />
                 </ListItemIcon>
-                <ListItemText class="LoginTexts" inset primary="Enjoy and feel healthy!" />
+                <ListItemText className="LoginTexts" inset primary="Enjoy and feel healthy!" />
               </ListItem>
             </List>
             <div className="LoginButton">

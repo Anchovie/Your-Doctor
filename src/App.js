@@ -4,11 +4,12 @@ import MainView from './MainView';
 import ReservationView from './ReservationView';
 import LoginView from './LoginView';
 import Navbar from './Components/Navbar';
-import { Switch, Route } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 import ExpandedCardView from './ExpandedCardView';
 import dateFormat from 'dateformat';
 import Grid from 'material-ui/Grid';
-
+import Button from 'material-ui/Button';
+import PlusIcon from 'mui-icons/cmdi/plus';
 
 class App extends React.Component {
 
@@ -115,8 +116,15 @@ class App extends React.Component {
         {location !== "/login" &&
           <Navbar location={location} />
         }
+        {location === "/" &&
+          <Link to='/reservation'>
+            <Button className="Add-button" fab color="accent" aria-label="Create new appointment">
+              <PlusIcon />
+            </Button>
+          </Link>
+        }
         <Grid container justify="center" className={contentClass}>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="Content-grid-item">
             <Switch>
               <Route exact path="/" render={()=>
                 <MainView reservations={this.state.reservations}

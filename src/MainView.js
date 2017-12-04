@@ -1,10 +1,6 @@
 import React from 'react';
 import Grid from 'material-ui/Grid';
 import ResCard from './Components/ReservationCard';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
-import PlusIcon from 'mui-icons/cmdi/plus';
-import { Link } from 'react-router-dom';
 
 /* PARENTS (called from):
 * App.js
@@ -16,11 +12,6 @@ export default class MainView extends React.Component {
   render() {
     return (
       <div className="MainView">
-        <Link to='/reservation'>
-          <Button className="Add-button" fab color="accent" aria-label="Create new appointment">
-            <PlusIcon />
-          </Button>
-        </Link>
         <div className="MainView-Content">
           <h3 className="MainView-subheading">Your upcoming appointments</h3>
           <Grid container spacing={24}>

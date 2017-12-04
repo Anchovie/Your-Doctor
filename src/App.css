@@ -32,9 +32,8 @@ a {
 }
 .Content-login {
   background-color: #fff;
-  position: absolute;
-  height: 100%;
-  transition: margin-top 0.3s;
+  position: fixed;
+  height: 102%;
   overflow: auto;
   flex-grow: 1;
 }
@@ -70,7 +69,7 @@ a {
 
 .Content-main {
   background-color: #fff;
-  position: absolute;
+  position: fixed;
   height: calc(100% - 128px);
   padding: 2%;
   margin-top: 128px !important;
@@ -81,12 +80,16 @@ a {
 
 .Content {
   background-color: #fff;
-  position: absolute;
+  position: fixed;
   height: calc(100% - 64px);
   margin-top: 64px !important;
   transition: margin-top 0.3s;
   overflow: auto;
   flex-grow: 1;
+}
+
+.Content-grid-item {
+  padding-bottom: 0 !important;
 }
 
 .New-reservation-view, .New-reservation-grid {
