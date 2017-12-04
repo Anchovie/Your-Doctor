@@ -27,6 +27,10 @@ a {
   font-size: large;
 }
 
+.Navbar-title {
+  color: white;
+}
+
 .Content-main {
   background-color: #fff;
   position: absolute;
@@ -65,7 +69,7 @@ a {
   padding-right: 0 !important;
 }
 
-.New-reservation-card {
+.New-reservation {
   height: 100%;
   display: flex;
   flex-direction: column;
