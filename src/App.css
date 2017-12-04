@@ -61,12 +61,7 @@ a {
 }
 
 .Scrolled-container {
-  padding: 0 30px 30px 30px;
-}
-
-.New-reservation-stepper {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  padding: 30px;
 }
 
 .New-reservation {
@@ -79,7 +74,7 @@ a {
 
 .New-reservation-heading {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 
 .PulseButton {
@@ -135,6 +130,10 @@ a {
 
 .past{
   background-color: #DBDBD4
+}
+
+.Reservation-card-actions {
+  justify-content: flex-end;
 }
 
 .Video-Image {

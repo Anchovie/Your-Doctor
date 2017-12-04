@@ -30,9 +30,6 @@ const styles = theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  flexGrow: {
-    flex: '1 1 auto',
-  }
 });
 
 
@@ -82,18 +79,17 @@ class ReservationCard extends React.Component {
             Symptoms: {this.props.appointment.symptoms}
           </Typography>
         </CardContent>
-        <CardActions disableActionSpacing>
+        <CardActions disableActionSpacing className="Reservation-card-actions">
           <Button onClick={this.handleCancelDialogOpen} dense color="primary">
             Cancel
           </Button>
-          <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
           <Link to={`/appointment/${this.props.appointment.id}`}>
             <Button dense color="primary">
               Open
             </Button>
           </Link>
-          <div className={classes.flexGrow} />
         </CardActions>
+        <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
       </Card>
     );
   }

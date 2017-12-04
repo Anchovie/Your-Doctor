@@ -80,14 +80,6 @@ export default class ReservationView extends React.Component {
     };
   }
 
-  getSteps = () => {
-    return ['Select body part', 'Select symptoms', 'Extra information', 'Select appointment', 'Confirm appointment'];
-  }
-
-  getMobileSteps = () => {
-    return ['', '', '', '', ''];
-  }
-
   iToBody =(i) =>{
     const bodyParts = ['Head', 'Torso', 'Stomach', 'Back', 'Hand', 'Foot', 'Body', 'Intimate', 'Medicine'];
     return bodyParts[i];
@@ -265,8 +257,6 @@ export default class ReservationView extends React.Component {
   }
 
   render() {
-    const steps = this.getSteps();
-    const mobileSteps = this.getMobileSteps();
     return (
       <Grid container justify="center" className="New-reservation-grid">
         <Grid item md={8} sm={12} xs={12}>
@@ -276,7 +266,7 @@ export default class ReservationView extends React.Component {
               <div className="Scrolled-container-wrapper">
                 <CardContent>
                   <ReservationHeading />
-                  <ReservationStepper steps={steps} currentStep={this.state.currentStep}/>
+                  <ReservationStepper currentStep={this.state.currentStep}/>
                   {this.state.currentStep === 0 &&
                   <BodyView
                     chosen={this.state.chosenBody}
@@ -321,7 +311,7 @@ export default class ReservationView extends React.Component {
               <div className="Scrolled-container-wrapper">
                 <div className="Scrolled-container">
                   <ReservationHeading />
-                  <ReservationStepper steps={mobileSteps} currentStep={this.state.currentStep}/>
+                  <ReservationStepper currentStep={this.state.currentStep}/>
                   <IconButton onClick={this.handleBackClick}>
                     <ArrowLeftIcon className="Arrow-left-icon"/>
                   </IconButton>
