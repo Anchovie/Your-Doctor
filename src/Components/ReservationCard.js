@@ -51,7 +51,6 @@ class ReservationCard extends React.Component {
   }
 
   handleCancelling = () => {
-    // console.log(this.props)
     this.props.cancelReservation(this.props.appointment)
     this.setState({ cancelDialogOpen: false })
   }

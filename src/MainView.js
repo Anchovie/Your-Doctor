@@ -22,7 +22,7 @@ export default class MainView extends React.Component {
           </Button>
         </Link>
         <div className="MainView-Content">
-          <Typography type="subheading" color="secondary" className="MainView-subheading">Your upcoming appointments</Typography>
+          <h3 className="MainView-subheading">Your upcoming appointments</h3>
           <Grid container spacing={24}>
             { this.props.reservations.map((appointment, i) =>
               <Grid key={i} item xs={12} lg={6}>
@@ -30,7 +30,7 @@ export default class MainView extends React.Component {
               </Grid>
             )}
           </Grid>
-          <Typography type="subheading" color="secondary" className="MainView-subheading2">Your recent appointments</Typography>
+          <h3 className="MainView-subheading2">Your recent appointments</h3>
           <Grid container spacing={24}>
            { this.props.pastReservations.map((appointment, i) =>
               <Grid key={i} item xs={12} lg={6}>
