@@ -27,6 +27,10 @@ a {
   font-size: large;
 }
 
+.Navbar-title {
+  color: white;
+}
+
 .Content-main {
   background-color: #fff;
   position: absolute;

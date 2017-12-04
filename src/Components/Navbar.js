@@ -48,7 +48,9 @@ export default class Navbar extends React.Component {
               </Link>
             }
             <Typography type="title" color="inherit" className="App-title">
-              Your Doctor
+              <Link to='/' className="Navbar-title">
+                Your Doctor
+              </Link>
             </Typography>
             <div>
               <IconButton
