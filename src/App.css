@@ -77,6 +77,10 @@ a {
   justify-content: center;
 }
 
+.New-reservation-action-button {
+  margin: 10px;
+}
+
 .PulseButton {
   align-self: flex-end;
 }
@@ -88,9 +92,8 @@ a {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 10px;
   background-color: rgba(255, 255, 255, 0.8);
-  width: 98%;
+  width: 100%;
 }
 
 .MainView-subheading {
