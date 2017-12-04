@@ -209,8 +209,7 @@ export default class ReservationView extends React.Component {
 
   handleAppointmentClick = (i) => {
     console.log("Appointment " + i + " pressed!");
-    this.setState({chosenAppointment: [i]});
-    console.log(this.state.chosenAppointment);
+    this.setState({chosenAppointment: i});
     // Go to next step from body click
     if (this.state.currentStep < 4) {
       this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}))
@@ -244,10 +243,10 @@ export default class ReservationView extends React.Component {
 
   createNewReservation = () => {
     const newReservation = {
-      date: dateFormat(new Date(2017, 12, 24, 10, 0)),
-      doctor: 'JoUlU PuKkI',
-      occupation: 'Ravintoneuvoja',
-      price: '999,99 €',
+      date: this.state.chosenAppointment.date,//dateFormat(new Date(2017, 12, 24, 10, 0)),
+      doctor: this.state.chosenAppointment.doctor,//'JoUlU PuKkI',
+      occupation: this.state.chosenAppointment.occupation,//
+      price: this.state.chosenAppointment.price,
       bodyPart: this.iToBody(this.state.chosenBody),
       symptoms: this.iToSymptom(this.state.chosenBody[0], this.state.chosenSymptoms),
       duration: this.state.duration,
