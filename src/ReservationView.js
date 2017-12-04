@@ -76,6 +76,7 @@ export default class ReservationView extends React.Component {
       duration: "",
       extraInfo: "",
       isNextDisabled: true,
+      isPreviousDisabled: true,
     };
   }
 
@@ -276,9 +277,6 @@ export default class ReservationView extends React.Component {
                 <CardContent>
                   <ReservationHeading />
                   <ReservationStepper steps={steps} currentStep={this.state.currentStep}/>
-                  <IconButton onClick={this.handleBackClick}>
-                    <ArrowLeftIcon className="Arrow-left-icon"/>
-                  </IconButton>
                   {this.state.currentStep === 0 &&
                   <BodyView
                     chosen={this.state.chosenBody}

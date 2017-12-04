@@ -88,14 +88,14 @@ a {
 
 .Button-bar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-self: flex-end;
   position: absolute;
   bottom: 0;
   right: 0;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.8);
-  width: 100%;
+  width: 98%;
 }
 
 .MainView-subheading {
@@ -151,6 +151,9 @@ a {
   animation: none;
 }
 
+.cancelButton {
+  margin-right: 15px;
+}
 @-webkit-keyframes pulse {
   0% {
     -webkit-box-shadow: 0 0 0 0 rgba(55,72,172, 0.8);
