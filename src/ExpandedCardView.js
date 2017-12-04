@@ -107,12 +107,14 @@ export default class ExpandedCardView extends React.Component {
             </Typography>
           </div>
         </CardContent>
-        <CardActions disableActionSpacing>
-          <Button onClick={this.handleCancelDialogOpen} dense color="primary">
-            Cancel
-          </Button>
-          <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
-        </CardActions>
+        {this.props.appointment.past === false &&
+          <CardActions disableActionSpacing >
+            <Button onClick={this.handleCancelDialogOpen} dense color="primary">
+              Cancel
+            </Button>
+            <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
+          </CardActions>
+        }
       </Card>
     )
   }
