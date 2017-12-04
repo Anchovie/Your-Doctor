@@ -16,6 +16,7 @@ import MessageTextOutline from 'mui-icons/cmdi/message-text-outline';
 import ClipboardText from 'mui-icons/cmdi/clipboard-text';
 import Hidden from 'material-ui/Hidden';
 import Delete from 'mui-icons/cmdi/delete';
+import ChevronLeft from 'mui-icons/cmdi/chevron-left';
 
 
 
@@ -113,14 +114,14 @@ export default class ExpandedCardView extends React.Component {
                     <div className="Expanded-card-buttons">
                     <Link to='/'>
                       <Button dense>
-                        <ArrowLeftIcon className="Arrow-left-icon"/>
+                        <ChevronLeft className="Arrow-left-icon"/>
                         Back
                       </Button>
                     </Link>
                     {this.props.appointment.past === false &&
                       <Button onClick={this.handleCancelDialogOpen} dense className="Expand-cancel-button">
-                        Cancel
                         <Delete />
+                        Delete
                       </Button>
                     }
                     <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
@@ -171,8 +172,7 @@ export default class ExpandedCardView extends React.Component {
                     <Typography component="p">
                       Price: {this.props.appointment.price}
                     </Typography>
-                  </div>
-                  <div className="Card-row">
+                  
                     <TimerSand />
                     <Typography component="p">
                       Duration: {this.props.appointment.duration}
@@ -189,14 +189,14 @@ export default class ExpandedCardView extends React.Component {
               <div className="Expanded-card-buttons">
                 <Link to='/'>
                     <Button dense >
-                      <ArrowLeftIcon className="Arrow-left-icon"/>
+                      <ChevronLeft className="Arrow-left-icon"/>
                       Back
                     </Button>
                 </Link>
                 {this.props.appointment.past === false &&
                   <Button onClick={this.handleCancelDialogOpen} dense className="Expand-cancel-button">
-                    Cancel
                     <Delete />
+                    Delete
                   </Button>
                 }
                 <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
