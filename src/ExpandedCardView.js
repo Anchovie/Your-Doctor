@@ -57,7 +57,7 @@ export default class ExpandedCardView extends React.Component {
             <Grid item md={8} sm={12} xs={12}>
               <Card className="ExpandedCard" raised={true}>
                 <CardContent>
-                <Typography type="body1">
+                  <Typography type="body1">
                     Video appointment
                   </Typography>
                   <Typography type="headline" component="h2">
@@ -73,7 +73,7 @@ export default class ExpandedCardView extends React.Component {
                     </Typography>
                   </div>
                   <div className="Card-row">
-                  <Clock />
+                    <Clock />
                     <Typography component="p">
                       {this.props.appointment.time }
                     </Typography>
@@ -108,8 +108,8 @@ export default class ExpandedCardView extends React.Component {
                     </Typography>
                   </div>
                 </CardContent>
-                  <CardActions disableActionSpacing>
-                    <div className="Expanded-card-buttons">
+                <CardActions disableActionSpacing>
+                  <div className="Expanded-card-buttons">
                     <Link to='/'>
                       <Button dense>
                         <ChevronLeft className="Arrow-left-icon"/>
@@ -122,86 +122,85 @@ export default class ExpandedCardView extends React.Component {
                         Delete
                       </Button>
                     }
-                    <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
                   </div>
-                  </CardActions>
+                </CardActions>
+                <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
               </Card>
             </Grid>
           </Grid>
         </Hidden>
         {/* Mobile */}
         <Hidden mdUp implementation="css">
-        <Card className="ExpandedCard" raised={true}>
-          <CardContent>
-            <Typography type="body1">
-              Video appointment
-            </Typography>
-                  <Typography type="headline" component="h2">
-                    {this.props.appointment.doctor}
+          <div className="Expanded-card">
+            <div className="Scrolled-container-wrapper">
+              <div className="Scrolled-container">
+                <Typography type="body1">
+                  Video appointment
+                </Typography>
+                <Typography type="headline" component="h2">
+                  {this.props.appointment.doctor}
+                </Typography>
+                <Typography type="body1">
+                  {this.props.appointment.occupation}
+                </Typography>
+                <div className="Card-row">
+                  <Calendar />
+                  <Typography component="p">
+                    {this.props.appointment.date }
                   </Typography>
-                  <Typography type="body1">
-                    {this.props.appointment.occupation}
+                </div>
+                <div className="Card-row">
+                <Clock />
+                  <Typography component="p">
+                    {this.props.appointment.time }
                   </Typography>
-                  <div className="Card-row">
-                    <Calendar />
-                    <Typography component="p">
-                      {this.props.appointment.date }
-                    </Typography>
-                  </div>
-                  <div className="Card-row">
-                  <Clock />
-                    <Typography component="p">
-                      {this.props.appointment.time }
-                    </Typography>
-                  </div>
-                  <Grid container spacing={24}>
-                    <Grid item xs={12} sm={10} md={8} lg={6}>
-                      <img className="Video-Image" src={VideoImage} alt="" />
-                    </Grid>
+                </div>
+                <Grid container spacing={24}>
+                  <Grid item xs={12} sm={10} md={8} lg={6}>
+                    <img className="Video-Image" src={VideoImage} alt="" />
                   </Grid>
-                  <div className='Card-row'>
-                    <ClipboardText />
-                    <Typography component="p">
-                      Symptoms: {this.props.appointment.symptoms}
-                    </Typography>
-                  </div>
-                  <div className='Card-row'>
-                    <TagTextOutline />
-                    <Typography component="p">
-                      Price: {this.props.appointment.price}
-                    </Typography>
-                  
-                    <TimerSand />
-                    <Typography component="p">
-                      Duration: {this.props.appointment.duration}
-                    </Typography>
-                  </div>
-                  <div className="Card-row">
-                    <MessageTextOutline />
-                    <Typography component="p">
-                      Information: {this.props.appointment.extraInfo}
-                    </Typography>
-                  </div>
-          </CardContent>      
-            <CardActions disableActionSpacing >
-              <div className="Expanded-card-buttons">
+                </Grid>
+                <div className='Card-row'>
+                  <ClipboardText />
+                  <Typography component="p">
+                    Symptoms: {this.props.appointment.symptoms}
+                  </Typography>
+                </div>
+                <div className='Card-row'>
+                  <TagTextOutline />
+                  <Typography component="p">
+                    Price: {this.props.appointment.price}
+                  </Typography>
+
+                  <TimerSand />
+                  <Typography component="p">
+                    Duration: {this.props.appointment.duration}
+                  </Typography>
+                </div>
+                <div className="Card-row">
+                  <MessageTextOutline />
+                  <Typography component="p">
+                    Information: {this.props.appointment.extraInfo}
+                  </Typography>
+                </div>
+              </div>
+              <div className="Expanded-card-buttons-mobile">
                 <Link to='/'>
-                    <Button dense >
-                      <ChevronLeft className="Arrow-left-icon"/>
-                      Back
-                    </Button>
+                  <Button dense className="Action-button">
+                    <ChevronLeft className="Arrow-left-icon"/>
+                    Back
+                  </Button>
                 </Link>
                 {this.props.appointment.past === false &&
-                  <Button onClick={this.handleCancelDialogOpen} dense className="Expand-cancel-button">
+                  <Button onClick={this.handleCancelDialogOpen} dense className="Expand-cancel-button Action-button">
                     <Delete />
                     Delete
                   </Button>
                 }
-                <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
               </div>
-            </CardActions>
-        </Card>
-
+              <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
+            </div>
+          </div>
         </Hidden>
 
       </div>

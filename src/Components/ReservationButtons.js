@@ -16,7 +16,7 @@ function ReservationButtons(props) {
       {props.currentStep === 0 &&
         <div className="Button-bar">
           <Link to='/'>
-            <Button dense color="primary" onClick={props.handleBackClick} className="New-reservation-action-button">
+            <Button dense color="primary" onClick={props.handleBackClick} className="Action-button">
               <ChevronLeft />
               Cancel
             </Button>
@@ -25,17 +25,17 @@ function ReservationButtons(props) {
       }
       {(props.currentStep === 1 || props.currentStep === 2) &&
         <div className="Button-bar">
-          <Button dense color="primary" onClick={props.handleBackClick} className="New-reservation-action-button">
+          <Button dense color="primary" onClick={props.handleBackClick} className="Action-button">
             <ChevronLeft />
             Previous
           </Button>
           {props.isNextDisabled ? (
-            <Button disabled raised color="primary" className="New-reservation-action-button">
+            <Button disabled raised color="primary" className="Action-button">
               Next
               <ChevronRight/>
             </Button>
           ) : (
-            <Button className="PulseButton New-reservation-action-button" raised color="primary" onClick={props.handleNextClick}>
+            <Button className="PulseButton Action-button" raised color="primary" onClick={props.handleNextClick}>
               Next
               <ChevronRight className="Arrow-right-icon"/>
             </Button>
@@ -44,7 +44,7 @@ function ReservationButtons(props) {
       }
       {props.currentStep === 3 &&
         <div className="Button-bar">
-          <Button dense color="primary" onClick={props.handleBackClick} className="New-reservation-action-button">
+          <Button dense color="primary" onClick={props.handleBackClick} className="Action-button">
             <ChevronLeft />
             Previous
           </Button>
@@ -52,11 +52,11 @@ function ReservationButtons(props) {
       }
       {props.currentStep === 4 &&
         <div className="Button-bar">
-          <Button dense color="primary" onClick={props.handleBackClick} className="New-reservation-action-button">
+          <Button dense color="primary" onClick={props.handleBackClick} className="Action-button">
             <ChevronLeft />
             Previous
           </Button>
-          <div className="RightSideButtons" className="New-reservation-action-button">
+          <div className="RightSideButtons Action-button">
             <Link to='/'>
               <Button className="cancelButton" dense color="default" onClick={props.handleBackClick}>
               Cancel

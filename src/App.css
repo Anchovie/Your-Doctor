@@ -102,9 +102,10 @@ a {
 
 .Scrolled-container {
   padding: 30px;
+  margin-bottom: 30px;
 }
 
-.New-reservation {
+.New-reservation, .Expanded-card {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -117,7 +118,7 @@ a {
   justify-content: center;
 }
 
-.New-reservation-action-button {
+.Action-button {
   margin: 10px;
 }
 
@@ -266,8 +267,23 @@ a {
   align-items: center;
 }
 
+.ExpandedCard-container {
+  height: 100%;
+}
+
 .Expanded-card-buttons {
   display: flex;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+}
+
+.Expanded-card-buttons-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   background-color: rgba(255, 255, 255, 0.8);
   width: 100%;
 }
