@@ -3,8 +3,6 @@ import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import CancelDialog from './Components/CancelDialog';
 import { Link } from 'react-router-dom';
-import IconButton from 'material-ui/IconButton';
-import ArrowLeftIcon from 'mui-icons/cmdi/arrow-left';
 import Calendar from 'mui-icons/cmdi/calendar';
 import VideoImage from './img/videocall_placeholder.png';
 import Grid from 'material-ui/Grid';

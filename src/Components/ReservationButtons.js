@@ -1,8 +1,9 @@
 import React from 'react';
 import Button from 'material-ui/Button';
-import ArrowRightIcon from 'mui-icons/cmdi/arrow-right';
 import Check from 'mui-icons/cmdi/check';
 import { Link } from 'react-router-dom';
+import ChevronLeft from 'mui-icons/cmdi/chevron-left';
+import ChevronRight from 'mui-icons/cmdi/chevron-right';
 
 
 /* PARENTS (called from):
@@ -12,20 +13,31 @@ import { Link } from 'react-router-dom';
 function ReservationButtons(props) {
   return (
     <div>
+      {props.currentStep === 0 &&
+        <div className="Button-bar">
+          <Link to='/'>
+            <Button dense color="primary" onClick={props.handleBackClick} className="New-reservation-action-button">
+              <ChevronLeft />
+              Cancel
+            </Button>
+          </Link>
+        </div>
+      }
       {(props.currentStep === 1 || props.currentStep === 2) &&
         <div className="Button-bar">
           <Button dense color="primary" onClick={props.handleBackClick} className="New-reservation-action-button">
+            <ChevronLeft />
             Previous
           </Button>
           {props.isNextDisabled ? (
             <Button disabled raised color="primary" className="New-reservation-action-button">
               Next
-              <ArrowRightIcon/>
+              <ChevronRight/>
             </Button>
           ) : (
             <Button className="PulseButton New-reservation-action-button" raised color="primary" onClick={props.handleNextClick}>
               Next
-              <ArrowRightIcon className="Arrow-right-icon"/>
+              <ChevronRight className="Arrow-right-icon"/>
             </Button>
           )}
         </div>
@@ -33,6 +45,7 @@ function ReservationButtons(props) {
       {props.currentStep === 3 &&
         <div className="Button-bar">
           <Button dense color="primary" onClick={props.handleBackClick} className="New-reservation-action-button">
+            <ChevronLeft />
             Previous
           </Button>
         </div>
@@ -40,6 +53,7 @@ function ReservationButtons(props) {
       {props.currentStep === 4 &&
         <div className="Button-bar">
           <Button dense color="primary" onClick={props.handleBackClick} className="New-reservation-action-button">
+            <ChevronLeft />
             Previous
           </Button>
           <div className="RightSideButtons" className="New-reservation-action-button">
