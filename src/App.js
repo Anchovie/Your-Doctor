@@ -94,10 +94,17 @@ class App extends React.Component {
 
   render() {
     const location = this.props.location.pathname;
-    const contentClass = location === "/" ? "Content-main" : "Content";
+    let contentClass = "Content";
+    if (location === "/") {
+      contentClass = "Content-main"
+    } else if (location === "/login") {
+      contentClass = "Content-login"
+    }
     return (
       <div>
-        <Navbar location={location} />
+        {location !== "/login" &&
+          <Navbar location={location} />
+        }
         <Grid container justify="center" className={contentClass}>
           <Grid item xs={12}>
             <Switch>
