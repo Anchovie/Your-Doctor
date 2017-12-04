@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
+import Home from 'mui-icons/cmdi/home';
 
 /* PARENTS (called from):
 * App.js
@@ -39,6 +40,13 @@ export default class Navbar extends React.Component {
       <div className="Navbar">
         <AppBar className={classname}>
           <Toolbar>
+            {this.props.location !== "/" &&
+              <Link to='/'>
+                <IconButton color="contrast">
+                  <Home className="Home-icon"/>
+                </IconButton>
+              </Link>
+            }
             <Typography type="title" color="inherit" className="App-title">
               Your Doctor
             </Typography>
