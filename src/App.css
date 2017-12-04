@@ -243,3 +243,13 @@ a {
   display: flex;
   align-items: center;
 }
+
+.Expanded-card-buttons {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+}
+
+.Expand-cancel-button {
+  margin-left: auto;
+}
