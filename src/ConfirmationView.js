@@ -28,39 +28,48 @@ export default function ConfirmationView(props) {
         {props.chosenAppointment.occupation}
       </Typography>
       <div className="Card-row">
-        <Calendar />
-        <Typography component="p">
-          {props.chosenAppointment.date }
-        </Typography>
+        <div className="Double-card-row">
+          <Calendar />
+          <Typography component="p">
+            {props.chosenAppointment.date }
+          </Typography>
+        </div>
+        <div className="Double-card-row">
+          <Clock />
+          <Typography component="p">
+            {props.chosenAppointment.time }
+          </Typography>
+        </div>
       </div>
       <div className="Card-row">
-        <Clock />
-        <Typography component="p">
-          {props.chosenAppointment.time }
-        </Typography>
-      </div>
-      <div className='Card-row'>
-        <ClipboardText />
-        <Typography component="p">
-          Symptoms: {props.chosenAppointment.symptoms}
-        </Typography>
-      </div>
-      <div className='Card-row'>
-        <TagTextOutline />
-        <Typography component="p">
-          Price: {props.chosenAppointment.price}
-        </Typography>
-
-        <TimerSand />
-        <Typography component="p">
-          Duration: {props.chosenAppointment.duration}
-        </Typography>
+        <div className="Double-card-row">
+          <ClipboardText />
+          <Typography component="p">
+            Symptoms: {props.chosenAppointment.symptoms}
+          </Typography>
+        </div>
       </div>
       <div className="Card-row">
-        <MessageTextOutline />
-        <Typography component="p">
-          Information: {props.chosenAppointment.extraInfo}
-        </Typography>
+        <div className="Double-card-row">
+          <TagTextOutline />
+          <Typography component="p">
+            Price: {props.chosenAppointment.price}
+          </Typography>
+        </div>
+        <div className="Double-card-row">
+          <TimerSand />
+          <Typography component="p">
+            Duration: {props.chosenAppointment.duration}
+          </Typography>
+        </div>
+      </div>
+      <div className="Card-row">
+        <div className="Double-card-row">
+          <MessageTextOutline />
+          <Typography component="p">
+            Information: {props.chosenAppointment.extraInfo}
+          </Typography>
+        </div>
       </div>
     </div>
   )
