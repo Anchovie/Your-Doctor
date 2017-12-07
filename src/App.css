@@ -267,15 +267,44 @@ a {
     display: none;
 }
 
-.Card-row {
-  display: flex;
-  align-items: center;
-}
-
 .ExpandedCard-container {
   height: 100%;
 }
 
 .Expand-cancel-button {
   margin-left: auto;
+}
+
+.Card-row {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  justify-content: space-between;
+  margin: 6px 0px 0px 0px;
+}
+
+.Double-card-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.Card-row-mobile {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0px 0px 0px;  
+}
+
+.Double-row-mobile {
+  display: flex;
+  align-items: flex-start;
+}
+
+.Card-icon {
+  margin-right: 3px;
+}
+
+.Card-row-confirmation {
+  display: flex;
+  align-items: center;
+  margin: 6px 0px 0px 0px;
 }

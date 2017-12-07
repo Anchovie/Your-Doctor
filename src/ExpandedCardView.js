@@ -68,49 +68,56 @@ export default class ExpandedCardView extends React.Component {
                       {this.props.appointment.occupation}
                     </Typography>
                     <div className="Card-row">
-                      <Calendar />
+                      <div className="Double-card-row">
+                      <Calendar className="Card-icon"/>
                       <Typography component="p">
                         {this.props.appointment.date }
                       </Typography>
-                    </div>
-                    <div className="Card-row">
-                      <Clock />
+                      </div>
+                      <div className="Double-card-row">
+                      <Clock className="Card-icon"/>
                       <Typography component="p">
                         {this.props.appointment.time }
                       </Typography>
+                      </div>
                     </div>
                     <Grid container spacing={24}>
                       <Grid item xs={12} sm={10} md={8} lg={6}>
                         <img className="Video-Image" src={VideoImage} alt="" />
                       </Grid>
                     </Grid>
-                    <div className='Card-row'>
-                      <ClipboardText />
+                    <div className="Card-row">
+                      <div className="Double-card-row">
+                        <TagTextOutline className="Card-icon"/>
+                        <Typography component="p">
+                          Price: {this.props.appointment.price}
+                        </Typography>
+                      </div>
+                      <div className="Double-card-row">
+                        <TimerSand className="Card-icon"/>
+                        <Typography component="p">
+                          Duration: {this.props.appointment.duration}
+                        </Typography>
+                      </div>
+                    </div>
+                    <div className="Card-row">
+                      <div className="Double-card-row">
+                      <ClipboardText className="Card-icon"/>
                       <Typography component="p">
                         Symptoms: {this.props.appointment.symptoms}
                       </Typography>
-                    </div>
-                    <div className='Card-row'>
-                      <TagTextOutline />
-                      <Typography component="p">
-                        Price: {this.props.appointment.price}
-                      </Typography>
+                      </div>
                     </div>
                     <div className="Card-row">
-                      <TimerSand />
-                      <Typography component="p">
-                        Duration: {this.props.appointment.duration}
-                      </Typography>
-                    </div>
-                    <div className="Card-row">
-                      <MessageTextOutline />
+                    <div className="Double-card-row">
+                      <MessageTextOutline className="Card-icon"/>
                       <Typography component="p">
                         Information: {this.props.appointment.extraInfo}
                       </Typography>
                     </div>
+                    </div>
                   </CardContent>
                 </div>
-                <CardActions disableActionSpacing>
                   <div className="Button-bar">
                     <Link to='/'>
                       <Button dense className="Action-button">
@@ -125,7 +132,6 @@ export default class ExpandedCardView extends React.Component {
                       </Button>
                     }
                   </div>
-                </CardActions>
                 <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
               </Card>
             </Grid>
@@ -145,45 +151,54 @@ export default class ExpandedCardView extends React.Component {
                 <Typography type="body1">
                   {this.props.appointment.occupation}
                 </Typography>
-                <div className="Card-row">
-                  <Calendar />
-                  <Typography component="p">
-                    {this.props.appointment.date }
-                  </Typography>
-                </div>
-                <div className="Card-row">
-                  <Clock />
-                  <Typography component="p">
-                    {this.props.appointment.time }
-                  </Typography>
+                <div className="Card-row-mobile">
+                  <div className="Double-row-mobile">
+                    <Calendar className="Card-icon"/>
+                    <Typography component="p">
+                      {this.props.appointment.date }
+                    </Typography>
+                  </div>
+                  <div className="Double-row-mobile">
+                    <Clock className="Card-icon"/>
+                    <Typography component="p">
+                      {this.props.appointment.time }
+                    </Typography>
+                  </div>
                 </div>
                 <Grid container spacing={24}>
                   <Grid item xs={12} sm={10} md={8} lg={6}>
                     <img className="Video-Image" src={VideoImage} alt="" />
                   </Grid>
                 </Grid>
-                <div className='Card-row'>
-                  <ClipboardText />
-                  <Typography component="p">
-                    Symptoms: {this.props.appointment.symptoms}
-                  </Typography>
+                <div className="Card-row-mobile">
+                  <div className="Double-row-mobile">
+                    <TagTextOutline className="Card-icon"/>
+                    <Typography component="p">
+                      Price: {this.props.appointment.price}
+                    </Typography>
+                  </div>
+                  <div className="Double-row-mobile">
+                    <TimerSand className="Card-icon"/>
+                    <Typography component="p">
+                      Duration: {this.props.appointment.duration}
+                    </Typography>
+                  </div>
                 </div>
-                <div className='Card-row'>
-                  <TagTextOutline />
-                  <Typography component="p">
-                    Price: {this.props.appointment.price}
-                  </Typography>
-
-                  <TimerSand />
-                  <Typography component="p">
-                    Duration: {this.props.appointment.duration}
-                  </Typography>
-                </div>
-                <div className="Card-row">
-                  <MessageTextOutline />
-                  <Typography component="p">
-                    Information: {this.props.appointment.extraInfo}
-                  </Typography>
+                  <div className="Card-row-mobile">
+                    <div className="Double-row-mobile">
+                      <ClipboardText className="Card-icon"/>
+                      <Typography component="p">
+                        Symptoms: {this.props.appointment.symptoms}
+                      </Typography>
+                    </div>
+                  </div>
+                <div className="Card-row-mobile">
+                  <div className="Double-row-mobile">
+                    <MessageTextOutline className="Card-icon"/>
+                    <Typography component="p">
+                      Information: {this.props.appointment.extraInfo}
+                    </Typography>
+                  </div>
                 </div>
               </div>
               <div className="Button-bar">
