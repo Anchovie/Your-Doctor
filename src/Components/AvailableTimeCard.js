@@ -41,6 +41,8 @@ class AvailableTimeCard extends React.Component {
           </Typography>
           <Typography component="p">
             {this.props.appointment.duration}
+          </Typography>
+          <Typography component="p">
             {this.props.appointment.price}
           </Typography>
         </CardContent>

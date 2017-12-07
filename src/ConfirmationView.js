@@ -63,7 +63,7 @@ export default function ConfirmationView(props) {
           <div className="Double-card-row">
             <ClipboardText className="Card-icon"/>
             <Typography component="p">
-              Symptoms: {props.chosenAppointment.symptoms}
+              Symptoms: {props.symptoms}
             </Typography>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function ConfirmationView(props) {
           <div className="Double-card-row">
             <MessageTextOutline className="Card-icon"/>
             <Typography component="p">
-              Information: {props.chosenAppointment.extraInfo}
+              Information: {props.extraInfo}
             </Typography>
           </div>
         </div>

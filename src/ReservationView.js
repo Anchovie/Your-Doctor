@@ -121,13 +121,8 @@ export default class ReservationView extends React.Component {
         break;
     }
     for (let i=0; i<iArr.length; i++){
-      console.log("I IN SYMPTOMSTRING = " + iArr[i]);
       symptomString+=symptoms[iArr[i]]+" ";
-    } /*
-    for (let i in iArr){
-      console.log("I IN SYMPTOMSTRING = " + i);
-      symptomString+=symptoms[i]+" ";
-    } */
+    }
     return symptomString;
   }
 
@@ -175,7 +170,6 @@ export default class ReservationView extends React.Component {
     }
   }
   handleBodyClick = (i) => {
-    console.log("Icon " + i + " pressed!");
     // Set chosen body, clear chosen symptoms and go to next step
     this.setState((prevState) => ({
       chosenBody: [i],
@@ -186,7 +180,6 @@ export default class ReservationView extends React.Component {
   }
 
   handleSymptomClick = (i) => {
-    console.log("Icon " + i + " pressed!");
     // If symptom already in chosen symptoms, deselect it
     const index = this.state.chosenSymptoms.indexOf(i);
     if (index > -1) {
@@ -214,7 +207,6 @@ export default class ReservationView extends React.Component {
   }
 
   handleAppointmentClick = (i) => {
-    console.log(i);
     console.log("Appointment " + i + " pressed!");
     this.setState({chosenAppointment: i}, () => {
       console.log(this.state.chosenAppointment);
@@ -301,6 +293,8 @@ export default class ReservationView extends React.Component {
                     {this.state.currentStep === 4 &&
                     <ConfirmationView
                       chosenAppointment={this.state.chosenAppointment}
+                      symptoms={this.iToSymptom(this.state.chosenBody[0], this.state.chosenSymptoms)}
+                      extraInfo={this.state.extraInfo}
                       handleConfirmationDialogOpen={this.handleConfirmationDialogOpen}
                     />}
                     <ConfirmedDialog open={this.state.confirmationDialogOpen} />
@@ -350,6 +344,8 @@ export default class ReservationView extends React.Component {
                 {this.state.currentStep === 4 &&
                 <ConfirmationView
                   chosenAppointment={this.state.chosenAppointment}
+                  symptoms={this.iToSymptom(this.state.chosenBody[0], this.state.chosenSymptoms)}
+                  extraInfo={this.state.extraInfo}
                   handleConfirmationDialogOpen={this.handleConfirmationDialogOpen}
                 />}
                 <ConfirmedDialog open={this.state.confirmationDialogOpen} />
