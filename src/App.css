@@ -187,6 +187,24 @@ a {
   background-color: #deb0c4;
 }
 
+.Grid-Icon.chosen {
+    -webkit-animation: grow 0.2s linear 1; /* Safari 4.0 - 8.0 */
+    animation: grow 0.2s linear 1;
+    /*filter: hue-rotate(180deg);*/
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes grow {
+    0%   {transform: scale(1,1);background-color: #B0C4DE;}
+    100%  {transform: scale(1.2,1.2);background-color: #deb0c4;}
+}
+
+/* Standard syntax */
+@keyframes grow {
+    0%   {transform: scale(1,1);background-color: #B0C4DE;}
+    100%  {transform: scale(1.2,1.2);background-color: #deb0c4;}
+}
+
 .Grid-Icon img {
   filter: invert(100%);
 }
