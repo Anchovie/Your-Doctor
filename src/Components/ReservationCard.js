@@ -78,7 +78,7 @@ class ReservationCard extends React.Component {
           <Typography component="p">
             {this.props.appointment.date}
           </Typography>
-          <Typography component="p">
+          <Typography component="p" style={{width: "60%", wordBreak: "normal"}}>
             Symptoms: {this.props.appointment.symptoms}
           </Typography>
         </CardContent>
