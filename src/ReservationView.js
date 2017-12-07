@@ -179,14 +179,13 @@ export default class ReservationView extends React.Component {
   }
   handleBodyClick = (i) => {
     console.log("Icon " + i + " pressed!");
-    // Set chosen body and clear chosen symptoms
-    this.setState({chosenBody: [i], chosenSymptoms: [], isNextDisabled: true});
-    console.log(this.state.chosenBody);
-    // Go to next step from body click
-    if (this.state.currentStep < 4) {
-      this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}))
-    }
-    //this.state.chosen.push(i);§
+    // Set chosen body, clear chosen symptoms and go to next step
+    this.setState((prevState) => ({
+      chosenBody: [i],
+      chosenSymptoms: [],
+      isNextDisabled: true,
+      currentStep: prevState.currentStep + 1
+    }));
   }
 
   handleSymptomClick = (i) => {
@@ -218,13 +217,12 @@ export default class ReservationView extends React.Component {
   }
 
   handleAppointmentClick = (i) => {
+    console.log(i);
     console.log("Appointment " + i + " pressed!");
-    this.setState({chosenAppointment: i});
-    // Go to next step from body click
-    if (this.state.currentStep < 4) {
-      this.setState((prevState) => ({ currentStep: prevState.currentStep + 1}))
-    }
-    //this.state.chosen.push(i);
+    this.setState({chosenAppointment: i}, () => {
+      console.log(this.state.chosenAppointment);
+      this.setState((prevState) => ({currentStep: prevState.currentStep + 1}));
+    });
   }
 
   handleBackClick = () => {
@@ -298,12 +296,12 @@ export default class ReservationView extends React.Component {
                     />}
                     {this.state.currentStep === 3 &&
                     <AvailableTimesView
-                      chosen={this.state.chosenAppointment}
                       availableTimes={this.props.availableReservations}
                       handleAppointmentClick={this.handleAppointmentClick}
                     />}
                     {this.state.currentStep === 4 &&
                     <ConfirmationView
+                      chosenAppointment={this.state.chosenAppointment}
                       handleConfirmationDialogOpen={this.handleConfirmationDialogOpen}
                     />}
                     <ConfirmedDialog open={this.state.confirmationDialogOpen} />
@@ -340,23 +338,20 @@ export default class ReservationView extends React.Component {
                   getIcons={this.getIcons}
                   getNames={this.iToSymptom}
                   handleIconClick={this.handleSymptomClick}
-                  handleNextClick={this.handleNextClick}
                 />}
                 {this.state.currentStep === 2 &&
                 <InformationView
                   handleTextChange={this.handleTextChange}
-                  handleNextClick={this.handleNextClick}
                 />}
                 {this.state.currentStep === 3 &&
                 <AvailableTimesView
-                  chosen={this.state.chosenAppointment}
                   availableTimes={this.props.availableReservations}
                   handleAppointmentClick={this.handleAppointmentClick}
-                  handleNextClick={this.handleNextClick}/>}
+                />}
                 {this.state.currentStep === 4 &&
                 <ConfirmationView
+                  chosenAppointment={this.state.chosenAppointment}
                   handleConfirmationDialogOpen={this.handleConfirmationDialogOpen}
-                  handleBackClick={this.handleBackClick}
                 />}
                 <ConfirmedDialog open={this.state.confirmationDialogOpen} />
                 <ReservationButtons
