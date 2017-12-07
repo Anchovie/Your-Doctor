@@ -208,6 +208,14 @@ a {
   justify-content: flex-end;
 }
 
+.Reservation-card-row {
+  margin: 8px 0;
+  display: flex;
+  width: 280px;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .Video-Image {
   width: 100%;
   height: auto;
@@ -285,13 +293,13 @@ a {
 
 .Double-card-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .Card-row-mobile {
   display: flex;
   justify-content: space-between;
-  margin: 6px 0px 0px 0px;  
+  margin: 6px 0px 0px 0px;
 }
 
 .Double-row-mobile {

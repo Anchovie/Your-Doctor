@@ -23,7 +23,7 @@ class App extends React.Component {
     this.state = {
       reservations: [
         {
-          date: dateFormat(new Date(2017, 11, 28), "longDate"),
+          date: dateFormat(new Date(2017, 11, 28), "mmm dd yyyy"),
           time: '12:30',
           doctor: 'Tohtori Tolonen',
           occupation: 'Ylilääkäri',
@@ -37,7 +37,7 @@ class App extends React.Component {
           past: false,
        },
        {
-         date: dateFormat(new Date(2017, 12, 29), "longDate"),
+         date: dateFormat(new Date(2017, 12, 29), "mmm dd yyyy"),
          time: '8:15',
          doctor: 'Dogtori',
          occupation: 'Iholääkäri',
@@ -53,7 +53,7 @@ class App extends React.Component {
      ],
      pastReservations: [
        {
-         date: dateFormat(new Date(2017, 12, 2), "longDate"),
+         date: dateFormat(new Date(2017, 12, 2), "mmm dd yyyy"),
          time: '10:30',
          doctor: 'Tohtori Tolonen',
          occupation: 'Darralääkäri',
@@ -69,7 +69,7 @@ class App extends React.Component {
      ],
      availableReservations: [
         {
-          date: dateFormat(new Date(2017, 12, 5), "longDate"),
+          date: dateFormat(new Date(2017, 12, 5), "mmm dd yyyy"),
           time: '14:30',
           doctor: 'Dr. Corgi',
           occupation: 'Ylilääkäri',
@@ -79,7 +79,7 @@ class App extends React.Component {
           past: false,
        },
        {
-         date: dateFormat(new Date(2017, 12, 5), "longDate"),
+         date: dateFormat(new Date(2017, 12, 5), "mmm dd yyyy"),
          time: '8:20',
          doctor: 'Tohtori Tolonen',
          occupation: 'Iholääkäri',

@@ -16,15 +16,15 @@ export default class MainView extends React.Component {
           <h3 className="MainView-subheading">Your upcoming appointments</h3>
           <Grid container spacing={24}>
             { this.props.reservations.map((appointment, i) =>
-              <Grid key={i} item xs={12} lg={6}>
+              <Grid key={i} item xs={12} sm={12} md={6} lg={4}>
                 <ResCard appointment={appointment} cancelReservation={this.props.cancelReservation} />
               </Grid>
             )}
           </Grid>
-          <h3 className="MainView-subheading2">Your recent appointments</h3>
+          <h3 className="MainView-subheading2">Your past appointments</h3>
           <Grid container spacing={24}>
            { this.props.pastReservations.map((appointment, i) =>
-              <Grid key={i} item xs={12} lg={6}>
+              <Grid key={i} item xs={12} sm={12} md={6} lg={4}>
                 <ResCard appointment={appointment} past={true}/>
               </Grid>
             )}

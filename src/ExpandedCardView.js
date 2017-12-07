@@ -70,13 +70,13 @@ export default class ExpandedCardView extends React.Component {
                     <div className="Card-row">
                       <div className="Double-card-row">
                       <Calendar className="Card-icon"/>
-                      <Typography component="p">
+                      <Typography type="body1">
                         {this.props.appointment.date }
                       </Typography>
                       </div>
                       <div className="Double-card-row">
                       <Clock className="Card-icon"/>
-                      <Typography component="p">
+                      <Typography type="body1">
                         {this.props.appointment.time }
                       </Typography>
                       </div>
@@ -89,13 +89,13 @@ export default class ExpandedCardView extends React.Component {
                     <div className="Card-row">
                       <div className="Double-card-row">
                         <TagTextOutline className="Card-icon"/>
-                        <Typography component="p">
+                        <Typography type="body1">
                           Price: {this.props.appointment.price}
                         </Typography>
                       </div>
                       <div className="Double-card-row">
                         <TimerSand className="Card-icon"/>
-                        <Typography component="p">
+                        <Typography type="body1">
                           Duration: {this.props.appointment.duration}
                         </Typography>
                       </div>
@@ -103,15 +103,15 @@ export default class ExpandedCardView extends React.Component {
                     <div className="Card-row">
                       <div className="Double-card-row">
                       <ClipboardText className="Card-icon"/>
-                      <Typography component="p">
+                      <Typography type="body1">
                         Symptoms: {this.props.appointment.symptoms}
                       </Typography>
                       </div>
                     </div>
-                    <div className="Card-row">
+                    <div className="Card-row-mobile">
                     <div className="Double-card-row">
                       <MessageTextOutline className="Card-icon"/>
-                      <Typography component="p">
+                      <Typography type="body1">
                         Information: {this.props.appointment.extraInfo}
                       </Typography>
                     </div>
@@ -154,13 +154,13 @@ export default class ExpandedCardView extends React.Component {
                 <div className="Card-row-mobile">
                   <div className="Double-row-mobile">
                     <Calendar className="Card-icon"/>
-                    <Typography component="p">
+                    <Typography type="body1">
                       {this.props.appointment.date }
                     </Typography>
                   </div>
                   <div className="Double-row-mobile">
                     <Clock className="Card-icon"/>
-                    <Typography component="p">
+                    <Typography type="body1">
                       {this.props.appointment.time }
                     </Typography>
                   </div>
@@ -173,13 +173,13 @@ export default class ExpandedCardView extends React.Component {
                 <div className="Card-row-mobile">
                   <div className="Double-row-mobile">
                     <TagTextOutline className="Card-icon"/>
-                    <Typography component="p">
+                    <Typography type="body1">
                       Price: {this.props.appointment.price}
                     </Typography>
                   </div>
                   <div className="Double-row-mobile">
                     <TimerSand className="Card-icon"/>
-                    <Typography component="p">
+                    <Typography type="body1">
                       Duration: {this.props.appointment.duration}
                     </Typography>
                   </div>
@@ -187,7 +187,7 @@ export default class ExpandedCardView extends React.Component {
                   <div className="Card-row-mobile">
                     <div className="Double-row-mobile">
                       <ClipboardText className="Card-icon"/>
-                      <Typography component="p">
+                      <Typography type="body1">
                         Symptoms: {this.props.appointment.symptoms}
                       </Typography>
                     </div>
@@ -195,7 +195,7 @@ export default class ExpandedCardView extends React.Component {
                 <div className="Card-row-mobile">
                   <div className="Double-row-mobile">
                     <MessageTextOutline className="Card-icon"/>
-                    <Typography component="p">
+                    <Typography type="body1">
                       Information: {this.props.appointment.extraInfo}
                     </Typography>
                   </div>

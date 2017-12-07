@@ -7,6 +7,8 @@ import Typography from 'material-ui/Typography';
 //import CardBackground from '../img/corgi.png';
 import { Link } from 'react-router-dom';
 import CancelDialog from './CancelDialog';
+import Clock from 'mui-icons/cmdi/clock';
+import Calendar from 'mui-icons/cmdi/calendar';
 
 /* PARENTS (called from):
 * MainView.js
@@ -69,16 +71,27 @@ class ReservationCard extends React.Component {
           <Typography type="body1">
             Video appointment
           </Typography>
-          <Typography type="headline" component="h2">
+          <Typography type="title" component="h2">
             {this.props.appointment.doctor}
           </Typography>
-          <Typography type="body1">
+          <Typography type="subheading">
             {this.props.appointment.occupation}
           </Typography>
-          <Typography component="p">
-            {this.props.appointment.date}
-          </Typography>
-          <Typography component="p" style={{width: "60%", wordBreak: "normal"}}>
+          <div className="Reservation-card-row">
+            <div className="Double-card-row">
+              <Calendar />
+              <Typography type="headline">
+                {this.props.appointment.date}
+              </Typography>
+            </div>
+            <div className="Double-card-row">
+              <Clock />
+              <Typography type="headline">
+                {this.props.appointment.time}
+              </Typography>
+            </div>
+          </div>
+          <Typography type="body1" style={{width: "60%", wordBreak: "normal"}}>
             Symptoms: {this.props.appointment.symptoms}
           </Typography>
         </CardContent>
