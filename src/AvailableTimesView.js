@@ -44,6 +44,7 @@ export default class AvailableTimesView extends React.Component {
                 InputLabelProps={{
                   shrink: true,
                 }}
+                className="Date-field"
               />
             <Grid container spacing={24}>
               { this.props.availableTimes.map((appointment, i) =>

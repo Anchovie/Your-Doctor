@@ -302,6 +302,10 @@ a {
   margin-left: auto;
 }
 
+.Date-field {
+  margin-bottom: 20px !important;
+}
+
 .Card-row {
   display: flex;
   align-items: center;
