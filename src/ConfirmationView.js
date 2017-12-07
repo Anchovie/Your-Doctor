@@ -29,13 +29,13 @@ export default function ConfirmationView(props) {
       </Typography>
       <div className="Card-row">
         <div className="Double-card-row">
-          <Calendar />
+          <Calendar className="Card-icon"/>
           <Typography component="p">
             {props.chosenAppointment.date }
           </Typography>
         </div>
         <div className="Double-card-row">
-          <Clock />
+          <Clock className="Card-icon"/>
           <Typography component="p">
             {props.chosenAppointment.time }
           </Typography>
@@ -43,7 +43,7 @@ export default function ConfirmationView(props) {
       </div>
       <div className="Card-row">
         <div className="Double-card-row">
-          <ClipboardText />
+          <ClipboardText className="Card-icon"/>
           <Typography component="p">
             Symptoms: {props.chosenAppointment.symptoms}
           </Typography>
@@ -51,13 +51,13 @@ export default function ConfirmationView(props) {
       </div>
       <div className="Card-row">
         <div className="Double-card-row">
-          <TagTextOutline />
+          <TagTextOutline className="Card-icon"/>
           <Typography component="p">
             Price: {props.chosenAppointment.price}
           </Typography>
         </div>
         <div className="Double-card-row">
-          <TimerSand />
+          <TimerSand className="Card-icon"/>
           <Typography component="p">
             Duration: {props.chosenAppointment.duration}
           </Typography>
@@ -65,7 +65,7 @@ export default function ConfirmationView(props) {
       </div>
       <div className="Card-row">
         <div className="Double-card-row">
-          <MessageTextOutline />
+          <MessageTextOutline className="Card-icon"/>
           <Typography component="p">
             Information: {props.chosenAppointment.extraInfo}
           </Typography>
