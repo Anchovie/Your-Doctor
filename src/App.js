@@ -11,6 +11,10 @@ import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
 import PlusIcon from 'mui-icons/cmdi/plus';
 
+import BodyHead from './img/body_head2.png';
+import BodyTorso from './img/body_torso.png';
+import BodyBack from './img/body_back.png';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -29,6 +33,7 @@ class App extends React.Component {
           price: '80 €',
           duration: '45 min',
           id: '0',
+          img: BodyHead,
           past: false,
        },
        {
@@ -36,12 +41,13 @@ class App extends React.Component {
          time: '8:15',
          doctor: 'Dogtori',
          occupation: 'Iholääkäri',
-         bodyPart: 'limbs',
+         bodyPart: 'back',
          symptoms: 'eczema',
          extraInfo: 'Mul on atooppinen iho, antakaa rasvoja halvalla!',
          price: '120 €',
          duration: '60 min',
          id: '1',
+         img: BodyBack,
          past: false,
        }
      ],
@@ -57,6 +63,7 @@ class App extends React.Component {
          price: '65 €',
          duration: '45 min',
          id: '2',
+         img: BodyTorso,
          past: true,
        }
      ],
@@ -95,6 +102,7 @@ class App extends React.Component {
       text: 'Liika kinkkua, maha kasvanu oudosti : /',
       id: '4',
     }*/
+    reservationObject.past=false;
     this.setState(prevState => ({ reservations: prevState.reservations.concat([reservationObject]) }));
     console.log(this.state.reservations);
   }

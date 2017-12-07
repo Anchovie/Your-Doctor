@@ -85,13 +85,10 @@ export default class ReservationView extends React.Component {
   iToSymptom = (bodyPart, iArr) => {
     let symptomString = "";
     let symptoms = [];
-    console.log("iARR="+ iArr);
     if (iArr.length === 0 || iArr.length === undefined){
-      console.log("Iarr not array, making it one");
       let x=iArr;
       iArr=[];
       iArr.push(x);
-      console.log("Iarr now = " + iArr);
     }
     switch(bodyPart){
       case 0: //HEAD
@@ -255,10 +252,12 @@ export default class ReservationView extends React.Component {
       doctor: this.state.chosenAppointment.doctor,//'JoUlU PuKkI',
       occupation: this.state.chosenAppointment.occupation,//
       price: this.state.chosenAppointment.price,
-      bodyPart: this.iToBody(this.state.chosenBody),
+      bodyPart: this.iToBody(0,this.state.chosenBody),
       symptoms: this.iToSymptom(this.state.chosenBody[0], this.state.chosenSymptoms),
       duration: this.state.duration,
       extraInfo: this.state.extraInfo,
+      past: false,
+      img: this.getIcons(-1)[this.state.chosenBody],
       id: String(Date.now()),
     }
     this.props.setNewAppointment(newReservation);

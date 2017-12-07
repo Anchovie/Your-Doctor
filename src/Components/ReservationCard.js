@@ -15,11 +15,13 @@ import CancelDialog from './CancelDialog';
 */
 const styles = theme => ({
   card: {
+
     overflow: 'auto',
-    backgroundImage: "url(" + CardBackground + ")",
+    //backgroundImage: "url(" + this.props.appointment.img + ")",
+    //backgroundImage: "url(" + CardBackground + ")",
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'right',
-    backgroundSize: '80px 80px'
+    backgroundSize: 'auto 55%'//'80px 80px'
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -36,7 +38,8 @@ const styles = theme => ({
 class ReservationCard extends React.Component {
   constructor(props) {
     super(props);
-
+    //console.log(this.props.appointment.img);
+    //console.log(CardBackground);
     this.state = {
       cancelDialogOpen: false
     };
@@ -59,8 +62,9 @@ class ReservationCard extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const bgImgStyle = {backgroundImage: "url("+this.props.appointment.img+")"};
     return (
-      <Card raised={true} className={this.props.past?(classes.card+" past"):classes.card}>
+      <Card raised={true} className={this.props.past?(classes.card+" past"):classes.card} style={bgImgStyle}>
         <CardContent>
           <Typography type="body1">
             Video appointment

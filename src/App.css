@@ -192,7 +192,7 @@ a {
 }
 
 .past{
-  background-color: #DBDBD4
+  background-color: #DBDBD4!important;
 }
 
 .IconGrid label {
