@@ -180,6 +180,7 @@ a {
   /*border: 3px transparent!important;*/
   width: 80px!important;
   height: 80px!important;
+  cursor: pointer;
 }
 
 .Grid-Icon.chosen {
