@@ -302,3 +302,9 @@ a {
 .Card-icon {
   margin-right: 3px;
 }
+
+.Card-row-confirmation {
+  display: flex;
+  align-items: center;
+  margin: 6px 0px 0px 0px;
+}
