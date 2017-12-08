@@ -35,10 +35,10 @@ export default class AvailableTimesView extends React.Component {
 
     return (
         <div className="AvailableTimes-view-content">
-            <p> This is available times view ! </p>
+            <p className="Instruction-text">Here are the next available times. You can choose a new date by clicking the date picker.</p>
               <TextField
                 id="date"
-                label="Date"
+                label="Date picker"
                 type="date"
                 defaultValue={this.state.date}
                 InputLabelProps={{

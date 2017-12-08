@@ -18,7 +18,7 @@ export default class BodyView extends React.Component {
 
     return (
         <div className="Body-view-content">
-            <p>This is body view ! </p>
+            <p className="Instruction-text">Choose and click the body part that is closest to where your symptom occurs.</p>
             <IconGrid chosen={this.props.chosen} body={-1} getIcons={this.props.getIcons} getNames={this.props.getNames} handleIconClick={this.props.handleIconClick} />
         </div>
     )

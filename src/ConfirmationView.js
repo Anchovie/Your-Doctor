@@ -16,9 +16,7 @@ export default function ConfirmationView(props) {
   console.log("props", props)
   return (
     <div className="Confirmation-view-content">
-      <Typography>
-        You are about to reserve the following appointment:
-      </Typography>
+      <p className="Instruction-text">You are about to reserve the following appointment:</p>
       <br/>
       <Typography type="body1">
         Video appointment

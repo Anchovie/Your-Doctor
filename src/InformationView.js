@@ -20,7 +20,7 @@ export default class InformationView extends React.Component {
 
     return (
         <div className="Information-view-content">
-            <p> This is information view ! </p>
+            <p className="Instruction-text">Please give the duration of your symptoms and extra details below.</p>
 
             {/*Desktop*/}
             <Hidden mdDown implementation="css">
