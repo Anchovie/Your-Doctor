@@ -48,23 +48,48 @@ a {
   flex-direction: column;
   align-items: center;
 }
-.LoginList {
+.LoginContainer{
+ direction: column;
+ align-items: center;
+}
+.HeaderContainer {
+  margin-top: 20px !important;
   display: flex;
   flex-direction: column;
+}
+.ListContainer{
+  align-items: center;
+}
+.ButtonContainer{
+  align-items: center;
+  margin-top: 20px !important;
+}
+.LogoName{
+  margin-top: 15px !important;
+  color: #ffffff !important;
+  align-self: center;
+}
+.LoginList {
+  display: flex;
+  flex-direction: row;
   align-items: flex-start;
+  margin: 15px 0 0 25px;
+  width: 100%;
 }
 .LoginButton {
   text-align: center;
 }
-.LoginTexts h3 {
-  color: #ffffff;
+.LoginTexts {
+  color: #ffffff !important;
 }
-.loginIcon g {
+.loginIcon {
   color: #ADBAF1;
+  margin-right: 15px;
 }
 .Logo-Image {
   height: 160px;
   filter: invert(100%);
+  margin: auto;
 }
 
 .Content-main {
