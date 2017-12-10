@@ -14,7 +14,7 @@ import Grid from 'material-ui/Grid';
 import Hidden from 'material-ui/Hidden';
 import Card, { CardContent } from 'material-ui/Card';
 
-import SymptomIcon from './img/corgi.png';
+import SymptomIcon from './img/questionmark.png';//'./img/corgi.png';
 import BodyHeadIcon from './img/body_head_offset.png';//body_head.png';
 import BodyTorsoIcon from './img/body_torso.png';
 import BodyStomachIcon from './img/body_stomach.png';
@@ -42,6 +42,7 @@ import SymptomThroatIcon from './img/symptom_throat.png';
 import SymptomButtIcon from './img/symptom_butt.png';
 import SymptomBowelIcon from './img/symptom_bowels.png';
 import SymptomStomachIcon from './img/symptom_stomach.png';
+import SymptomPainIcon from './img/symptom_wound.png';
 import SymptomBoneIcon from './img/symptom_bone.png';
 import SymptomSpineIcon from './img/symptom_spine.png';
 import SymptomKidneyIcon from './img/symptom_kidney.png';
@@ -149,10 +150,10 @@ export default class ReservationView extends React.Component {
           SymptomIcon/*posture*/, SymptomWoundIcon,SymptomOtherIcon];
       case 4: //HAND
       case 5: //FOOT
-        return [SymptomIcon/*pain*/, SymptomBoneIcon, SymptomIcon/*burn*/,
+        return [SymptomPainIcon, SymptomBoneIcon, SymptomIcon/*burn*/,
           SymptomWoundIcon,SymptomOtherIcon];
       case 6: //BODY
-        return [SymptomIcon/*pain*/, SymptomBoneIcon, SymptomIcon/*rash*/,
+        return [SymptomPainIcon, SymptomBoneIcon, SymptomIcon/*rash*/,
           SymptomWoundIcon,SymptomOtherIcon];
       case 7: //INTIMATE
         return [SymptomHipsIcon, SymptomPissIcon, SymptomSexIcon,
