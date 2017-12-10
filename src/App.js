@@ -10,6 +10,7 @@ import dateFormat from 'dateformat';
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
 import PlusIcon from 'mui-icons/cmdi/plus';
+import sortBy from 'lodash/sortBy';
 
 import BodyHead from './img/body_head2.png';
 import BodyTorso from './img/body_torso.png';
@@ -103,7 +104,8 @@ class App extends React.Component {
       id: '4',
     }*/
     reservationObject.past=false;
-    this.setState(prevState => ({ reservations: prevState.reservations.concat([reservationObject]) }));
+    const newReservations = this.state.reservations.concat([reservationObject]);
+    this.setState({reservations: sortBy(newReservations, ['date', 'time'])});
     console.log(this.state.reservations);
   }
 
