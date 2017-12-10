@@ -248,6 +248,11 @@ a {
   line-height: 24px;
 }
 
+.Reservation-card-content {
+  max-height: 136px;
+  overflow: hidden;
+}
+
 .Reservation-card-actions {
   justify-content: flex-end;
 }
@@ -255,7 +260,7 @@ a {
 .Reservation-card-row {
   margin: 8px 0;
   display: flex;
-  width: 280px;
+  width: 68%;
   justify-content: space-between;
   align-items: center;
 }
@@ -334,7 +339,7 @@ a {
 .Card-row {
   display: flex;
   align-items: center;
-  width: 30%;
+  width: 40%;
   justify-content: space-between;
   margin: 6px 0px 0px 0px;
 }

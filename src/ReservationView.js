@@ -241,6 +241,7 @@ export default class ReservationView extends React.Component {
   createNewReservation = () => {
     const newReservation = {
       date: this.state.chosenAppointment.date,//dateFormat(new Date(2017, 12, 24, 10, 0)),
+      time: this.state.chosenAppointment.time,
       doctor: this.state.chosenAppointment.doctor,//'JoUlU PuKkI',
       occupation: this.state.chosenAppointment.occupation,//
       price: this.state.chosenAppointment.price,

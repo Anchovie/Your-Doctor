@@ -6,14 +6,13 @@ import { Link } from 'react-router-dom';
 import Calendar from 'mui-icons/cmdi/calendar';
 import VideoImage from './img/videocall_placeholder.png';
 import Grid from 'material-ui/Grid';
-import Card, { CardContent, CardActions } from 'material-ui/Card';
+import Card, { CardContent } from 'material-ui/Card';
 import Clock from 'mui-icons/cmdi/clock';
 import TagTextOutline from 'mui-icons/cmdi/tag-text-outline';
 import TimerSand from 'mui-icons/cmdi/timer-sand';
 import MessageTextOutline from 'mui-icons/cmdi/message-text-outline';
 import ClipboardText from 'mui-icons/cmdi/clipboard-text';
 import Hidden from 'material-ui/Hidden';
-import Delete from 'mui-icons/cmdi/delete';
 import ChevronLeft from 'mui-icons/cmdi/chevron-left';
 
 
@@ -67,7 +66,7 @@ export default class ExpandedCardView extends React.Component {
                   <Typography type="subheading">
                     {this.props.appointment.occupation}
                   </Typography>
-                  <div className="Reservation-card-row">
+                  <div className="Card-row">
                     <div className="Double-card-row">
                       <Calendar />
                       <Typography type="headline">
@@ -120,15 +119,14 @@ export default class ExpandedCardView extends React.Component {
                 </div>
                   <div className="Button-bar">
                     <Link to='/'>
-                      <Button dense className="Action-button">
+                      <Button dense color="primary" className="Action-button">
                         <ChevronLeft className="Arrow-left-icon"/>
                         Back
                       </Button>
                     </Link>
                     {this.props.appointment.past === false &&
                       <Button onClick={this.handleCancelDialogOpen} dense className="Expand-cancel-button Action-button">
-                        <Delete />
-                        Delete
+                        Cancel appointment
                       </Button>
                     }
                   </div>
@@ -203,15 +201,14 @@ export default class ExpandedCardView extends React.Component {
               </div>
               <div className="Button-bar">
                 <Link to='/'>
-                  <Button dense className="Action-button">
+                  <Button dense color="primary" className="Action-button">
                     <ChevronLeft className="Arrow-left-icon"/>
                     Back
                   </Button>
                 </Link>
                 {this.props.appointment.past === false &&
                   <Button onClick={this.handleCancelDialogOpen} dense className="Expand-cancel-button Action-button">
-                    <Delete />
-                    Delete
+                    Cancel appointment
                   </Button>
                 }
               </div>

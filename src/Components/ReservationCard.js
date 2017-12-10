@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import CancelDialog from './CancelDialog';
 import Clock from 'mui-icons/cmdi/clock';
 import Calendar from 'mui-icons/cmdi/calendar';
+import Hidden from 'material-ui/Hidden';
 
 /* PARENTS (called from):
 * MainView.js
@@ -67,7 +68,7 @@ class ReservationCard extends React.Component {
     const bgImgStyle = {backgroundImage: "url("+this.props.appointment.img+")"};
     return (
       <Card raised={true} className={this.props.past?(classes.card+" past"):classes.card} style={bgImgStyle}>
-        <CardContent>
+        <CardContent className="Reservation-card-content">
           <Typography type="body1">
             Video appointment
           </Typography>
@@ -77,7 +78,25 @@ class ReservationCard extends React.Component {
           <Typography type="subheading">
             {this.props.appointment.occupation}
           </Typography>
-          <div className="Reservation-card-row">
+          {/* Desktop */}
+          <Hidden smDown implementation="css">
+            <div className="Reservation-card-row">
+              <div className="Double-card-row">
+                <Calendar />
+                <Typography type="headline">
+                  {this.props.appointment.date}
+                </Typography>
+              </div>
+              <div className="Double-card-row">
+                <Clock />
+                <Typography type="headline">
+                  {this.props.appointment.time}
+                </Typography>
+              </div>
+            </div>
+          </Hidden>
+          {/* Mobile */}
+          <Hidden smUp>
             <div className="Double-card-row">
               <Calendar />
               <Typography type="headline">
@@ -90,7 +109,7 @@ class ReservationCard extends React.Component {
                 {this.props.appointment.time}
               </Typography>
             </div>
-          </div>
+          </Hidden>
           <Typography type="body1" style={{width: "60%", wordBreak: "normal"}}>
             Symptoms: {this.props.appointment.symptoms}
           </Typography>
