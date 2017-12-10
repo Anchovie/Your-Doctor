@@ -23,7 +23,7 @@ function OpenConfirmedDialog(props) {
         <DialogTitle>{"Appointment succesfully booked!"}</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            WuhuuuWHuuuuuuuu!!!
+            Your newly made appointment appears on your homepage.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

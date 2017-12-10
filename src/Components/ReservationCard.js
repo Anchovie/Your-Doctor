@@ -4,7 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardContent, CardActions } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
-//import CardBackground from '../img/corgi.png';
+import InfoBG from '../img/info2.png';
 import { Link } from 'react-router-dom';
 import CancelDialog from './CancelDialog';
 import Clock from 'mui-icons/cmdi/clock';
@@ -57,17 +57,53 @@ class ReservationCard extends React.Component {
   }
 
   handleCancelling = () => {
-    this.props.cancelReservation(this.props.appointment)
-    this.setState({ cancelDialogOpen: false })
+    if (this.props.appointment!=null){
+      this.props.cancelReservation(this.props.appointment)
+      this.setState({ cancelDialogOpen: false })
+    } else {
+      this.props.cancelReservation();
+    }
   }
   //console.log("Reservation card props:");
   //console.log(this.props);
 
   render() {
     const { classes } = this.props;
-    const bgImgStyle = {backgroundImage: "url("+this.props.appointment.img+")"};
+    const isInfo = this.props.appointment==null?true:false;
+    const bgImgStyle = isInfo?{
+          backgroundImage: "url("+InfoBG+")",
+          backgroundPosition: 'right-top',
+          backgroundSize: 'auto 100%'
+        }:{
+          backgroundImage: "url("+this.props.appointment.img+")"
+        };
+    if (isInfo && this.props.canceled) {
+      return (<div></div>);
+    } else
     return (
       <Card raised={true} className={this.props.past?(classes.card+" past"):classes.card} style={bgImgStyle}>
+      {isInfo==true ? (
+        <div>
+          <CardContent className="Reservation-card-content info">
+            <Typography type="body1">
+              {'Welcome to using Your Doctor!'}
+            </Typography>
+            <Typography type="title" component="h2">
+              {'Making a new reservation:'}
+            </Typography>
+            <Typography type="subheading">
+              {'Click the plus-icon in the upper right corner'}
+            </Typography>
+          </CardContent>
+          <CardActions disableActionSpacing className="Reservation-card-actions">
+              <Button onClick={this.handleCancelDialogOpen} dense color="primary">
+                Remove tooltip
+              </Button>
+          </CardActions>
+          <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
+        </div>
+      ) : (
+        <div>
         <CardContent className="Reservation-card-content">
           <Typography type="body1">
             Video appointment
@@ -127,6 +163,8 @@ class ReservationCard extends React.Component {
           </Link>
         </CardActions>
         <CancelDialog open={this.state.cancelDialogOpen} handleCancelling={this.handleCancelling} handleCancelRequestClose={this.handleCancelRequestClose} />
+        </div>
+        )}
       </Card>
     );
   }

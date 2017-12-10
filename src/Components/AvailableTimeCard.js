@@ -65,8 +65,4 @@ class AvailableTimeCard extends React.Component {
   }
 }
 
-AvailableTimeCard.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
 export default AvailableTimeCard;

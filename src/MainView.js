@@ -9,8 +9,19 @@ import ResCard from './Components/ReservationCard';
 
 export default class MainView extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      canceled: false
+    };
+  }
+
   componentDidMount () {
     window.scrollTo(0, 0);
+  }
+
+  cancelInfo = () => {
+    this.setState({canceled: true});
   }
 
   render() {
@@ -24,6 +35,11 @@ export default class MainView extends React.Component {
                 <ResCard appointment={appointment} cancelReservation={this.props.cancelReservation} />
               </Grid>
             )}
+          { this.props.reservations.length <= 0 &&
+            <Grid key={-1} item xs={12} sm={12} md={12} lg={12}>
+              <ResCard appointment={null} canceled={this.state.canceled} cancelReservation={this.cancelInfo} />
+            </Grid>
+          }
           </Grid>
           <h3 className="MainView-subheading2">Your past appointments</h3>
           <Grid container spacing={24}>
