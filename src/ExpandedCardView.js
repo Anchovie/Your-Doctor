@@ -4,7 +4,7 @@ import Typography from 'material-ui/Typography';
 import CancelDialog from './Components/CancelDialog';
 import { Link } from 'react-router-dom';
 import Calendar from 'mui-icons/cmdi/calendar';
-import VideoImage from './img/videocall_placeholder.png';
+import VideoImage from './img/UIC_video_overlay.png';/*'./img/videocall_placeholder.png';*/
 import Grid from 'material-ui/Grid';
 import Card, { CardContent } from 'material-ui/Card';
 import Clock from 'mui-icons/cmdi/clock';
@@ -47,6 +47,10 @@ export default class ExpandedCardView extends React.Component {
     this.setState({ cancelDialogOpen: false })
   }
 
+  createMarkup = () => {
+    return {__html: '<iframe class="Video-iframe" src="https://www.youtube.com/embed/dQw4w9WgXcQ" width="100%" height="100%"></iframe><img class="Video-Image" src='+VideoImage+' alt="" />'};
+  }
+
   render() {
     return (
       <div className="ExpandedCard-container">
@@ -80,11 +84,6 @@ export default class ExpandedCardView extends React.Component {
                       </Typography>
                     </div>
                   </div>
-                  <Grid container spacing={24}>
-                    <Grid item xs={12} sm={10} md={8} lg={6}>
-                      <img className="Video-Image" src={VideoImage} alt="" />
-                    </Grid>
-                  </Grid>
                   <div className="Card-row">
                     <div className="Double-card-row">
                       <TagTextOutline className="Card-icon"/>
@@ -115,6 +114,10 @@ export default class ExpandedCardView extends React.Component {
                       </Typography>
                     </div>
                   </div>
+                  <Grid container spacing={24}>
+                    <Grid item className="Video-container" xs={12} sm={10} md={8} lg={6} dangerouslySetInnerHTML={this.createMarkup()}>
+                    </Grid>
+                  </Grid>
                   </CardContent>
                 </div>
                   <div className="Button-bar">
@@ -165,7 +168,7 @@ export default class ExpandedCardView extends React.Component {
                 </div>
                 <Grid container spacing={24}>
                   <Grid item xs={12} sm={10} md={8} lg={6}>
-                    <img className="Video-Image" src={VideoImage} alt="" />
+                    <img className="Video-Image-Mobile" src={VideoImage} alt="" />
                   </Grid>
                 </Grid>
                 <div className="Card-row-mobile">
