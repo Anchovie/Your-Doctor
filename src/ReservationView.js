@@ -248,7 +248,7 @@ export default class ReservationView extends React.Component {
       price: this.state.chosenAppointment.price,
       bodyPart: this.iToBody(0,this.state.chosenBody),
       symptoms: this.iToSymptom(this.state.chosenBody[0], this.state.chosenSymptoms),
-      duration: this.state.duration,
+      duration: '40min',
       extraInfo: this.state.extraInfo,
       past: false,
       img: this.getIcons(-1)[this.state.chosenBody],
