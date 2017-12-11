@@ -29,13 +29,13 @@ class AvailableTimeCard extends React.Component {
           <div className="Reservation-card-row">
             <div className="Double-card-row">
               <Calendar className="Card-icon"/>
-              <Typography type="headline">
+              <Typography type="body1">
                 {this.props.appointment.date}
               </Typography>
             </div>
             <div className="Double-card-row">
               <Clock className="Card-icon"/>
-              <Typography type="headline">
+              <Typography type="body1">
                 {this.props.appointment.time}
               </Typography>
             </div>
@@ -44,13 +44,13 @@ class AvailableTimeCard extends React.Component {
             <div className="Double-card-row">
               <TagTextOutline className="Card-icon"/>
               <Typography type="body1">
-                Price: {this.props.appointment.price}
+                {this.props.appointment.price}
               </Typography>
             </div>
             <div className="Double-card-row">
               <TimerSand className="Card-icon"/>
               <Typography type="body1">
-                Duration: {this.props.appointment.duration}
+                {this.props.appointment.duration}
               </Typography>
             </div>
           </div>

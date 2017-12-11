@@ -75,7 +75,7 @@ class App extends React.Component {
        doctor: 'Dr. Drake Ramoray',
        occupation: 'Neurosurgeon',
        price: '460 €',
-       duration: '1200 min',
+       duration: '40 min',
        past: false,
       },
       {
